@@ -31,6 +31,7 @@ Rails::Initializer.run do |config|
   # Activate observers that should always be running
   # config.active_record.observers = :cacher, :garbage_collector, :forum_observer
   config.gem 'ajaxlibs'
+  config.gem 'prawn'
   config.gem "factory_girl", :source => "http://gemcutter.org"
 
   # Set Time.zone default to the specified zone and make Active Record auto-convert to this zone.
