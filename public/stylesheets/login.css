@@ -28,7 +28,7 @@ a:hover {
 
 #wrapper {
 	height: 100%;
-	background:  url(layout/wrapper_login_bottom.gif) repeat-x left bottom;
+	background:  url(../images/wrapper_login_bottom.gif) repeat-x left bottom;
 	min-height: 500px;
 	position: relative;
 	top: 0;
@@ -50,7 +50,7 @@ a:hover {
 /* start header*/
 #header {
 	height: 109px;
-	background: #4d98b2 url(layout/login_header_bg.gif) repeat-x;
+	background: #4d98b2 url(../images/login_header_bg.gif) repeat-x;
 }
 
 
@@ -72,7 +72,7 @@ a:hover {
 	text-indent: -3000px;
 	width: 193px;
 	height: 43px;
-	background:url(layout/logo.png) no-repeat;
+	background:url(../images/logo.png) no-repeat;
 }
 
 /* end header */
@@ -80,7 +80,7 @@ a:hover {
 /* start content */
 #content {
 	height: 196px;
-	background:url(layout/wrapper_login_top.gif) repeat-x;
+	background:url(../images/wrapper_login_top.gif) repeat-x;
 }
 #login_wrapper {
 	width: 356px;
@@ -97,7 +97,7 @@ a:hover {
 	display: block;
 	width: 33px;
 	height: 46px;
-	background:url(layout/lock_login.png) no-repeat;
+	background:url(../images/lock_login.png) no-repeat;
 	overflow: hidden;
 	text-indent: -3000px;
 	position: absolute;
@@ -136,7 +136,7 @@ a:hover {
 .button {
 	display: block;
 	color: #fff;
-	background:url(layout/submit_middle.gif) repeat-x;
+	background:url(../images/submit_middle.gif) repeat-x;
 	line-height: 26px;
 	font-size: 13px;
 	overflow: hidden;
@@ -167,21 +167,21 @@ a.button:link, a.button:visited, a.button:active {
 .small_inputs .button {
 	line-height: 21px;
 	font-size: 11px;
-	background-image: url(layout/submit_middle_small.gif)
+	background-image: url(../images/submit_middle_small.gif)
 	
 }
 
 
 
 .button span {
-	background:url(layout/submit_left.gif) no-repeat;
+	background:url(../images/submit_left.gif) no-repeat;
 	display: block;
 	float: left;
 	white-space: nowrap;
 }
 
 .small_inputs .button span {
-	background-image: url(layout/submit_left_small.gif);
+	background-image: url(../images/submit_left_small.gif);
 }
 
 .button em {
@@ -212,19 +212,19 @@ a.button:link, a.button:visited, a.button:active {
 }
 
 .search_button .button_ico  {
-	background:url(layout/search_ico_button.png) no-repeat;
+	background:url(../images/search_ico_button.png) no-repeat;
 	
 }
 
 .small_inputs .unlock_button .button_ico  {
-	background:url(layout/unlock_ico_button.png) no-repeat;
+	background:url(../images/unlock_ico_button.png) no-repeat;
 	
 }
 
 
 
 .button span span {
-	background:url(layout/submit_right.gif) no-repeat right 0;
+	background:url(../images/submit_right.gif) no-repeat right 0;
 	display: block;
 	padding: 0 8px;
 	height: 26px;
@@ -233,7 +233,7 @@ a.button:link, a.button:visited, a.button:active {
 }
 
 .small_inputs .button span span {
-	background-image: url(layout/submit_right_small.gif);
+	background-image: url(../images/submit_right_small.gif);
 	height: 21px;
 	line-height: 19px;
 }
@@ -316,7 +316,7 @@ a.button:link, a.button:visited, a.button:active {
 	border: solid;
 	border-color: #dbdbdb #dbdbdb #aaa;
 	border-width: 0 1px 2px;
-	background:url(layout/form_bg_login.gif) repeat-x;
+	background:url(../images/form_bg_login.gif) repeat-x;
 	padding: 25px 0 0;
 }
 
@@ -335,7 +335,7 @@ a.button:link, a.button:visited, a.button:active {
 }
 
  .input_wrapper {
-	background:transparent url(layout/input_text2.gif) repeat-x scroll 0 0;
+	background:transparent url(../images/input_text2.gif) repeat-x scroll 0 0;
 	border:1px solid #CECECE;
 	display:block;
 	float:right;
