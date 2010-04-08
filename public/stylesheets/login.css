@@ -1,0 +1,386 @@
+* {
+	outline: none;
+}
+
+html, body {
+	height: 100%;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	font-family: Verdana;
+	font-size: 11px;
+	background: #fff;
+}
+
+a:link, a:visited, a:active {
+	color: #7c9ed3;
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+
+#wrapper {
+	height: 100%;
+	background:  url(layout/wrapper_login_bottom.gif) repeat-x left bottom;
+	min-height: 500px;
+	position: relative;
+	top: 0;
+	left: 0;
+}
+
+.inner {
+	left:0;
+	margin:0 auto;
+	position:relative;
+	top:0;
+	width:960px;
+	height: 100%;
+	
+}
+
+
+
+/* start header*/
+#header {
+	height: 109px;
+	background: #4d98b2 url(layout/login_header_bg.gif) repeat-x;
+}
+
+
+
+#logo {
+	margin: 0;
+	padding: 0;
+	width: 193px;
+	height: 43px;
+	position: absolute;
+	top: 35px;
+	left: 0;
+	z-index: 1;
+	
+}
+#logo a {
+	display: block;
+	overflow: hidden;
+	text-indent: -3000px;
+	width: 193px;
+	height: 43px;
+	background:url(layout/logo.png) no-repeat;
+}
+
+/* end header */
+
+/* start content */
+#content {
+	height: 196px;
+	background:url(layout/wrapper_login_top.gif) repeat-x;
+}
+#login_wrapper {
+	width: 356px;
+	height: 210px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-left: -178px;
+	margin-top: -51px;
+	
+}
+
+.extra1 {
+	display: block;
+	width: 33px;
+	height: 46px;
+	background:url(layout/lock_login.png) no-repeat;
+	overflow: hidden;
+	text-indent: -3000px;
+	position: absolute;
+	left: 326px;
+	top: 6px;
+}
+
+.title_wrapper {
+	width: 100%;
+	overflow: hidden;
+	border: solid #aaa;
+	border-width: 0 0 2px;
+}
+
+.title_wrapper h2 {
+	color:#29323f;
+	float:left;
+	font-size: 30px;
+	font-weight: normal;
+	margin:0;
+	padding:0 0 5px;
+	white-space:nowrap;
+}
+
+.title_wrapper a {
+	display: block;
+	float: right;
+	margin: 5px 38px 0 0;
+	line-height: 36px;
+}
+
+* html .title_wrapper a {
+	margin-right: 19px;
+}
+
+.button {
+	display: block;
+	color: #fff;
+	background:url(layout/submit_middle.gif) repeat-x;
+	line-height: 26px;
+	font-size: 13px;
+	overflow: hidden;
+	position: relative;
+	top: 0;
+	left: 0;
+	float: left;
+	margin: 0 10px 0 0;
+	font-weight: bold;
+	
+	
+}
+
+ 
+
+a.button:link, a.button:visited, a.button:active {
+	cursor: pointer;
+	color: #fff;
+	
+}
+
+.button:hover *, a.button:hover *  {
+	text-decoration: underline;
+	
+	
+}
+
+.small_inputs .button {
+	line-height: 21px;
+	font-size: 11px;
+	background-image: url(layout/submit_middle_small.gif)
+	
+}
+
+
+
+.button span {
+	background:url(layout/submit_left.gif) no-repeat;
+	display: block;
+	float: left;
+	white-space: nowrap;
+}
+
+.small_inputs .button span {
+	background-image: url(layout/submit_left_small.gif);
+}
+
+.button em {
+	display:block;
+	padding: 0 0 0 20px;
+	font-style: normal;
+	position: relative;
+	top: 0;
+	left: 0;
+	float: left;
+	min-height: 1px;
+}
+
+.button_ico {
+	display: block;
+	width: 20px;
+	height: 26px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	margin: 0;
+	padding: 0;
+}
+
+.small_inputs .button_ico {
+	width: 15px;
+	height: 21px;
+}
+
+.search_button .button_ico  {
+	background:url(layout/search_ico_button.png) no-repeat;
+	
+}
+
+.small_inputs .unlock_button .button_ico  {
+	background:url(layout/unlock_ico_button.png) no-repeat;
+	
+}
+
+
+
+.button span span {
+	background:url(layout/submit_right.gif) no-repeat right 0;
+	display: block;
+	padding: 0 8px;
+	height: 26px;
+	line-height: 24px;
+	
+}
+
+.small_inputs .button span span {
+	background-image: url(layout/submit_right_small.gif);
+	height: 21px;
+	line-height: 19px;
+}
+
+.button input {
+	display: block;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	height: 1000px;
+	width: 1000px;
+	filter: alpha(opacity=0);
+	opacity: 0;
+	position: absolute;
+	top: -100px;
+	left: -100px;
+	cursor: pointer;
+	
+}
+
+.orange_button {
+	background-position: 0 -26px;
+}
+
+.orange_button span {
+	background-position: 0 -26px;
+}
+
+.orange_button span span {
+	background-position: right -26px;
+}
+
+
+.small_inputs .orange_button {
+	background-position: 0 -21px;
+}
+
+.small_inputs .orange_button span {
+	background-position: 0 -21px;
+}
+
+.small_inputs .orange_button span span {
+	background-position: right -21px;
+}
+
+
+
+.gray_button {
+	background-position: 0 -52px;
+}
+
+.gray_button span {
+	background-position: 0 -52px;
+}
+
+.gray_button span span {
+	background-position: right -52px;
+}
+
+.small_inputs .gray_button {
+	background-position: 0 -42px;
+}
+
+.small_inputs .gray_button span {
+	background-position: 0 -42px;
+}
+
+.small_inputs .gray_button span span {
+	background-position: right -42px;
+}
+
+
+#login_wrapper form, #login_wrapper fieldset {
+	margin: 0;
+	padding: 0;
+	border: 0;
+} 
+
+#login_wrapper form {
+	border: solid;
+	border-color: #dbdbdb #dbdbdb #aaa;
+	border-width: 0 1px 2px;
+	background:url(layout/form_bg_login.gif) repeat-x;
+	padding: 25px 0 0;
+}
+
+#login_wrapper .row {
+	width: 325px;
+	overflow: hidden;
+	padding: 0 0 10px 14px;
+}
+
+#login_wrapper label {
+	display: block;
+	font-weight: bold;
+	float: left;
+	line-height: 22px;
+	font-size: 12px;
+}
+
+ .input_wrapper {
+	background:transparent url(layout/input_text2.gif) repeat-x scroll 0 0;
+	border:1px solid #CECECE;
+	display:block;
+	float:right;
+	padding:2px 4px;
+	width: 219px;
+}
+
+#login_wrapper label.inline, .inputs {
+	float:right;
+	width: 227px;
+	font-weight: normal;
+	font-size: 11px;
+}
+
+.inputStyle {
+	border: 0;
+	padding: 0;
+	margin: 0;
+	background: transparent;
+	width: 100%;
+	display: block;
+}
+
+#login_wrapper label.inline {
+	
+	
+}
+
+#login_wrapper label.inline .checkbox {
+	vertical-align: middle;
+	margin: 0;
+	
+}
+
+
+.input_wrapper input.text {
+	border: 0;
+	padding: 0;
+	margin: 0;
+	background: transparent;
+	width: 100%;
+	display: block;
+	
+}
+
+
+/* end content */
+

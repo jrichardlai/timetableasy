@@ -25,4 +25,8 @@ class UsersController < ApplicationController
       render :action => 'new'
     end
   end
+  
+  def lostPassword
+    
+  end
 end

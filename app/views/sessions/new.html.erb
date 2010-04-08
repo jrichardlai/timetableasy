@@ -1,16 +1,48 @@
-<h1>Log In</h1>
+<%- content_for :head_title do -%>
+	Bienvenue sur Timetableasy - Veuillez vous Logger.
+<%- end -%>
+
+<%- content_for :head_end do -%>
+	<%= javascript_include_tag 'jquery' %>
+	<%= javascript_include_tag 'jquery-ui' %>
+	<%= javascript_include_tag 'jrails' %>
+	<%= stylesheet_link_tag 'login' %>
+<%- end -%>
 
 <% form_tag session_path do -%>
-<p><%= label_tag 'login' %><br />
-<%= text_field_tag 'login', @login %></p>
+	<fieldset>
+		<!--[if !IE]>start row<![endif]-->
+		<div class="row">
+			<%= label_tag 'login' %>
+				<span class="input_wrapper">
+					<%= text_field_tag 'login', @login, :class => 'inputStyle' %>
+				</span>
+			</div>
 
-<p><%= label_tag 'password' %><br/>
-<%= password_field_tag 'password', nil %></p>
+			<div class="row">
+				<%= label_tag 'password' %>
+					<span class="input_wrapper">
+						<%= password_field_tag 'password', nil, :class => 'inputStyle' %>
+					</span>
+			</div>
 
-<!-- Uncomment this if you want this functionality
-<p><%= label_tag 'remember_me', 'Remember me' %>
-<%= check_box_tag 'remember_me', '1', @remember_me %></p>
--->
-
-<p><%= submit_tag 'Log in' %></p>
+			<div class="row">
+				<div class="inputs small_inputs">
+					<span class="button blue_button unlock_button">
+						<span>
+							<span>
+								<em>
+									<span class="button_ico">
+							
+									</span>
+								Login
+							</em>
+						</span>
+					</span>
+					<%= submit_tag 'Log in' %>
+				</span>
+			</div>
+		</div>
+		<!--[if !IE]>end row<![endif]-->	
+	</fieldset>
 <% end -%>
