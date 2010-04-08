@@ -2,5 +2,21 @@
 # See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
-  hello: "Hello world"
-  to: "to"
+    general:
+         application_name: "Timetableasy"
+         lastname: "Last Name"
+         firstname: "First Name"
+         mail: "Mail"
+         mail_confirm: "Verif. Mail"
+         password: "Password"
+         password_confirm: "Verif. Pass"
+         nickname: "ID Booster"
+         welcome: "Welcome on"
+         authentified_user: "Connected as"
+    login:
+        login: "Login"
+        logout: "Logout"
+        signup: "Sign up"
+        authenticate_yourself: "Login"
+        create_account: "Create my account"
+        logged_out: "You have been succefully logged out"

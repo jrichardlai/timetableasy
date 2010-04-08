@@ -1,5 +1,5 @@
 <%- content_for :head_title do -%>
-	Bienvenue sur Timetableasy - Veuillez vous Logger.
+	<%= t 'general.welcome' %> <%= t 'general.application_name' %> - <%= t 'login.authenticate_yourself' %>
 <%- end -%>
 
 <%- content_for :head_end do -%>
@@ -13,14 +13,14 @@
 	<fieldset>
 		<!--[if !IE]>start row<![endif]-->
 		<div class="row">
-			<%= label_tag 'login' %>
+			<%= label_tag t('general.nickname') %>
 				<span class="input_wrapper">
 					<%= text_field_tag 'login', @login, :class => 'inputStyle' %>
 				</span>
 			</div>
 
 			<div class="row">
-				<%= label_tag 'password' %>
+				<%= label_tag t('general.password') %>
 					<span class="input_wrapper">
 						<%= password_field_tag 'password', nil, :class => 'inputStyle' %>
 					</span>
@@ -35,7 +35,7 @@
 									<span class="button_ico">
 							
 									</span>
-								Login
+								<%= t 'login.login' %>
 							</em>
 						</span>
 					</span>

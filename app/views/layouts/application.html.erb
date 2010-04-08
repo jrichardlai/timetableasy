@@ -11,7 +11,7 @@
 		<div class="ui-widget">
 			<div class="ui-state-highlight ui-corner-all" style="margin-top: 5px; padding: 0 .7em;"> 
 				<p><span class="ui-icon ui-icon-info" style="float: left; margin-right: .3em;"></span>
-					<img src="images/user_suit.png" /> Connected as : <%= current_user.login %> | <%= link_to 'Logout', '/logout' %>
+					<img src="images/user_suit.png" /> <%= t 'general.authentified_user' %> : <%= current_user.login %> | <%= link_to t('login.logout'), '/logout' %>
 				</p>
 			</div>
 		</div>

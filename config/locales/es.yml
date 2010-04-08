@@ -1,0 +1,19 @@
+es:
+    general:
+        application_name: "Timetableasy"
+        lastname: "Nombre"
+        firstname: "Appelido"
+        mail: "Correo elect."
+        mail_confirm: "Rep. Correo electrónico"
+        password: "Contraseña"
+        password_confirm: "Rep. Contraseña"
+        nickname: "ID Booster"
+        welcome: "Bienvenido sobre"
+        authentified_user: "Connectado como"
+    login:
+        login: "Connectar"
+        logout: "Deconnectar"
+        signup: "Registrar"
+        authenticate_yourself: "Connectarse."
+        create_account: "Creer su cuenta"
+        logged_out: "Se ha deconnectado con exito"
