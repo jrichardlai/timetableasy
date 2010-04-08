@@ -3,8 +3,7 @@ class SessionsController < ApplicationController
   # Be sure to include AuthenticationSystem in Application Controller instead
   include AuthenticatedSystem
   layout 'login'
-  
-  before_filter :is_authed_user
+
   # render new.rhtml
   def new
   end
@@ -20,7 +19,7 @@ class SessionsController < ApplicationController
       self.current_user = user
       new_cookie_flag = (params[:remember_me] == "1")
       handle_remember_cookie! new_cookie_flag
-      redirect_to :controller => 'events' , :action => 'index' 
+      redirect_back_or_default('/')
       flash[:notice] = "Logged in successfully"
     else
       note_failed_signin
@@ -41,16 +40,5 @@ protected
   def note_failed_signin
     flash[:error] = "Couldn't log you in as '#{params[:login]}'"
     logger.warn "Failed login for '#{params[:login]}' from #{request.remote_ip} at #{Time.now.utc}"
-  end
-  
-  def is_authed_user
-    if self.current_user
-      #If already logged => redirecting client to events
-      redirect_to :controller => 'events' , :action => 'index' 
-    else
-      #If not ... => redirecting to loggin page with an error message
-      redirect_to :action => 'new'
-      flash[:error] = "Please, logon first."
-    end
   end
 end

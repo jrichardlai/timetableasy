@@ -4,9 +4,17 @@
     <title><%= yield :head_title %></title>
 		<%= render :partial => 'shared/head' %>
 		<%= yield :head_end %>
+		<%= stylesheet_link_tag 'user_frame' %>
   </head>
   <body class="subpage">
     <div class="wrapper">
+		<div class="ui-widget">
+			<div class="ui-state-highlight ui-corner-all" style="margin-top: 5px; padding: 0 .7em;"> 
+				<p><span class="ui-icon ui-icon-info" style="float: left; margin-right: .3em;"></span>
+					<img src="images/user_suit.png" /> Connected as : <%= current_user.login %> | <%= link_to 'Logout', '/logout' %>
+				</p>
+			</div>
+		</div>
       <div class="subPageContent">
         <% if flash[:notice] -%>
         <div id = 'flash_notice'>

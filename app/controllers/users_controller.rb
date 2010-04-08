@@ -26,7 +26,7 @@ class UsersController < ApplicationController
     end
   end
   
-  def lostPassword
+  def lost_password
     
   end
 end
