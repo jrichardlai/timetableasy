@@ -2,6 +2,10 @@
   <%= link_to_remote 'Create Event', :url => {:action => :new} %>
 </p>
 
+<%- content_for :head_title do -%>
+	Bienvenue sur Timetableasy
+<%- end -%>
+
 <%- content_for :head_end do -%>
 	<%= javascript_include_tag 'events' %>
 <%- end -%>
