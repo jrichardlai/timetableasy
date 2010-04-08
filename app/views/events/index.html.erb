@@ -25,6 +25,14 @@
           height: 500,
           slotMinutes: 60,
 					allDayDefault: false,
+					dragToCreate: true,
+					dragToCreateFn: function(calEvent){
+						var start_day = calEvent.start.getUTCDate() + "/" + (calEvent.start.getUTCMonth() + 1) + '/' + calEvent.start.getFullYear();
+						var end_day = calEvent.end.getUTCDate() + "/" + (calEvent.end.getUTCMonth() + 1) + '/' + calEvent.end.getFullYear();
+						var start_time = calEvent.start.getHours()+':'+calEvent.start.getMinutes();
+						var end_time = calEvent.end.getHours()+':'+calEvent.end.getMinutes();
+						jQuery.ajax({data: {event: {start_day: start_day, end_day: end_day, start_time: start_time, end_time: end_time}, dom_id: calEvent._id}, dataType:'script', type:'post', url:'/events/new'});
+					},
 					loading: function(bool){
               if (bool) 
                   $('#loading').show();

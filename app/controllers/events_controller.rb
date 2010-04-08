@@ -27,7 +27,8 @@ class EventsController < ApplicationController
   # GET /events/new
   # GET /events/new.xml
   def new
-    @event = Event.new
+    @event = Event.new(params[:event])
+    @dom_id = params[:dom_id]
 
     respond_to do |format|
       format.html # new.html.erb
