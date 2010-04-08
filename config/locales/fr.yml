@@ -5,6 +5,9 @@ fr:
   general:
     application_name: "Timetableasy"
     lastname: "Nom"
+    month: "Mois"
+    week: "Semaine"
+    day: "Jour"
     firstname: "Prenom"
     mail: "E-mail"
     mail_confirm: "Verif. Email"

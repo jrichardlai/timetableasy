@@ -5,23 +5,28 @@ class ApplicationController < ActionController::Base
   helper :all # include all helpers, all the time
   protect_from_forgery # See ActionController::RequestForgeryProtection for details
   include AuthenticatedSystem
-  
+
   before_filter :set_locale
   
+  helper_method :locale_accepted
+
   def set_locale
      #Dev purpose Only
      logger.debug "* Accept-Language: #{request.env['HTTP_ACCEPT_LANGUAGE']}"
      #To delete ...
-     I18n.locale = extract_locale_from_accept_language_header
+     I18n.locale = params[:locale] || extract_locale_from_accept_language_header
      logger.debug "* Locale set to '#{I18n.locale}'"
-  end 
-     
+  end
+
+  def locale_accepted
+    ['fr', 'en', 'es']
+  end
+
 private 
   def extract_locale_from_accept_language_header
      request.env['HTTP_ACCEPT_LANGUAGE'].scan(/^[a-z]{2}/).first
-  end 
+  end
   
-  # Commentaire Test
   # Scrub sensitive parameters from your log
   # filter_parameter_logging :password
 end

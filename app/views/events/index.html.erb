@@ -8,6 +8,7 @@
 
 <%- content_for :head_end do -%>
 	<%= javascript_include_tag 'events' %>
+	<%= javascript_include_tag "fullcalendar/#{I18n.locale}" if locale_accepted.include? I18n.locale %>
 <%- end -%>
 <script>
   $(document).ready(function(){
