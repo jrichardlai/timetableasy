@@ -8,12 +8,24 @@
   </head>
   <body class="subpage">
     <div class="wrapper">
-		<div class="ui-widget">
-			<div class="ui-state-highlight ui-corner-all" style="margin-top: 5px; padding: 0 .7em;"> 
-				<p><span class="ui-icon ui-icon-info" style="float: left; margin-right: .3em;"></span>
-					<img src="images/user_suit.png" /> <%= t 'general.authentified_user' %> : <%= current_user.login %> | <%= link_to t('login.logout'), '/logout' %>
-				</p>
+		<div id="login_info" style="width:100%;">
+			<div class="ui-widget">
+				<div class="ui-state-highlight ui-corner-all" style="margin-top: 5px; padding: 0 .7em; float:left; width:66%;"> 
+						<p>
+							<span class="ui-icon ui-icon-info" style="float: right; margin-right: .3em;"></span>
+							<%= yield :menu %>
+						</p>
+				</div>
 			</div>
+			<div class="ui-widget">
+				<div class="ui-state-highlight ui-corner-all" style="margin-top: 5px; padding: 0 .7em; float:right; width:30%;"> 
+						<p>
+							<span class="ui-icon ui-icon-info" style="float: right; margin-right: .3em;"></span>
+							<img src="images/user_suit.png" /> <%= t 'general.authentified_user' %> : <%= current_user.login %> | 	<%= link_to t('login.logout'), '/logout' %>
+						</p>
+				</div>
+			</div>
+			<div style="clear:both;">
 		</div>
       <div class="subPageContent">
         <% if flash[:notice] -%>

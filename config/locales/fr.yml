@@ -23,3 +23,5 @@ fr:
     authenticate_yourself: "Se Connecter"
     create_account: "Créer mon compte"
     logged_out: "Vous vous êtes déconnecté avec succès"
+  event:
+    create_event: "Créer un evenement"

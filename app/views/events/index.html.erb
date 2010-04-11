@@ -1,7 +1,8 @@
+<%- content_for :menu do -%>
 <p>
-  <%= link_to_remote 'Create Event', :url => {:action => :new} %>
+  <%= link_to_remote t('event.create_event'), :url => {:action => :new} %>
 </p>
-
+<%- end -%>
 <%- content_for :head_title do -%>
 	<%= t 'general.welcome' %> <%= t 'general.application_name' %>
 <%- end -%>

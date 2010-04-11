@@ -4,6 +4,9 @@ es:
     lastname: "Nombre"
     firstname: "Appelido"
     mail: "Correo elect."
+    month: "Mes"
+    week: "Semana"
+    day: "día"
     mail_confirm: "Rep. Correo electrónico"
     password: "Contraseña"
     password_confirm: "Rep. Contraseña"
@@ -17,3 +20,5 @@ es:
     authenticate_yourself: "Connectarse."
     create_account: "Creer su cuenta"
     logged_out: "Se ha deconnectado con exito"
+  event:
+      create_event: "Creer un evento"
