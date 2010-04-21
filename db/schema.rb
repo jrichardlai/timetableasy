@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100421095451) do
+ActiveRecord::Schema.define(:version => 20100421101623) do
 
   create_table "campus", :force => true do |t|
     t.string   "name"
@@ -57,6 +57,21 @@ ActiveRecord::Schema.define(:version => 20100421095451) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "global_event"
+  end
+
+  create_table "period_types", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "periods", :force => true do |t|
+    t.integer  "cursus_id"
+    t.integer  "period_type_id"
+    t.datetime "begin_at"
+    t.datetime "end_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", :force => true do |t|
