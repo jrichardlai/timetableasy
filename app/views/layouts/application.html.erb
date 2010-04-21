@@ -22,8 +22,18 @@
 			<div id="logo">
 				<h1><%= link_to('TimeTableAsy', '/') %></h1>
 				<p class="description">The Easy LightWeight Calendar</p>
-			</div>		
-			<%= yield :menu %>
+			</div>
+			<ul class="sf-js-enabled sf-shadow" id="nav">
+				<li><%= link_to t('general.home'), root_path %></li>
+				<li class="">
+					<a class="sf-with-ul" href="#">Evenements<span class="sf-sub-indicator"> </span></a>
+					<ul style="display: none; visibility: hidden; ">
+						<li class="submenu"><%= link_to_remote t('event.create_event'), :url => {:action => :new} %></li>
+					</ul>
+				</li>
+				<%= yield :menu %>
+				<li><%= link_to t('login.logout'), '/logout' %></li>
+			</ul>
 		</div> <!--#header-->
 		
 		<div id="inner-wrap" class="clearfix">

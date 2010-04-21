@@ -1,15 +1,5 @@
 <%- content_for :menu do -%>
 
-<ul class="sf-js-enabled sf-shadow" id="nav">
-	<li><%= link_to t('general.home'), root_path %></li>
-	<li class="">
-		<a class="sf-with-ul" href="#">Evenements<span class="sf-sub-indicator"> </span></a>
-		<ul style="display: none; visibility: hidden; ">
-			<li class="submenu"><%= link_to_remote t('event.create_event'), :url => {:action => :new} %></li>
-		</ul>
-	</li>
-	<li><%= link_to t('login.logout'), '/logout' %></li>
-</ul>
 
 <%- end -%>
 <%- content_for :head_title do -%>
