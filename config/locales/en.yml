@@ -1,5 +1,6 @@
 en:
   general:
+    home: "Home"
     application_name: "Timetableasy"
     lastname: "Last Name"
     firstname: "First Name"

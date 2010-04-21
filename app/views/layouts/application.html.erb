@@ -2,21 +2,80 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <title><%= yield :head_title %></title>
+
 		<%= render :partial => 'shared/head' %>
 		<%= yield :head_end %>
-		<%= stylesheet_link_tag 'user_frame' %>
+		<%= stylesheet_link_tag 'style' %>
+		<%= stylesheet_link_tag 'typography' %>
+		<%= stylesheet_link_tag 'orange' %>
+		<%= stylesheet_link_tag 'minimal' %>
+		<%= javascript_include_tag 'top_up-min' %>		
+		<%= javascript_include_tag 'superfish' %>
+		<%= javascript_include_tag 'custom' %>
+		
+
+		
   </head>
-  <body class="subpage">
+  <body>
+	<div id="wrap">
+		<div id="header">
+			<div id="logo">
+				<h1><%= link_to('TimeTableAsy', '/') %></h1>
+				<p class="description">The Easy LightWeight Calendar</p>
+			</div>
+			<ul class="sf-js-enabled sf-shadow" id="nav">
+				<li><%= link_to t('general.home'), root_path %></li>
+				<li class="">
+					<a class="sf-with-ul" href="#">Evenements<span class="sf-sub-indicator"> </span></a>
+					<ul style="display: none; visibility: hidden; ">
+						<li class="submenu"><%= link_to_remote t('event.create_event'), :url => {:action => :new} %></li>
+					</ul>
+				</li>
+				<%= yield :menu %>
+				<li><%= link_to t('login.logout'), '/logout' %></li>
+			</ul>
+		</div> <!--#header-->
+		
+		<div id="inner-wrap" class="clearfix">
+			<div id="content" class="clearfix">
+				<h2>Your Calendar</h2>
+					<div class="subPageContent">
+						<% if flash[:notice] -%>
+						<div id = 'flash_notice'>
+					 		<%= flash[:notice] %>
+				        </div>
+				        <% end -%>
+				        <% if flash[:error] -%>
+				        	<div id = 'flash_error'>
+					         	<%= flash[:error] %>
+						    </div>
+						<%end -%>
+						<div id = 'loading'>
+							
+						</div>
+						<div class="aplicationContent">
+							<div class="appRightContent">
+							   <%= yield %>
+							</div>
+						</div>
+				</div>  <!--#content-->
+
+		</div> <!--#inner-wrap-->
+
+				<div id="footer" class="clearfix">
+					<span id="copyright">Copyright © 2009 Your Name - All rights reserved. <a href="#">Terms of Use</a> | <a href="#">Privacy Policy</a></span>
+					<ul class="nav">
+
+						<li><a href="#">Home</a></li>
+						<li><a href="#">About</a></li>
+						<li><a href="#">Services</a></li>
+						<li><a href="#">Blog</a></li>
+						<li><a href="#">Contact</a></li>			
+					</ul>
+				</div>
+</div> <!--#wrap-->
     <div class="wrapper">
 		<div id="login_info" style="width:100%;">
-			<div class="ui-widget">
-				<div class="ui-state-highlight ui-corner-all" style="margin-top: 5px; padding: 0 .7em; float:left; width:66%;"> 
-						<p>
-							<span class="ui-icon ui-icon-info" style="float: right; margin-right: .3em;"></span>
-							<%= yield :menu %>
-						</p>
-				</div>
-			</div>
 			<div class="ui-widget">
 				<div class="ui-state-highlight ui-corner-all" style="margin-top: 5px; padding: 0 .7em; float:right; width:30%;"> 
 						<p>
@@ -27,26 +86,7 @@
 			</div>
 			<div style="clear:both;">
 		</div>
-      <div class="subPageContent">
-        <% if flash[:notice] -%>
-        <div id = 'flash_notice'>
-          <%= flash[:notice] %>
-        </div>
-        <% end -%>
-        <% if flash[:error] -%>
-        <div id = 'flash_error'>
-          <%= flash[:error] %>
-        </div>
-        <%end -%>
-        <div id = 'loading'>
-          
-        </div>
-        <div class="aplicationContent">
-          <div class="appRightContent">
-            <%= yield %>
-          </div>
-        </div>
-      </div>
-    </div>
+      
+
   </body>
 </html>

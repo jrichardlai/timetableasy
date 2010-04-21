@@ -113,7 +113,7 @@ table.fc-header {
 	display: block;
 	border-style: solid;
 	border-width: 1px 0 1px 1px;
-	padding: 3px 5px;
+	/*padding: 3px 5px;*/
 	}
 	
 .fc-header .ui-state-default {

@@ -9,7 +9,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100421074410) do
+ActiveRecord::Schema.define(:version => 20100421095451) do
+
+  create_table "campus", :force => true do |t|
+    t.string   "name"
+    t.text     "address"
+    t.string   "city"
+    t.string   "zip"
+    t.string   "country"
+    t.string   "timezone"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "campuses", :force => true do |t|
     t.string   "name"
@@ -20,6 +31,13 @@ ActiveRecord::Schema.define(:version => 20100421074410) do
     t.string   "timezone"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "cursuses", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.text     "description"
   end
 
   create_table "events", :force => true do |t|
