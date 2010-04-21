@@ -1,3 +1,19 @@
 
+<table>
+  <tr>
+  </tr>
+
+  <tr>
+	<td><%= t "name" %></td>
+	<td><%= @cursus.name %></td>
+  </tr>
+  <tr>
+	<td><%= @cursus.description %></td>
+  </tr>
+</table>
+
+<br />
+
+
 <%= link_to 'Edit', edit_cursus_path(@cursus) %> |
 <%= link_to 'Back', cursuses_path %>
