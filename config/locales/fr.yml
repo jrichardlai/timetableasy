@@ -2,6 +2,8 @@
 # See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 fr:
+  copyright:
+    company: "Copyright © FBJC Development. - 2010 - Tous droits réservés"
   general:
     home: "Accueil"
     application_name: "TimeTableAsy"
@@ -40,3 +42,4 @@ fr:
     users:
       title: "Utilisateurs"
       manage_users: "Gestion des comptes"
+      create_user: "Créer un Utilisateur"

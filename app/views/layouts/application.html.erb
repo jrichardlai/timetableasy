@@ -9,12 +9,10 @@
 		<%= stylesheet_link_tag 'typography' %>
 		<%= stylesheet_link_tag 'orange' %>
 		<%= stylesheet_link_tag 'minimal' %>
+		
 		<%= javascript_include_tag 'top_up-min' %>		
 		<%= javascript_include_tag 'superfish' %>
-		<%= javascript_include_tag 'custom' %>
-		
-
-		
+		<%= javascript_include_tag 'custom' %>		
   </head>
   <body>
 	<div id="wrap">
@@ -35,6 +33,7 @@
 					<a class="sf-with-ul" href="#"><%= t 'menu.users.title' %><span class="sf-sub-indicator"> </span></a>
 					<ul style="display: none; visibility: hidden; ">
 						<li class="submenu"><%= link_to t('menu.users.manage_users'), users_path %></li>
+						<li class="submenu"><%= link_to t('menu.users.create_user'), new_user_path %></li>
 					</ul>
 				</li>
 				<li class="">
@@ -76,30 +75,13 @@
 		</div> <!--#inner-wrap-->
 
 				<div id="footer" class="clearfix">
-					<span id="copyright">Copyright © 2009 Your Name - All rights reserved. <a href="#">Terms of Use</a> | <a href="#">Privacy Policy</a></span>
+					<span id="copyright"><%= t 'copyright.company' %></span>
 					<ul class="nav">
-
-						<li><a href="#">Home</a></li>
-						<li><a href="#">About</a></li>
-						<li><a href="#">Services</a></li>
-						<li><a href="#">Blog</a></li>
-						<li><a href="#">Contact</a></li>			
+						<li><img src="images/user_suit.png" /> <%= t 'general.authentified_user' %> : <%= current_user.login %></li>
+						<li>|</li>
+						<li><%= link_to t('login.logout'), '/logout' %></li>			
 					</ul>
 				</div>
-</div> <!--#wrap-->
-    <div class="wrapper">
-		<div id="login_info" style="width:100%;">
-			<div class="ui-widget">
-				<div class="ui-state-highlight ui-corner-all" style="margin-top: 5px; padding: 0 .7em; float:right; width:30%;"> 
-						<p>
-							<span class="ui-icon ui-icon-info" style="float: right; margin-right: .3em;"></span>
-							<img src="images/user_suit.png" /> <%= t 'general.authentified_user' %> : <%= current_user.login %> | 	<%= link_to t('login.logout'), '/logout' %>
-						</p>
-				</div>
-			</div>
-			<div style="clear:both;">
-		</div>
-      
-
+			</div> <!--#wrap-->
   </body>
 </html>
