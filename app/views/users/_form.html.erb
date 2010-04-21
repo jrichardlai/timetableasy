@@ -1,0 +1,34 @@
+<%= label_tag t('general.nickname') %>
+<%= form.text_field :login %>
+<br/>
+
+<%= label_tag t('general.firstname') %>
+<%= form.text_field :firstname %>
+<br/>
+
+<%= label_tag t('general.lastname') %>
+<%= form.text_field :lastname %>
+
+<br/>
+<%= label_tag t('general.mail') %>
+<%= form.text_field :email %>
+<br/>
+
+<%= label_tag t('general.password') %>
+<%= form.password_field :password %>
+<br/>
+
+<%= label_tag t('general.password_confirmation') %>
+<%= form.password_field :password_confirmation %>
+
+<div class="row">
+	<%= form.label :roles %><br />
+  <% for role in RoleType.all %>
+    <%= check_box_tag "user[role_type_ids][]", role.id, @user.roles.include?(role), :id => "role_#{role.id}" %>
+    <%= role.name %><br />
+  <% end %>
+  <%= hidden_field_tag "user[role_type_ids][]", "" %>
+  
+</div>
+
+<%= form.submit t('user.create') %>	

@@ -5,3 +5,6 @@
 #   
 #   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
 #   Major.create(:name => 'Daley', :city => cities.first)
+['admin', 'campus manager', 'intervenant', 'student'].each do |role|
+  RoleType.find_or_create_by_name(role)
+end
