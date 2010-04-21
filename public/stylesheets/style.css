@@ -494,20 +494,3 @@ body{
 			margin-left: 15px;
 			padding: 0;
 }
-label
-{
-width: 4em;
-float: left;
-text-align: right;
-margin-right: 0.5em;
-display: block
-}
-
-input {
-	float:right;
-}
-
-.submit input
-{
-margin-left: 4.5em;
-}
