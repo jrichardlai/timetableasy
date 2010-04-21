@@ -9,9 +9,13 @@
 	<br />
 	<%= f.text_area :description %>
 	<br />
-	<%= f.label :campus %>
+	<%= f.label :campuses %>
 	<br />
-	<%= f.text_area :campus %>
+	<% for campus in Campus.all %>
+	  <%= check_box_tag "campus[campus_ids][]", campus.id, @cursus.campuses.include?(campus), :id => "campus_#{campus.id}" %>
+	  <%= campus.name %><br />
+	<% end %>
+	<%= hidden_field_tag "campus[campus_type_ids][]", "" %>
   <p>
     <%= f.submit 'Create' %>
   </p>
