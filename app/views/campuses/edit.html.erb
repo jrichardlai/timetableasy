@@ -1,12 +1,28 @@
 <h1>Editing campus</h1>
 
-<% form_for(@campus, :url => campuses_path) do |f| %>
-  <%= f.error_messages %>
-
+<% form_for(@campus, :url => campus_path(@campus)) do |f| %>
+  	<%= f.error_messages %>
+	<%= f.label :name %>
+	<%= f.text_field :name %>
+	<br />
+	<%= f.label :address%>
+	<%= f.text_field :address %>
+	<br />
+	<%= f.label :zip%>
+	<%= f.text_field :zip %>
+	<br />
+	<%= f.label :city%>
+	<%= f.text_field :city %>
+	<br />
+	<%= f.label :country%>
+	<%= f.text_field :country %>
+	<br />
+	<%= f.label :timezone%>
+	<%= f.time_zone_select :timezone, ActiveSupport::TimeZone.all %>
   <p>
     <%= f.submit 'Update' %>
   </p>
 <% end %>
 
-<%= link_to 'Show', campus_path @campus %> |
+<%= link_to 'Show', campus_path(@campus) %> |
 <%= link_to 'Back', campuses_path %>

@@ -61,7 +61,7 @@ class CampusesController < ApplicationController
     @campus = Campus.find(params[:id])
 
     respond_to do |format|
-      if @campus.update_attributes(params[:campuses])
+      if @campus.update_attributes(params[:campus])
         flash[:notice] = 'Campus was successfully updated.'
         format.html { redirect_to(campus_path @campus) }
         format.xml  { head :ok }

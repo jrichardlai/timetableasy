@@ -11,17 +11,6 @@
 
 ActiveRecord::Schema.define(:version => 20100421101623) do
 
-  create_table "campus", :force => true do |t|
-    t.string   "name"
-    t.text     "address"
-    t.string   "city"
-    t.string   "zip"
-    t.string   "country"
-    t.string   "timezone"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "campuses", :force => true do |t|
     t.string   "name"
     t.text     "address"
