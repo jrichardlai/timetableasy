@@ -1,7 +1,8 @@
 es:
   general:
     home: "Inicio"
-    application_name: "Timetableasy"
+    application_name: "TimeTableAsy"
+    application_caption: "El Ultra Light Calendario."
     lastname: "Nombre"
     firstname: "Appelido"
     mail: "Correo elect."
@@ -21,5 +22,18 @@ es:
     authenticate_yourself: "Connectarse."
     create_account: "Creer su cuenta"
     logged_out: "Se ha deconnectado con exito"
-  event:
+  menu:
+    events:
+      title: "Eventos"
       create_event: "Creer un evento"
+    gestion:
+      title: "Administración"
+      campus:
+        title: "Campuses"
+      cursus:
+        title: "Plan de estudios"
+      periods:
+        title: "Periodas"
+    users:
+      title: "Usuarios"
+      manage_users: "Gestión de usuarios"

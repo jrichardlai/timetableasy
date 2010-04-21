@@ -1,11 +1,18 @@
 class UsersController < ApplicationController
   # Be sure to include AuthenticationSystem in Application Controller instead
   include AuthenticatedSystem
-  layout 'user'
 
   # render new.rhtml
   def new
     @user = User.new
+  end
+  
+  def index
+    @users = User.all
+    respond_to do |format|
+      format.html # index.html.erb
+      format.xml  { render :xml => @campuses }
+    end
   end
  
   def create

@@ -20,15 +20,29 @@
 	<div id="wrap">
 		<div id="header">
 			<div id="logo">
-				<h1><%= link_to('TimeTableAsy', '/') %></h1>
-				<p class="description">The Easy LightWeight Calendar</p>
+				<h1><%= link_to(t('general.application_name'), '/') %></h1>
+				<p class="description"><%= t 'general.application_caption' %></p>
 			</div>
 			<ul class="sf-js-enabled sf-shadow" id="nav">
 				<li><%= link_to t('general.home'), root_path %></li>
 				<li class="">
-					<a class="sf-with-ul" href="#">Evenements<span class="sf-sub-indicator"> </span></a>
+					<a class="sf-with-ul" href="#"><%= t 'menu.events.title' %><span class="sf-sub-indicator"> </span></a>
 					<ul style="display: none; visibility: hidden; ">
-						<li class="submenu"><%= link_to_remote t('event.create_event'), :url => {:action => :new} %></li>
+						<li class="submenu"><%= link_to_remote t('menu.events.create_event'), :url => {:action => :new} %></li>
+					</ul>
+				</li>
+				<li class="">
+					<a class="sf-with-ul" href="#"><%= t 'menu.users.title' %><span class="sf-sub-indicator"> </span></a>
+					<ul style="display: none; visibility: hidden; ">
+						<li class="submenu"><%= link_to t('menu.users.manage_users'), users_path %></li>
+					</ul>
+				</li>
+				<li class="">
+					<a class="sf-with-ul" href="#"><%= t 'menu.gestion.title' %><span class="sf-sub-indicator"> </span></a>
+					<ul style="display: none; visibility: hidden; ">
+						<li class="submenu"><%= link_to t('menu.gestion.campus.title'), :url => {:action => :show} %></li>
+						<li class="submenu"><%= link_to t('menu.gestion.cursus.title'), :url => {:action => :show} %></li>
+						<li class="submenu"><%= link_to t('menu.gestion.periods.title'), :url => {:action => :show} %></li>
 					</ul>
 				</li>
 				<%= yield :menu %>
@@ -38,7 +52,6 @@
 		
 		<div id="inner-wrap" class="clearfix">
 			<div id="content" class="clearfix">
-				<h2>Your Calendar</h2>
 					<div class="subPageContent">
 						<% if flash[:notice] -%>
 						<div id = 'flash_notice'>

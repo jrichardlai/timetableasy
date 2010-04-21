@@ -1,4 +1,8 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :period_types
+
+  map.resources :periods
+
   map.resources :cursuses, :singular => :cursus
   map.resources :campuses, :singular => :campus
 
