@@ -1,10 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
-<<<<<<< HEAD
   map.resources :cursuses, :singular => :cursus
-=======
   map.resources :campuses, :singular => :campus
->>>>>>> 20c2060badb8af1e9a2fc0b9478926c0f56e3887
-
 
   map.logout '/logout', :controller => 'sessions', :action => 'destroy'
   map.login '/login', :controller => 'sessions', :action => 'new'
