@@ -1,4 +1,5 @@
 class CampusesController < ApplicationController
+  before_filter :login_required
   # GET /campuses
   # GET /campuses.xml
   def index
@@ -17,7 +18,7 @@ class CampusesController < ApplicationController
 
     respond_to do |format|
       format.html # show.html.erb
-      format.xml  { render :xml => @campuses }
+      format.xml  { render :xml => @campus }
     end
   end
 
@@ -28,7 +29,7 @@ class CampusesController < ApplicationController
 
     respond_to do |format|
       format.html # new.html.erb
-      format.xml  { render :xml => @campuses }
+      format.xml  { render :xml => @campus }
     end
   end
 
@@ -40,13 +41,13 @@ class CampusesController < ApplicationController
   # POST /campuses
   # POST /campuses.xml
   def create
-    @campus = Campus.new(params[:campuses])
+    @campus = Campus.new(params[:campus])
 
     respond_to do |format|
       if @campus.save
         flash[:notice] = 'Campus was successfully created.'
-        format.html { redirect_to(@campus) }
-        format.xml  { render :xml => @campus, :status => :created, :location => @campuses }
+        format.html { redirect_to(campus_path @campus) }
+        format.xml  { render :xml => @campus, :status => :created, :location => @campus }
       else
         format.html { render :action => "new" }
         format.xml  { render :xml => @campus.errors, :status => :unprocessable_entity }
@@ -62,7 +63,7 @@ class CampusesController < ApplicationController
     respond_to do |format|
       if @campus.update_attributes(params[:campuses])
         flash[:notice] = 'Campus was successfully updated.'
-        format.html { redirect_to(@campus) }
+        format.html { redirect_to(campus_path @campus) }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
