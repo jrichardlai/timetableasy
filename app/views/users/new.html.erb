@@ -1,39 +1,7 @@
 <%- content_for :head_title do -%>
 	<%= t 'general.welcome' %> <%= t 'general.application_name' %> - <%= t 'login.signup' %>
 <%- end -%>
-
-
-<% @user.password = @user.password_confirmation = nil %>
 <%= error_messages_for :user %>
-<% form_for :user, :url => users_path do |f| -%>
-		<%= label_tag t('general.nickname') %>
-				<%= f.text_field :login %>
-
-			<%= label_tag t('general.firstname') %>
-					<%= f.text_field :firstname %>
-
-			<%= label_tag t('general.lastname') %>
-					<%= f.text_field :lastname %>
-
-			<%= label_tag t('general.mail') %>
-					<%= f.text_field :email %>
-
-			<%= label_tag t('general.password') %>
-					<%= f.password_field :password %>
-
-			<%= label_tag t('general.password_confirmation'), 'Confirm Pass.' %>
-					<%= f.password_field :password_confirmation %>
-
-		<div class="row">
-			<%= f.label :roles %><br />
-		  <% for role in RoleType.all %>
-		    <%= check_box_tag "user[role_type_ids][]", role.id, @user.roles.include?(role), :id => "role_#{role.id}" %>
-		    <%= role.name %><br />
-		  <% end %>
-		  <%= hidden_field_tag "user[role_type_ids][]", "" %>
-		  
-		</div>
-
-		<%= submit_tag 'Create my Account' %>	
-
-<% end -%>
+<% form_for @user do |f| -%>
+	<%= render :partial => f %>
+<% end %>
