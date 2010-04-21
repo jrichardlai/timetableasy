@@ -3,6 +3,7 @@
 
 fr:
   general:
+    home: "Accueil"
     application_name: "Timetableasy"
     lastname: "Nom"
     month: "Mois"

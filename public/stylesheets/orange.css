@@ -1,0 +1,17 @@
+a{
+	color: #f1491a;
+}
+	a:hover{	color: #cc3e16;	}
+	
+a.button, a.button.small{	background-color: #f1491a;	}
+a.button:hover{	background-color: #cc3e16; color: #fff;	}
+
+blockquote{	background: url(../images/quotes-orange.png) no-repeat top left;	}
+
+#nav li a:hover{	background: #f1491a;	}
+
+#nav ul li a:hover{	color: #cc3e16;	}
+
+#pagination a:hover{	background: #cc3e16;	}
+
+#submit{	background: #f1491a;	}
