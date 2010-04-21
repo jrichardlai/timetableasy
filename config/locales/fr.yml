@@ -13,7 +13,7 @@ fr:
     mail_confirm: "Verif. Email"
     password: "Mot de Pass"
     password_confirm: "Verif. Pass"
-    nickname: "ID Booster"
+    nickname: "Login"
     welcome: "Bienvenue sur"
     authentified_user: "Connecté en tant que"
   login:
