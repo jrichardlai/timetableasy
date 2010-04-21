@@ -10,7 +10,7 @@ en:
     mail_confirm: "Verif. Mail"
     password: "Password"
     password_confirm: "Verif. Pass"
-    nickname: "ID Booster"
+    nickname: "Login"
     welcome: "Welcome on"
     authentified_user: "Connected as"
   login:
