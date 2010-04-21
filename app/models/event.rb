@@ -19,6 +19,8 @@ class Event < ActiveRecord::Base
   validates_presence_of :begin_at
   validates_presence_of :end_at
   validate :valid_dates?
+  
+  before_validation :add_to_current_user_events, :unless => :has_scope?
   belongs_to :event_scope, :polymorphic => true
   belongs_to :academical, :polymorphic => true
 
@@ -26,9 +28,37 @@ class Event < ActiveRecord::Base
     start_day or end_day or start_time or end_time
   end
 
+  def start_day
+    return @start_day if @start_day
+    begin_at.strftime("%d/%m/%Y") if begin_at
+  end
+
+  def start_time
+    return @start_time if @start_time
+    begin_at.strftime("%H:%M") if begin_at
+  end
+
+  def end_day
+    return @end_day if @end_day
+    end_at.strftime("%d/%m/%Y") if end_at
+  end
+
+  def end_time
+    return @end_time if @end_time
+    end_at.strftime("%H:%M") if end_at
+  end
+
   def set_time
     self.begin_at = DateTime.strptime "#{start_day} #{start_time}", '%d/%m/%Y %H:%M'
     self.end_at   = DateTime.strptime "#{end_day} #{end_time}", '%d/%m/%Y %H:%M'
+  end
+
+  def has_scope?
+    global_event? or event_scope
+  end
+  
+  def add_to_current_user_events
+    self.event_scope = User.current_user if User.current_user
   end
 
   def valid_dates?

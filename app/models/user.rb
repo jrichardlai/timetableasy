@@ -36,6 +36,8 @@ class User < ActiveRecord::Base
   attr_accessible :login, :email, :name, :password, :password_confirmation, :role_types, :role_type_ids
   accepts_nested_attributes_for :role_types
 
+  cattr_accessor :current_user
+
 
   # Authenticates a user by their login name and unencrypted password.  Returns the user or nil.
   #
@@ -57,8 +59,20 @@ class User < ActiveRecord::Base
     write_attribute :email, (value ? value.downcase : nil)
   end
 
+  def admin?
+    has_role?('admin')
+  end
+
+  def role_names
+    @role_names ||= role_types.collect(&:name)
+  end
+
+  def has_role?(role)
+    @role_names.include?(role)
+  end
+
   def cumulated_options
-    [:global_event, [:for_user, id], [:whos_speaker, id]]
+    [:global_event, [:for_user, self], [:whos_speaker, id]]
   end
 
   protected

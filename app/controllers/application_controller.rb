@@ -7,7 +7,8 @@ class ApplicationController < ActionController::Base
   include AuthenticatedSystem
 
   before_filter :set_locale
-  
+  before_filter :set_current_user
+
   helper_method :locale_accepted
 
   def set_locale
@@ -20,6 +21,10 @@ class ApplicationController < ActionController::Base
 
   def locale_accepted
     ['fr', 'en', 'es']
+  end
+  
+  def set_current_user
+    User.current_user = current_user if current_user
   end
 
 private 
