@@ -1,0 +1,2 @@
+module PeriodTypesHelper
+end

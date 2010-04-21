@@ -1,6 +1,9 @@
 class CursusesController < ApplicationController
   # GET /cursuses
   # GET /cursuses.xml
+  
+  before_filter :login_required
+  
   def index
     @cursuses = Cursus.all
 

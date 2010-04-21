@@ -4,7 +4,8 @@
 fr:
   general:
     home: "Accueil"
-    application_name: "Timetableasy"
+    application_name: "TimeTableAsy"
+    application_caption: "Le Calendrier Ultra Légé."
     lastname: "Nom"
     month: "Mois"
     week: "Semaine"
@@ -24,5 +25,18 @@ fr:
     authenticate_yourself: "Se Connecter"
     create_account: "Créer mon compte"
     logged_out: "Vous vous êtes déconnecté avec succès"
-  event:
-    create_event: "Créer un evenement"
+  menu:
+    events:
+      title: "Evenements"
+      create_event: "Créer un Evenement"
+    gestion:
+      title: "Gestion"
+      campus:
+        title: "Campus"
+      cursus:
+        title: "Cursus"
+      periods:
+        title: "Periodes"
+    users:
+      title: "Utilisateurs"
+      manage_users: "Gestion des comptes"

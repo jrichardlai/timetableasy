@@ -1,0 +1,20 @@
+<h1>Listing period_types</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+  </tr>
+
+<% @period_types.each do |period_type| %>
+  <tr>
+    <td><%=h period_type.name %></td>
+    <td><%= link_to 'Show', period_type %></td>
+    <td><%= link_to 'Edit', edit_period_type_path(period_type) %></td>
+    <td><%= link_to 'Destroy', period_type, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New period_type', new_period_type_path %>

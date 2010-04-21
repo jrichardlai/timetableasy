@@ -9,7 +9,11 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(:version => 20100421143725) do
+=======
+ActiveRecord::Schema.define(:version => 20100421101623) do
+>>>>>>> 82250728729135041f89e81bf33938980d6bad1c
 
   create_table "campuses", :force => true do |t|
     t.string   "name"
@@ -48,24 +52,40 @@ ActiveRecord::Schema.define(:version => 20100421143725) do
     t.boolean  "global_event"
   end
 
+<<<<<<< HEAD
   create_table "managements", :force => true do |t|
     t.integer  "user_id"
     t.integer  "campus_id"
+=======
+  create_table "period_types", :force => true do |t|
+    t.string   "name"
+>>>>>>> 82250728729135041f89e81bf33938980d6bad1c
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
+<<<<<<< HEAD
   create_table "role_types", :force => true do |t|
     t.string   "name"
+=======
+  create_table "periods", :force => true do |t|
+    t.integer  "cursus_id"
+    t.integer  "period_type_id"
+    t.datetime "begin_at"
+    t.datetime "end_at"
+>>>>>>> 82250728729135041f89e81bf33938980d6bad1c
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
+<<<<<<< HEAD
   create_table "roles", :force => true do |t|
     t.integer "user_id"
     t.integer "role_type_id"
   end
 
+=======
+>>>>>>> 82250728729135041f89e81bf33938980d6bad1c
   create_table "users", :force => true do |t|
     t.string   "login",                     :limit => 40
     t.string   "firstname",                 :limit => 100, :default => ""
