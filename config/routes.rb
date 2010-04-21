@@ -6,7 +6,6 @@ ActionController::Routing::Routes.draw do |map|
   map.login '/login', :controller => 'sessions', :action => 'new'
   map.register '/register', :controller => 'users', :action => 'create'
   map.signup '/signup', :controller => 'users', :action => 'new'
-  map.lostpassword '/lostPassword', :controller => 'users', :action => 'lostPassword'
   map.resources :users
   
   map.resources :events

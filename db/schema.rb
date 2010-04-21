@@ -9,18 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100421095451) do
-
-  create_table "campus", :force => true do |t|
-    t.string   "name"
-    t.text     "address"
-    t.string   "city"
-    t.string   "zip"
-    t.string   "country"
-    t.string   "timezone"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
+ActiveRecord::Schema.define(:version => 20100421143725) do
 
   create_table "campuses", :force => true do |t|
     t.string   "name"
@@ -57,6 +46,24 @@ ActiveRecord::Schema.define(:version => 20100421095451) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "global_event"
+  end
+
+  create_table "managements", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "campus_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "role_types", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "roles", :force => true do |t|
+    t.integer "user_id"
+    t.integer "role_type_id"
   end
 
   create_table "users", :force => true do |t|

@@ -30,6 +30,7 @@ Rails::Initializer.run do |config|
 
   # Activate observers that should always be running
   # config.active_record.observers = :cacher, :garbage_collector, :forum_observer
+  config.gem "cancan"
   config.gem 'ajaxlibs'
   config.gem 'prawn'
   config.gem "factory_girl", :source => "http://gemcutter.org"

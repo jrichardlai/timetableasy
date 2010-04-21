@@ -58,6 +58,16 @@
 		</div>
 
 		<div class="row">
+			<%= f.label :roles %><br />
+		  <% for role in RoleType.all %>
+		    <%= check_box_tag "user[role_type_ids][]", role.id, @user.roles.include?(role), :id => "role_#{role.id}" %>
+		    <%= role.name %><br />
+		  <% end %>
+		  <%= hidden_field_tag "user[role_type_ids][]", "" %>
+		  
+		</div>
+
+		<div class="row">
 			<div class="inputs small_inputs">
 				<span class="button blue_button unlock_button">
 					<span>
