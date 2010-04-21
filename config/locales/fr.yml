@@ -20,6 +20,13 @@ fr:
     nickname: "Login"
     welcome: "Bienvenue sur"
     authentified_user: "Connecté en tant que"
+    name: "Nom"
+    description: "Description"
+    address: "Adresse"
+    zip: "Code Postal"
+    city: "Ville"
+    country: "Pays"
+    timezone: "Zone de Temps"
   login:
     login: "Se Connecter"
     logout: "Se Deconnecter"

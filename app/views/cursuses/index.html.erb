@@ -6,8 +6,7 @@
 
 <% @cursuses.each do |cursus| %>
   <tr>
-	<td><%= cursus.name %></td>
-    <td><%= link_to 'Show', cursus_path(cursus) %></td>
+    <td><%= link_to cursus.name, cursus_path(cursus) %></td>
     <td><%= link_to 'Edit', edit_cursus_path(cursus) %></td>
     <td><%= link_to 'Destroy', cursus_path(cursus), :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
