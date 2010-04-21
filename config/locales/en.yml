@@ -1,4 +1,6 @@
 en:
+  copyright:
+    company:"Copyright © FBJC Development. - 2010 - All Rights Reserved"
   general:
     home: "Home"
     application_name: "TimeTableAsy"
@@ -37,3 +39,4 @@ en:
     users:
       title: "Users"
       manage_users: "Manage Users"
+      create_user: "Create a User"
