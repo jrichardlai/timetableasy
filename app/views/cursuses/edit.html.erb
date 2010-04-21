@@ -1,0 +1,16 @@
+<h1>Editing cursus</h1>
+
+<% form_for(@cursus, :url => cursuses_path)  do |f| %>
+  	<%= f.error_messages %>
+	<%= f.text_field :name %>
+	<br />
+	<%= f.label :description %>
+	<br />
+	<%= f.text_area :description %>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', cursus_path(@cursus) %> |
+<%= link_to 'Back', cursuses_path %>
