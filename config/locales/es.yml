@@ -10,7 +10,7 @@ es:
     mail_confirm: "Rep. Correo electrónico"
     password: "Contraseña"
     password_confirm: "Rep. Contraseña"
-    nickname: "ID Booster"
+    nickname: "Login"
     welcome: "Bienvenido sobre"
     authentified_user: "Connectado como"
   login:

@@ -23,5 +23,17 @@ describe Event do
       @event.end_at.sec.should == Time.parse("01/05/2010 13:00").sec
     end
 
+    it "should not let a busy speaker to be intervenant in the same time" do
+      pending
+    end
+
+    it "should not let a occupied room to be used in the same time" do
+      pending
+    end
+
+    it "should return a warning if the time for a pedagogy is exceded" do
+      pending
+    end
+
   end
 end

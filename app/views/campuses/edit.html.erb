@@ -1,0 +1,12 @@
+<h1>Editing campus</h1>
+
+<% form_for(@campus, :url => campuses_path) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', campus_path @campus %> |
+<%= link_to 'Back', campuses_path %>

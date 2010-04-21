@@ -9,9 +9,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(:version => 20100421095451) do
 
   create_table "campus", :force => true do |t|
+=======
+ActiveRecord::Schema.define(:version => 20100421074410) do
+
+  create_table "campuses", :force => true do |t|
+>>>>>>> 20c2060badb8af1e9a2fc0b9478926c0f56e3887
     t.string   "name"
     t.text     "address"
     t.string   "city"
@@ -21,6 +27,7 @@ ActiveRecord::Schema.define(:version => 20100421095451) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+<<<<<<< HEAD
 
   create_table "cursuses", :force => true do |t|
     t.string   "name"
@@ -28,6 +35,8 @@ ActiveRecord::Schema.define(:version => 20100421095451) do
     t.datetime "updated_at"
     t.text     "description"
   end
+=======
+>>>>>>> 20c2060badb8af1e9a2fc0b9478926c0f56e3887
 
   create_table "events", :force => true do |t|
     t.string   "name"
@@ -45,6 +54,7 @@ ActiveRecord::Schema.define(:version => 20100421095451) do
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "global_event"
   end
 
   create_table "users", :force => true do |t|

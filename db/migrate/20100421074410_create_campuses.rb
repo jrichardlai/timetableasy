@@ -1,6 +1,6 @@
-class CreateCampus < ActiveRecord::Migration
+class CreateCampuses < ActiveRecord::Migration
   def self.up
-    create_table :campus do |t|
+    create_table :campuses do |t|
       t.string :name
       t.text :address
       t.string :city
@@ -12,6 +12,6 @@ class CreateCampus < ActiveRecord::Migration
   end
 
   def self.down
-    drop_table :campus
+    drop_table :campuses
   end
 end

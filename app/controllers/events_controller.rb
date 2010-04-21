@@ -8,7 +8,7 @@ class EventsController < ApplicationController
       format.html # index.html.erb
       format.xml  { render :xml => @events }
       format.js do 
-        render :json => Event.to_fullcalendar(params[:start], params[:end])
+        render :json => Event.to_fullcalendar(params[:start], params[:end], false, current_user)
       end
     end
   end
