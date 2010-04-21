@@ -40,8 +40,8 @@
 				<li class="">
 					<a class="sf-with-ul" href="#"><%= t 'menu.gestion.title' %><span class="sf-sub-indicator"> </span></a>
 					<ul style="display: none; visibility: hidden; ">
-						<li class="submenu"><%= link_to t('menu.gestion.campus.title'), :url => {:action => :show} %></li>
-						<li class="submenu"><%= link_to t('menu.gestion.cursus.title'), :url => {:action => :show} %></li>
+						<li class="submenu"><%= link_to t('menu.gestion.campus.title'), campuses_path %></li>
+						<li class="submenu"><%= link_to t('menu.gestion.cursus.title'), cursuses_path %></li>
 						<li class="submenu"><%= link_to t('menu.gestion.periods.title'), :url => {:action => :show} %></li>
 					</ul>
 				</li>

@@ -6,8 +6,7 @@
 
 <% @campuses.each do |campus| %>
   <tr>
-	<td><%= campus.name %></td>
-    <td><%= link_to 'Show', campus_path(campus) %></td>
+    <td><%= link_to campus.name, campus_path(campus) %></td>
     <td><%= link_to 'Edit', edit_campus_path(campus) %></td>
     <td><%= link_to 'Destroy', campus_path(campus), :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>

@@ -15,6 +15,13 @@ en:
     nickname: "Login"
     welcome: "Welcome on"
     authentified_user: "Connected as"
+    name: "Name"
+    description: "Description"
+    address: "Addresse"
+    zip: "Postal Code"
+    city: "City"
+    country: "Country"
+    timezone: "Time Zone"
   login:
     login: "Login"
     logout: "Logout"
