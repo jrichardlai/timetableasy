@@ -1,12 +1,13 @@
 ActionController::Routing::Routes.draw do |map|
-  map.resources :campuses
-  map.resources :cursuses
-
+  map.resources :period_types
+  map.resources :periods
+  map.resources :cursuses, :singular => :cursus
+  map.resources :campuses, :singular => :campus
+  
   map.logout '/logout', :controller => 'sessions', :action => 'destroy'
   map.login '/login', :controller => 'sessions', :action => 'new'
   map.register '/register', :controller => 'users', :action => 'create'
   map.signup '/signup', :controller => 'users', :action => 'new'
-  map.lostpassword '/lostPassword', :controller => 'users', :action => 'lostPassword'
   map.resources :users
   
   map.resources :events

@@ -11,6 +11,11 @@ class ApplicationController < ActionController::Base
   helper_method :locale_accepted
 
   def set_locale
+    if params[:locale]
+      session[:locale] = params[:locale]
+      I18n.locale = session[:locale]
+      logger.debug "* LOCALE IS MANNUALY SET ON '#{I18n.locale}' SESSION IS '#{session[:locale]}"
+    end
     if I18n.locale.nil?
       session[:locale] = extract_locale_from_accept_language_header
       logger.debug "* LOCALE IS AUTOMATICALY SET ON '#{I18n.locale}'"
@@ -18,15 +23,11 @@ class ApplicationController < ActionController::Base
     logger.debug "* LOCALE IS '#{I18n.locale}' SESSION IS '#{session[:locale]}'"
     I18n.locale = session[:locale]
   end
-  
-  def switch_language
-    if !params[:locale].nil?
-      session[:locale] = params[:locale]
-      I18n.locale = session[:locale]
-      logger.debug "* LOCALE IS MANNUALY SET ON '#{I18n.locale}' SESSION IS '#{session[:locale]}"
-      redirect_back_or_default('/')
-    end
+
+  def current_page_path(options={})
+    url_for( {:controller => self.controller_name, :action => self.action_name}.merge(options) )
   end
+  helper_method :current_page_path
 
   def locale_accepted
     ['fr', 'en', 'es']
