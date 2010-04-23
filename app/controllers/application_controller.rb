@@ -12,8 +12,7 @@ class ApplicationController < ActionController::Base
 
   def set_locale
     session[:locale] = params[:locale] if params[:locale]
-    I18n.locale ||= extract_locale_from_accept_language_header unless session[:locale]
-    I18n.locale = session[:locale]
+    I18n.locale = session[:locale] || extract_locale_from_accept_language_header
   end
 
   def locale_accepted
