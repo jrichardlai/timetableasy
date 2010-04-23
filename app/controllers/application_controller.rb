@@ -11,16 +11,8 @@ class ApplicationController < ActionController::Base
   helper_method :locale_accepted
 
   def set_locale
-    if params[:locale]
-      session[:locale] = params[:locale]
-      I18n.locale = session[:locale]
-      logger.debug "* LOCALE IS MANNUALY SET ON '#{I18n.locale}' SESSION IS '#{session[:locale]}"
-    end
-    if I18n.locale.nil?
-      session[:locale] = extract_locale_from_accept_language_header
-      logger.debug "* LOCALE IS AUTOMATICALY SET ON '#{I18n.locale}'"
-    end
-    logger.debug "* LOCALE IS '#{I18n.locale}' SESSION IS '#{session[:locale]}'"
+    session[:locale] = params[:locale] if params[:locale]
+    I18n.locale ||= extract_locale_from_accept_language_header unless session[:locale]
     I18n.locale = session[:locale]
   end
 

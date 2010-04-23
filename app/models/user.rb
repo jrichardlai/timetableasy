@@ -68,7 +68,7 @@ class User < ActiveRecord::Base
   end
 
   def has_role?(role)
-    @role_names.include?(role)
+    role_names.include?(role)
   end
 
   def cumulated_options
