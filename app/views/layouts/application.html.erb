@@ -18,7 +18,7 @@
 	<div id="wrap">
 		<div id="header">
 			<div id="logo">
-				<h1><%= link_to(t('general.application_name'), '/') %></h1>
+				<h1><%= link_to(t('general.application_name'), root_path) %></h1>
 				<p class="description"><%= t 'general.application_caption' %></p>
 			</div>
 			<ul class="sf-js-enabled sf-shadow" id="nav">
@@ -26,7 +26,7 @@
 				<li class="">
 					<a class="sf-with-ul" href="#"><%= t 'menu.events.title' %><span class="sf-sub-indicator"> </span></a>
 					<ul style="display: none; visibility: hidden; ">
-						<li class="submenu"><%= link_to_remote t('menu.events.create_event'), :url => {:action => :new} %></li>
+						<li class="submenu"><%= link_to_remote t('menu.events.create_event'), {:controller => :events, :action => :new} %></li>
 					</ul>
 				</li>
 				<li class="">
@@ -41,11 +41,11 @@
 					<ul style="display: none; visibility: hidden; ">
 						<li class="submenu"><%= link_to t('menu.gestion.campus.title'), campuses_path %></li>
 						<li class="submenu"><%= link_to t('menu.gestion.cursus.title'), cursuses_path %></li>
-						<li class="submenu"><%= link_to t('menu.gestion.periods.title'), :url => {:action => :show} %></li>
+						<li class="submenu"><%= link_to t('menu.gestion.periods.title'), periods_path %></li>
 					</ul>
 				</li>
 				<%= yield :menu %>
-				<li><%= link_to t('login.logout'), '/logout' %></li>
+				<li><%= link_to t('login.logout'), logout_path %></li>
 			</ul>
 		</div> <!--#header-->
 		
@@ -77,22 +77,20 @@
 				<div id="footer" class="clearfix">
 					<span id="copyright"><%= t 'copyright.company' %></span>
 					<ul class="nav">
-						<li><img src="images/user_suit.png" /> <%= t 'general.authentified_user' %> : <%= current_user.login %></li>
+						<li>
+							<%= image_tag('user_suit.png') %> <%= t 'general.authentified_user' %> : <%= current_user.login %></li>
 						<li>|</li>
-						<li><% link_to :locale => :fr do %>
-								<img src="images/flags/fr.png" alt="french" />
-							<% end %>
+						<li>
+							<%= link_to image_tag('flags/fr.png'), :locale => :fr %>
 						</li>
-						<li><% link_to :locale => :en do %>
-								<img src="images/flags/gb.png" alt="english" />
-							<% end %>
+						<li>
+							<%= link_to image_tag('flags/en.png'), :locale => :en %>
 						</li>
-						<li><% link_to :locale => :es do %>
-								<img src="images/flags/es.png" alt="spanish" />
-							<% end %>
+						<li>
+							<%= link_to image_tag('flags/fr.png'), :locale => :fr %>
 						</li>
 						<li>|</li>
-						<li><%= link_to t('login.logout'), '/logout' %></li>			
+						<li><%= link_to t('login.logout'), logout_path %></li>			
 					</ul>
 				</div>
 			</div> <!--#wrap-->
