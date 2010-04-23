@@ -6,13 +6,12 @@
 
 <% @campuses.each do |campus| %>
   <tr>
-    <td><%= link_to campus.name, campuses_path(campus) %></td>
-    <td><%= link_to 'Edit', :controller => 'campuses', :action => 'edit', :id => campus.id %></td>
-    <td><%= link_to 'Destroy', campuses_path(campus), :confirm => 'Are you sure?', :method => :delete %></td>
+	<td><%= link_to campus.name, campus_path(campus) %></td>
+	<td><%= link_to 'Edit', edit_campus_path(campus) %></td>
+	<td><%= link_to 'Destroy', campus_path(campus), :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
-
-<%= link_to 'New campus', :controller => 'campuses', :action => 'new' %>
+<%= link_to 'New campus', new_campus_path %>
