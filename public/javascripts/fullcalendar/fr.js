@@ -4,7 +4,7 @@ monthNames:
 monthNamesShort:
 ['janv.','févr.','mars','avr.','mai','juin','juil.','août','sept.','oct.','nov.','déc.'],
 dayNames: ['Dimanche','Lundi','Mardi','Mercredi','Jeudi','Vendredi','Samedi'],
-dayNamesShort: ['Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam', 'Dim'],
+dayNamesShort: ['Dim', 'Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam'],
 buttonText: {
 	prev: '&nbsp;&#9668;&nbsp;',
 	next: '&nbsp;&#9658;&nbsp;',

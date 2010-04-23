@@ -1,15 +1,17 @@
+<fieldset>
+	<legend><%= t 'user.infos' %></legend>
 <%= label_tag t('general.nickname') %>
 <%= form.text_field :login %>
+<br/>
+
+<%= label_tag t('general.lastname') %>
+<%= form.text_field :lastname %>
 <br/>
 
 <%= label_tag t('general.firstname') %>
 <%= form.text_field :firstname %>
 <br/>
 
-<%= label_tag t('general.lastname') %>
-<%= form.text_field :lastname %>
-
-<br/>
 <%= label_tag t('general.mail') %>
 <%= form.text_field :email %>
 <br/>
@@ -18,9 +20,12 @@
 <%= form.password_field :password %>
 <br/>
 
-<%= label_tag t('general.password_confirmation') %>
+<%= label_tag t('general.password_confirm') %>
 <%= form.password_field :password_confirmation %>
+</fieldset>
 
+<fieldset>
+	<legend><%= t 'user.roles' %></legend>
 <div class="row">
 	<%= form.label :roles %><br />
   <% for role in RoleType.all %>
@@ -30,5 +35,6 @@
   <%= hidden_field_tag "user[role_type_ids][]", "" %>
   
 </div>
+</fieldset>
 
 <%= form.submit t('user.create') %>	

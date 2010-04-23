@@ -24,6 +24,10 @@ es:
     authenticate_yourself: "Connectarse."
     create_account: "Creer su cuenta"
     logged_out: "Se ha deconnectado con exito"
+  user:
+    create: "Creer el usario"
+    roles: "Seleccione derechos del usuario"
+    infos: "Informaciones del usuario"
   menu:
     events:
       title: "Eventos"

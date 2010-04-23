@@ -8,3 +8,5 @@
 ['admin', 'campus manager', 'intervenant', 'student'].each do |role|
   RoleType.find_or_create_by_name(role)
 end
+
+User.create({:login => '61316', :firstname => "Clement", :lastname => "BEUDOT", :email => "61316@supinfo.com", :password => "toto14", :password_confirmation => "toto14" }) unless User.find_by_login('61316')

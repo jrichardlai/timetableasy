@@ -8,15 +8,24 @@ class ApplicationController < ActionController::Base
 
   before_filter :set_locale
   before_filter :set_current_user
-
   helper_method :locale_accepted
 
   def set_locale
-     #Dev purpose Only
-     logger.debug "* Accept-Language: #{request.env['HTTP_ACCEPT_LANGUAGE']}"
-     #To delete ...
-     I18n.locale = params[:locale] || extract_locale_from_accept_language_header
-     logger.debug "* Locale set to '#{I18n.locale}'"
+    if I18n.locale.nil?
+      session[:locale] = extract_locale_from_accept_language_header
+      logger.debug "* LOCALE IS AUTOMATICALY SET ON '#{I18n.locale}'"
+    end
+    logger.debug "* LOCALE IS '#{I18n.locale}' SESSION IS '#{session[:locale]}'"
+    I18n.locale = session[:locale]
+  end
+  
+  def switch_language
+    if !params[:locale].nil?
+      session[:locale] = params[:locale]
+      I18n.locale = session[:locale]
+      logger.debug "* LOCALE IS MANNUALY SET ON '#{I18n.locale}' SESSION IS '#{session[:locale]}"
+      redirect_back_or_default('/')
+    end
   end
 
   def locale_accepted

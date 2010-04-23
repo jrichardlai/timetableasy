@@ -34,6 +34,10 @@ fr:
     authenticate_yourself: "Se Connecter"
     create_account: "Créer mon compte"
     logged_out: "Vous vous êtes déconnecté avec succès"
+  user:
+    create: "Créer l'utilisateur"
+    roles: "Selectionez les droits de l'utilisateur."
+    infos: "Informations sur l'utilisateur."
   menu:
     events:
       title: "Evenements"

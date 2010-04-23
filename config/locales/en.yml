@@ -33,6 +33,8 @@ en:
     logged_out: "You have been succefully logged out"
   user:
     create: "Create User"
+    roles: "Choose this user's roles"
+    infos: "New user's informations"
   menu:
     events:
       title: "Events"

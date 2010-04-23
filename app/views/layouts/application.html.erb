@@ -79,6 +79,10 @@
 					<ul class="nav">
 						<li><img src="images/user_suit.png" /> <%= t 'general.authentified_user' %> : <%= current_user.login %></li>
 						<li>|</li>
+						<li><%= link_to 'French', :controller => "application", :action => "switch_language", :locale => "fr" %></li>
+						<li><%= link_to 'English', :controller => "application", :action => "switch_language", :locale => "en" %></li>
+						<li><%= link_to 'Spanish', :controller => "application", :action => "switch_language", :locale => "es" %></li>
+						<li>|</li>
 						<li><%= link_to t('login.logout'), '/logout' %></li>			
 					</ul>
 				</div>

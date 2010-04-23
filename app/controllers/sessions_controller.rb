@@ -28,6 +28,7 @@ class SessionsController < ApplicationController
       render :action => 'new'
     end
   end
+  
 
   def destroy
     logout_killing_session!
