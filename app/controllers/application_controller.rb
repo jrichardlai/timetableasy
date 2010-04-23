@@ -24,11 +24,6 @@ class ApplicationController < ActionController::Base
     I18n.locale = session[:locale]
   end
 
-  def current_page_path(options={})
-    url_for( {:controller => self.controller_name, :action => self.action_name}.merge(options) )
-  end
-  helper_method :current_page_path
-
   def locale_accepted
     ['fr', 'en', 'es']
   end
