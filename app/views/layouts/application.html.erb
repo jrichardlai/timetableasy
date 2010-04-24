@@ -2,17 +2,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <title><%= yield :head_title %></title>
-
 		<%= render :partial => 'shared/head' %>
 		<%= yield :head_end %>
-		<%= stylesheet_link_tag 'style' %>
-		<%= stylesheet_link_tag 'typography' %>
-		<%= stylesheet_link_tag 'orange' %>
-		<%= stylesheet_link_tag 'minimal' %>
-		
-		<%= javascript_include_tag 'top_up-min' %>		
-		<%= javascript_include_tag 'superfish' %>
-		<%= javascript_include_tag 'custom' %>		
   </head>
   <body>
 	<div id="wrap">
@@ -26,7 +17,7 @@
 				<li class="">
 					<a class="sf-with-ul" href="#"><%= t 'menu.events.title' %><span class="sf-sub-indicator"> </span></a>
 					<ul style="display: none; visibility: hidden; ">
-						<li class="submenu"><%= link_to_remote t('menu.events.create_event'), {:controller => :events, :action => :new} %></li>
+						<li class="submenu"><%= link_to_remote t('menu.events.create_event'), :url => new_event_path %></li>
 					</ul>
 				</li>
 				<li class="">
@@ -87,7 +78,7 @@
 							<%= link_to image_tag('flags/gb.png'), :locale => :en %>
 						</li>
 						<li>
-							<%= link_to image_tag('flags/es.png'), :locale => :fr %>
+							<%= link_to image_tag('flags/es.png'), :locale => :es %>
 						</li>
 						<li>|</li>
 						<li><%= link_to t('login.logout'), logout_path %></li>			

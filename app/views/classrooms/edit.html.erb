@@ -1,0 +1,24 @@
+<h1>Editing classroom</h1>
+
+<% form_for(@classroom) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :promotion %><br />
+    <%= f.text_field :promotion %>
+  </p>
+  <p>
+    <%= f.label :campus %><br />
+    <%= f.text_field :campus %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @classroom %> |
+<%= link_to 'Back', classrooms_path %>

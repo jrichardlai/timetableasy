@@ -7,9 +7,11 @@ class User < ActiveRecord::Base
 
   has_many :roles
   has_many :role_types, :through => :roles
+  has_many :schooling
   has_many :managements
   has_many :campuses, :source => :campus, :through => :managements
-  belongs_to :classroom
+  has_many :classrooms, :through => :campuses
+  has_one :classroom, :through => :schooling
   has_one :campus, :through => :classroom
 
   validates_presence_of     :login
@@ -63,6 +65,10 @@ class User < ActiveRecord::Base
     has_role?('admin')
   end
 
+  def student?
+    has_role?('student')
+  end
+
   def manager?
     !campuses.empty?
   end
@@ -76,7 +82,10 @@ class User < ActiveRecord::Base
   end
 
   def cumulated_options
-    [:global_event, [:for_user, self], [:whos_speaker, id]]
+    options = [:global_event, [:for_user, self]]
+    options.push([:whos_speaker, id]) if intervenant?
+    options.push([:for_campus, campus], [:for_classroom, classroom]) if student?
+    options.push([:for_campus, campuses], [:for_classroom, classrooms]) if manager?
   end
 
   protected

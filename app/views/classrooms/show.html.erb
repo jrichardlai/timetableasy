@@ -1,0 +1,18 @@
+<p>
+  <b>Name:</b>
+  <%=h @classroom.name %>
+</p>
+
+<p>
+  <b>Promotion:</b>
+  <%=h @classroom.promotion %>
+</p>
+
+<p>
+  <b>Campus:</b>
+  <%=h @classroom.campus %>
+</p>
+
+
+<%= link_to 'Edit', edit_classroom_path(@classroom) %> |
+<%= link_to 'Back', classrooms_path %>
