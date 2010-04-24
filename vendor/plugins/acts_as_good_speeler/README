@@ -1,0 +1,13 @@
+= acts_as_good_speeler
+== Proper fixes for the Rails inflector
+
+For a while now, there have been a number of errors pointed out
+in the Rails inflector.  Usually, the suggestion is to fix it in
+<tt>environment.rb</tt> or make a plugin.  Well, this is that plugin.
+
+Eat that.
+
+=== Usage
+
+This overrides the built-in Inflector class, so you don't need to do
+anything special.

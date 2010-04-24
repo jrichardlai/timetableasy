@@ -63,6 +63,10 @@ class User < ActiveRecord::Base
     has_role?('admin')
   end
 
+  def manager?
+    !campuses.empty?
+  end
+
   def role_names
     @role_names ||= role_types.collect(&:name)
   end

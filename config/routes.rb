@@ -1,8 +1,8 @@
 ActionController::Routing::Routes.draw do |map|
   map.resources :period_types
   map.resources :periods
-  map.resources :cursuses, :singular => :cursus
-  map.resources :campuses, :singular => :campus
+  map.resources :cursuses
+  map.resources :campuses
 
   map.logout '/logout', :controller => 'sessions', :action => 'destroy'
   map.login '/login', :controller => 'sessions', :action => 'new'

@@ -12,10 +12,10 @@
 	<%= f.label :campuses %>
 	<br />
 	<% for campus in Campus.all %>
-	  <%= check_box_tag "campus[campus_ids][]", campus.id, @cursus.campuses.include?(campus), :id => "campus_#{campus.id}" %>
+	  <%= check_box_tag "cursus[campuse_ids][]", campus.id, @cursus.campuses.include?(campus), :id => "campus_#{campus.id}" %>
 	  <%= campus.name %><br />
 	<% end %>
-	<%= hidden_field_tag "campus[campus_type_ids][]", "" %>
+	<%= hidden_field_tag "cursus[campuse_ids][]", "" %>
   <p>
     <%= f.submit 'Create' %>
   </p>
