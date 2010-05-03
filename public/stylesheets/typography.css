@@ -139,6 +139,12 @@ h6{	font-size: 12px;	}
 img{
 	margin: 0;
 	padding: 0;
+	border:0;
+	vertical-align:middle;
+}
+
+img .veralign {
+		vertical-align:middle;
 }
 p.caption-text{
 	background: #333;
@@ -233,6 +239,8 @@ ul.pink li{ background: url(../images/bullet_pink.png) no-repeat left center;	pa
 ul.purple li{ background: url(../images/bullet_purple.png) no-repeat left center;	padding-left: 20px;	}
 ul.red li{ background: url(../images/bullet_red.png) no-repeat left center;	padding-left: 20px;	}
 ul.yellow li{ background: url(../images/bullet_yellow.png) no-repeat left center;	padding-left: 20px;	}
+
+
 
 
 /*	Tables	*/
