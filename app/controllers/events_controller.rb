@@ -66,7 +66,7 @@ class EventsController < ApplicationController
 
     respond_to do |format|
       if @event.save
-        format.html { redirect_to(@event) }
+        format.html { redirect_to(events_path) }
         format.xml  { render :xml => @event, :status => :created, :location => @event }
         format.js
       else
