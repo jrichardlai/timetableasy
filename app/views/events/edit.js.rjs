@@ -1,1 +1,2 @@
 page.replace_html 'event_desc', :partial => 'form'
+page << "$('.date_picker').datepicker({dateFormat:'dd/mm/yy'});"

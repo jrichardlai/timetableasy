@@ -66,7 +66,6 @@ class EventsController < ApplicationController
 
     respond_to do |format|
       if @event.save
-        flash[:notice] = 'Event was successfully created.'
         format.html { redirect_to(@event) }
         format.xml  { render :xml => @event, :status => :created, :location => @event }
         format.js
@@ -85,12 +84,15 @@ class EventsController < ApplicationController
   # PUT /events/1
   # PUT /events/1.xml
   def update
-    @event = Event.find_by_id(params[:event][:id])
+    @event = Event.find_by_id(params[:id])
     @event.attributes = params[:event]
-    @event.save
     render :update do |page|
-      page << "$('#calendar').fullCalendar( 'refetchEvents' )"
-      page << "$('#desc_dialog').dialog('destroy')" 
+      if @event.save
+        page << "$('#calendar').fullCalendar( 'refetchEvents' )"
+        page << "$('#desc_dialog').dialog('destroy')" 
+      else
+        page.alert("Error : #{@event.errors.full_messages}")
+      end
     end
   end
 

@@ -18,14 +18,13 @@ function resizeEvent(event, dayDelta, minuteDelta){
 
 function showEventDetails(event){
     $('#event_desc').html(event.description);
-    $('#edit_event').html("<a href = 'javascript:void(0);' onclick ='editEvent("+event.id+")'>Edit</a>");
-    $('#delete_event').html("<a href = 'javascript:void(0);' onclick ='deleteEvent("+event.id+")'>Delete</a>");
+    $('#edit_event').html("<a href='#' onclick='editEvent("+event.id+")'>Edit</a>");
+    $('#delete_event').html("<a href='#' onclick='deleteEvent("+event.id+")'>Delete</a>");
     $('#desc_dialog').dialog({
-        title: event.name,
+        title: event.title,
         modal: true,
         width: 500,
         close: function(event, ui) { $('#desc_dialog').dialog('destroy') }
-
     });
 }
 

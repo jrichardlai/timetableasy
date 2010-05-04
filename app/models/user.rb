@@ -69,6 +69,10 @@ class User < ActiveRecord::Base
     has_role?('student')
   end
 
+  def intervenant?
+    has_role?('intervenant')
+  end
+
   def manager?
     !campuses.empty?
   end
@@ -86,6 +90,7 @@ class User < ActiveRecord::Base
     options.push([:whos_speaker, id]) if intervenant?
     options.push([:for_campus, campus], [:for_classroom, classroom]) if student?
     options.push([:for_campus, campuses], [:for_classroom, classrooms]) if manager?
+    return options
   end
 
   protected
