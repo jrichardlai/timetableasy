@@ -1,7 +1,7 @@
 /**********************
 * Reset.css 
 **********************/
-html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
 
 /*
  * Fixes
@@ -460,6 +460,85 @@ body{
 		-moz-border-radius: 3px;
 		-webkit-border-radius: 3px;
 	}
+
+form {
+	background: #FFFFFF url(../images/form-shadow.jpg) repeat-x scroll 0 0;
+	border:1px solid OrangeRed;
+  margin:20px auto;
+  padding:20px;
+  width:60%;
+
+  -moz-box-shadow:0 0 1px #444 inset;
+ 	-webkit-box-shadow:0 0 1px #444 inset;
+  box-shadow:0 0 1px #444 inset;	
+}
+
+.submit {
+	 	border: none;
+	  background: #FFFFFF url(../images/form-shadow.jpg) repeat-x scroll 0 0;
+	  padding: 2px 8px;
+		-moz-border-radius:12px;
+	  -webkit-border-radius:12px;
+	  border-radius:12px;
+	}
+
+input:hover,
+input:focus{
+    /* CSS3 glow effect */
+    -moz-box-shadow:0 0 8px orange;
+    -webkit-box-shadow:0 0 8px orange;
+    box-shadow:0 0 8px orange;
+}
+
+.label{
+    float:left;
+    padding:0 20px 0 0;
+    text-align:right;
+    width:35%;
+}
+
+form, .fieldset{
+    -moz-border-radius:12px;
+    -webkit-border-radius:12px;
+    border-radius:12px;
+}
+
+
+.formRow{
+    height:29px;
+    padding:5px;
+    position:relative;
+}
+
+
+label{
+    font-family:Century Gothic,Myriad Pro,Arial,Helvetica,sans-serif;
+		color:OrangeRed;
+    font-size:14px;
+		text-transform:bold;
+    letter-spacing:1px;
+    line-height:35px; /* Neat line height trick */
+}
+
+
+.field{
+    float:left;
+}
+
+.field input{
+    border:1px solid OrangeRed;
+    font-family:Arial,Helvetica,sans-serif;
+    font-size:12px;
+    padding:4px 5px;
+    outline:none;
+}
+
+.fieldset {
+	border:1px solid white;
+  margin:10px auto;
+  padding:10px;
+}
+
 	
 #boxes{
 	clear: both;
@@ -482,15 +561,21 @@ body{
 	padding: 10px 20px;
 	width: 860px;
 }
-	#copyright{		float: left	}
+
+#copyright{		float: left	}
 	
-	#footer .nav{
+#footer .nav{
 		float: right;
 		margin: 0;
 	}
-		#footer .nav li{
+
+#footer .nav li{
 			background: none;
 			float: left;
 			margin-left: 15px;
 			padding: 0;
+}
+
+img .veralign {
+	vertical-align: middle;
 }
