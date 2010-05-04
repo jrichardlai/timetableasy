@@ -66,7 +66,10 @@ class EventsController < ApplicationController
 
     respond_to do |format|
       if @event.save
-        format.html { redirect_to(events_path) }
+        format.html do
+          flash[:notice] = 'Event created'
+          redirect_to(events_path)
+        end
         format.xml  { render :xml => @event, :status => :created, :location => @event }
         format.js
       else
