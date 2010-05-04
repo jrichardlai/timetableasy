@@ -1,8 +1,12 @@
+<script type="text/javascript" charset="utf-8">
+  $(document).ready(function(){
+		$('.date_picker').datepicker({dateFormat:'dd/mm/yy'});	
+	});
+</script>
 <h1>New event</h1>
 
 <% form_for(@event) do |f| %>
-  <%= f.error_messages %>
-
+	<%= render :partial => f %>
   <p>
     <%= f.submit 'Create' %>
   </p>

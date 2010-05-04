@@ -1,4 +1,4 @@
-page.replace_html 'create_event', :partial => 'form'
+page.replace_html 'create_event', :partial => 'remote_form'
 page << "
 $('#create_event_dialog').dialog({
         title: 'New Event',

@@ -16,6 +16,9 @@
 				<li><%= link_to t('general.home'), root_path %></li>
 				<li class="">
 					<%= link_to t('menu.events.title'), events_path %>
+					<ul style="display: none; visibility: hidden; ">
+						<li class="submenu"><%= link_to t('menu.events.create_event'), new_event_path %></li>
+					</ul>
 				</li>
 				<li class="">
 					<a class="sf-with-ul" href="#"><%= t 'menu.users.title' %><span class="sf-sub-indicator"> </span></a>
