@@ -12,9 +12,9 @@ class Ability
       can :manage, Campus do |campus|
         campus && campus.managers.include?(user)
       end
-      # can :manage, Classroom do |classroom|
-      #   classroom && user.campuses.include?(classroom.campus)
-      # end
+      can :manage, Classroom do |classroom|
+        classroom && user.campuses.include?(classroom.campus)
+      end
       can :read, :all
     else
       can :read, :all

@@ -10,6 +10,7 @@ es:
     mail: "Correo elect."
     month: "Mes"
     week: "Semana"
+    to: hasta
     day: "día"
     mail_confirm: "Rep. Correo electrónico"
     password: "Contraseña"

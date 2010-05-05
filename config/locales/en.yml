@@ -7,6 +7,7 @@ en:
     application_caption: "The Easy LightWeight Calendar."
     lastname: "Last Name"
     firstname: "First Name"
+    to: 'to'
     month: "Month"
     week: "Week"
     day: "Day"
@@ -24,6 +25,7 @@ en:
     city: "City"
     country: "Country"
     timezone: "Time Zone"
+    event_for_academical: "Event for courses"
   login:
     login: "Login"
     logout: "Logout"
@@ -41,6 +43,8 @@ en:
       create_event: "Create an event"
     gestion:
       title: "Management"
+      classroom:
+        title: "Classroom"
       campus:
         title: "Campuses"
       cursus:

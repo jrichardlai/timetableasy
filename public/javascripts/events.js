@@ -44,3 +44,11 @@ function deleteEvent(event_id){
         url: "/events/destroy/" + event_id
     });  
 }
+
+$(document).ready(function(){
+	$('#event_event_scope_type').change(function(){
+		jQuery.get({
+			
+		})
+	});
+});

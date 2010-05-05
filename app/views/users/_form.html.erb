@@ -57,7 +57,7 @@
 
 <% if can? :assign_roles, current_user %>
 
-<h2><%= image_tag("roles.png", :class => 'veralign') %> <%= t 'user.roles' %></h2>
+<h2><%= image_tag("roles.png", :class => 'valign') %> <%= t 'user.roles' %></h2>
 <div class="fieldset">
 	<div class="formRow">
 		<div class="label">
@@ -65,7 +65,7 @@
 		</div>
 		<div class="field">
 			<% for role in RoleType.all %>
-			<%= check_box_tag "user[role_type_ids][]", role.id, @user.roles.include?(role), :id => "role_#{role.id}" %>
+			<%= check_box_tag "user[role_type_ids][]", role.id, @user.role_types.include?(role), :id => "role_#{role.name.gsub(/ /, '_')}" %>
 			<%= role.name %><br />
 			<% end %>
 		</div>
@@ -73,6 +73,20 @@
 	</div>
 </div>
 <% end %>
+
+<div id="is_manager" style="display:none">
+	Campus managed:
+	<% Campus.all.each do |campus| %>
+		<%= check_box_tag "user[managed_campus_ids][]", campus.id, @user.managed_campuses.include?(campus), :id => "campus_#{campus.id}" %>
+		<%= campus.name %>
+	<% end %>
+</div>
+
+<div id="is_student" style="display:none">
+	Class :
+	<%= collection_select :user, :classroom, Classroom.all, :id, :name_with_campus %>
+</div>
+
 <br /><br />
 <div class="fieldset">
 	<div class="formRow">

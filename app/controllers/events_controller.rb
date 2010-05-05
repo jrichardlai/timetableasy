@@ -49,6 +49,13 @@ class EventsController < ApplicationController
     end
   end
 
+  def event_types
+    @klass = params[:type].classify if params[:type]
+    render :update do |page|
+      page.replace 'event_scope_id_select', collection_select(:event_scope_id, @klass.class.all, :id, :name) 
+    end
+  end
+
   # GET /events/1/edit
   def edit
     @event = Event.find(params[:id])
