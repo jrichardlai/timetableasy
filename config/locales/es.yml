@@ -5,6 +5,7 @@ es:
     home: "Inicio"
     application_name: "TimeTableAsy"
     application_caption: "El Ultra Light Calendario."
+    visualisation: "Visualisacion del"
     lastname: "Nombre"
     firstname: "Appelido"
     mail: "Correo elect."

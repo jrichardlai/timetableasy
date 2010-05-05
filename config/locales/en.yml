@@ -5,6 +5,7 @@ en:
     home: "Home"
     application_name: "TimeTableAsy"
     application_caption: "The Easy LightWeight Calendar."
+    visualisation: "Look of"
     lastname: "Last Name"
     firstname: "First Name"
     to: 'to'

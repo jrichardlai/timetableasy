@@ -5,3 +5,11 @@
     border-color: green;     /* border color */
     color: yellow;           /* text color */
     }
+
+.university,
+.fc-agenda .university .fc-event-time,
+.university a {
+	background-color: orange; /* background color */
+	border-color: orange;     /* border color */
+	color: black;           /* text color */
+}

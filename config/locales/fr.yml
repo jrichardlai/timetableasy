@@ -8,6 +8,7 @@ fr:
     home: "Accueil"
     application_name: "TimeTableAsy"
     application_caption: "Le Calendrier Ultra Légé."
+    visualisation: "Visualisation du"
     lastname: "Nom"
     month: "Mois"
     week: "Semaine"

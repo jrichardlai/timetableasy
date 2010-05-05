@@ -2,34 +2,97 @@
 *	Show (campuses, cursuses)
 */
 
+table,td
 {
-	border: 0;
-	margin: 0;
-	padding: 0;
+	border               : 1px solid #CCC;
+	border-collapse      : collapse;
+  font                 : small/1.5 "Tahoma", "Bitstream Vera Sans", Verdana, Helvetica, sans-serif;
+}
+table
+{
+	border                :none;
+	border                :1px solid #CCC;
+}
+thead th,
+tbody th
+{
+	background            : #FFF url(../images/styles/th_bck.gif) repeat-x;
+  color                 : #666;  
+	padding               : 5px 10px;
+  border-left           : 1px solid #CCC;
+}
+tbody th
+{
+  background            : #fafafb;
+  border-top            : 1px solid #CCC;
+  text-align            : left;
+  font-weight           : normal;
+}
+tbody tr td
+{
+	padding               : 5px 10px;
+  color                 : #666;
+}
+tbody tr:hover
+{
+  background            : #FFF url(../images/styles/tr_bck.gif) repeat;
 }
 
-table 
+tbody tr:hover td
 {
-	text-align: left;
-	border-spacing: 0px;
-	border: 1px solid #aeb3b6;
-	border-collapse: collapse;
-
+  color                 : #454545;
 }
-
-
-table a, table, tbody, tfoot, tr, th, td 
+tfoot td,
+tfoot th
+{
+  border-left           : none;
+  border-top            : 1px solid #CCC;
+	padding               : 4px;
+  background            : #FFF url(../images/styles/foot_bck.gif) repeat;
+  color                 : #666;
+}
+caption
+{
+	text-align            : left;
+	font-size             : 120%;
+	padding               : 10px 0;
+	color                 : #666;
+}
+table a:link
+{
+	color                 : #666;
+	text-decoration				:none;
+}
+table a:visited
+{
+	color                 : #666;
+		text-decoration				:none;
+}
+table a:hover
+{
+	color                 : #003366;
+	text-decoration       : none;
+}
+table a:active
+{
+	color                 : #003366;
+		text-decoration				:none;
+}
+table.fab_table a, table.fab_table table, table.fab_table tbody, table.fab_table tfoot, table.fab_table tr, table.fab_table th, table.fab_table  td
 {
    font-family: Arial, Helvetica, sans-serif;
 	line-height: 2.0em;
 	font-size: 13px;
 	color: #55595c;
+	text-align:left;
+	text-decoration: none;
+	
 }
-tbody td{
+table.fab_table tbody td{
 	line-height: 2.5em;
 }
 
-table caption
+table.fab_table table caption
 {
 	padding: .4em 0 ;
 	font-size: 240%;
@@ -37,7 +100,7 @@ table caption
 	color: #FB7E00;
 }
 
-table a
+table.fab_table table a
 {
 	display: block;
 	text-decoration: none;
@@ -46,50 +109,50 @@ table a
 	
 }
 
-table a:hover, table a:focus
+table.fab_table table a:hover, table.fab_table table a:focus
 {
 text-decoration: underline;
 }
 
-table th a
+table.fab_table table th a
 {
 	color: #FF8E53;
 	text-align: right;
 }
-table .odd th a,table .odd td a,table .odd td{
+table.fab_table table .odd th a, .fab_table table .odd td a, .fab_table table .odd td{
 	color: #666;
 	padding-right: 1.0 em;
 }
 
-table th a:hover, table th a:focus, tbody tr:hover th
+table.fab_table table th a:hover, .fab_table table th a:focus, .fab_table tbody tr:hover th
 {   
    background-color: #FFCC99;
 	color: #fff !important;
 }
-table .odd th,table .odd td{
+table.fab_table table .odd th, table.fab_table table .odd td{
 	background-color: #DDDDDD;
 }
 
-thead th
+table.fab_table thead th
 {
-	background-image: url(verlauf_schwarz.gif);
+	background-image: url(../images/verlauf_schwarz.gif);
 	text-transform: uppercase;
 	font-weight: normal;
 	letter-spacing: 1px;
 	color: #fff;
 	
 }
-tfoot{
-	background-image: url(verlauf_schwarz.gif);
+table.fab_table tfoot{
+	background-image: url(../images/verlauf_schwarz.gif);
 	border-top: 1px solid #fff;
 	
 	
 }
-tfoot th,tfoot td{
+table.fab_table tfoot th, .fab_table tfoot td{
 	color: #fff;
 }
 
-tbody th
+table.fab_table tbody th
 {
    padding-right: 1.0em;
 	color: #25c1e2;
@@ -98,7 +161,7 @@ tbody th
 	border-bottom: 1px dotted #aeb3b6;
 }
 
-td
+table.fab_table td
 {
    color: #FF8E1C;
 	border-bottom: 1px dotted #aeb3b6;
@@ -106,17 +169,8 @@ td
 	
 }
 
-tbody tr.odd
+table.fab_table tbody tr.odd
 {
 	border-bottom: 1px dotted #aeb3b6;
 }
 
-tbody tr:hover td
-{
-  background-color: #FFCC99;
-}
-
-tbody tr:hover td,tbody tr:hover th, tbody tr:hover a
-{
-	color: #fff !important;
-}

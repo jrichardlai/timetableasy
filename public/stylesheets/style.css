@@ -509,6 +509,7 @@ form .portlet-header h4 {
 
 form .portlet-content { padding: 15px; position: relative; }
 form .portlet-field { margin-bottom: 1.5em; }
+form .portlet-field a { text-decoration:none; }
 form .portlet-field label, form .portlet-field span.label { margin-right: 10px; padding-right: 10px; width: 125px; display: block; float: left;  font-weight: bold; text-align: right; position: relative; }
 form .portlet-field input {
 	padding: 4px;
@@ -516,6 +517,10 @@ form .portlet-field input {
 	-moz-border-radius: 3px;
 	-webkit-border-radius: 3px;
 }
+form .portlet-field span.infos {
+	padding: 4px;
+}
+
 form .controlset div label {font-size: 11px; font-weight: normal !important; }
 form .field input {
 	padding: 4px;
@@ -637,4 +642,89 @@ input:focus{
 
 img .veralign {
 	vertical-align: middle;
+}
+
+.light_button {
+	-moz-background-clip:border;
+	-moz-background-inline-policy:continuous;
+	-moz-background-origin:padding;
+	background-attachment:scroll;
+	background-color:transparent;
+	background-image:url(../images/styles/button_light.png);
+	background-position:0 0;
+	background-repeat:repeat-x;
+	border-bottom-color:#CCCCCC;
+	border-bottom-style:solid;
+	border-bottom-width:1px;
+	border-top-color:#EEEEEE;
+	border-top-style:solid;
+	border-top-width:1px;
+	color:#4F4F4F;
+	text-shadow:1px 1px 0 #FFFFFF;
+}
+
+.light_button:hover{ color:#000; }
+
+.dark_button {
+-moz-background-clip:border;
+-moz-background-inline-policy:continuous;
+-moz-background-origin:padding;
+background-attachment:scroll;
+background-color:transparent;
+background-image:url(../images/styles/button_dark.png);
+background-position:0 0;
+background-repeat:repeat-x;
+border-bottom-color:#181818;
+border-bottom-style:solid;
+border-bottom-width:1px;
+border-top-color:#333333;
+border-top-style:solid;
+border-top-width:1px;
+color:#EEEEEE;
+text-shadow:1px 1px 0 #000000;
+}
+
+.light_button, .dark_button {
+-moz-border-radius-bottomleft:5px;
+-moz-border-radius-bottomright:5px;
+-moz-border-radius-topleft:5px;
+-moz-border-radius-topright:5px;
+}
+
+.light_button, .dark_button {
+display:inline-block;
+font-weight:normal;
+height:20px;
+margin-bottom:0;
+margin-left:0;
+margin-right:0;
+margin-top:10px;
+padding-bottom:6px;
+padding-left:20px;
+padding-right:20px;
+padding-top:4px;
+}
+
+div.left {
+	float:left;
+	width:45%;
+}
+
+div p.header {
+	font-family: Verdana, Helvetica, sans-serif;
+	text-decoration:underline;
+	font-variant:small-caps;
+	text-align:center;
+	color:#333333;
+	font-size:16px;
+	line-height:40px;
+	margin-bottom:0;
+	margin-left:0;
+	margin-right:0;
+	margin-top:0;
+}
+
+div.right {
+	float:right;
+	width:45%;
 }
