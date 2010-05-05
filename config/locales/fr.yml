@@ -17,6 +17,7 @@ fr:
     mail_confirm: "Verif. Email"
     password: "Mot de Pass"
     password_confirm: "Verif. Pass"
+    to: au
     nickname: "Login"
     welcome: "Bienvenue sur"
     authentified_user: "Connecté en tant que"
@@ -27,6 +28,10 @@ fr:
     city: "Ville"
     country: "Pays"
     timezone: "Zone de Temps"
+    event_for_academical: "Evenement pour une matiere"
+    campuses: "Campus"
+  periods:
+    splitting: "Couper le cursus en différentes périodes"
     cursuses: "Cursus"
     campuses: "Campus"
   login:
@@ -46,6 +51,8 @@ fr:
       create_event: "Créer un Evenement"
     gestion:
       title: "Gestion"
+      classroom:
+        title: "Classe"
       campus:
         title: "Campus"
       cursus:

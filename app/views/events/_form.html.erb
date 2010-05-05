@@ -8,21 +8,42 @@
   <br/>
   <%= form.text_area :description, :rows => 4, :cols => 30 %>
 </p>
-<%- if can? current_user, :manage_courses %>
+<%- if can? current_user, :manage, Classroom  %>
+	<%= t('general.event_for_academical') %>
 	<input type="checkbox" id="checkbox_academical" />
+<%- end -%>
+
+<%- if can? current_user, :manage, Classroom  %>
+	<p>
+		<%= form.label :event_for %>
+		<%= form.select :event_scope_type, ['campus', 'cursus', 'classroom'], {:include_blank => true} %>
+		<span id="event_scope_id_select">
+		<% if @event.event_scope_type %>
+			<%= form.collection_select :event_scope_id, @event_scope.class.all, :id, :name %>
+		<% end %>
+		</span>
+	</p>
+	<p>
+		<%= form.label :speaker %>
+		<%= form.collection_select :speaker_id, User.intervenants, :id, :login, {:include_blank => true} %>
+	</p>
 <%- end -%>
 <p>
 	<%= form.label :event_type %><br/>
-	<%= form.collection_select :event_type_id, EventType.all, :id, :name %>
+	<%= form.collection_select :event_type_id, EventType.all, :id, :name, {:include_blank => true} %>
 </p>
 <p>
   <%= form.text_field :start_day, :class => 'date_picker' %>
   <%= form.text_field :start_time %>
-	<%= t('to') %>
+	<%= t('general.to') %>
   <%= form.text_field :end_time %>
   <%= form.text_field :end_day, :class => 'date_picker' %>
 </p>
 
+<%- if can? current_user, :manage, Cursus  %>
+	<%= form.label :force_display %>
+	<%= form.check_box :force_display, :default => false %>
+<%- end -%>
 <%- if current_user.admin? -%>
 <p>
 	<%= form.label :global_event %>

@@ -19,6 +19,9 @@ class Event < ActiveRecord::Base
   
   validates_presence_of :begin_at
   validates_presence_of :end_at
+
+  validate :speaker_not_busy?
+  validate :room_not_used?
   validate :valid_dates?
   
   before_validation :add_to_current_user_events, :unless => :has_scope?
@@ -62,11 +65,6 @@ class Event < ActiveRecord::Base
     self.event_scope = User.current_user if User.current_user
   end
 
-  def valid_dates?
-    return false unless self.begin_at and self.end_at
-    errors.add_to_base("anterior_dates") unless self.begin_at < self.end_at
-  end
-
   def to_fullcalendar
     {:id => id, :title => name, :description => description, :start => begin_at.iso8601, :end => end_at.iso8601, :className => (global_event ? 'university' : event_scope_type.downcase)}
   end
@@ -88,6 +86,21 @@ class Event < ActiveRecord::Base
 
   def self.to_fullcalendar(from, to, only_mandatory = false, record = nil)
     self.cumulated(from, to, mandatory, record).collect(&:to_fullcalendar).to_json
+  end
+
+  private
+
+  def valid_dates?
+    return false unless self.begin_at and self.end_at
+    errors.add_to_base("anterior_dates") unless self.begin_at < self.end_at
+  end
+
+  def speaker_not_busy?
+    
+  end
+
+  def room_not_used?
+    
   end
 
 end
