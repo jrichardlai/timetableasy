@@ -4,6 +4,7 @@ class Event < ActiveRecord::Base
 
   named_scope :occurs_between, lambda { |from, to| { :conditions => ["begin_at >= ? and end_at <= ?", Time.at(from.to_i), Time.at(to.to_i)] } if from and to }
   named_scope :mandatory, :conditions => {:force_display => true}
+  belongs_to  :event_type
 
   EVENT_SCOPES = ['campus', 'cursus', 'promotion', 'classroom', 'user']
 

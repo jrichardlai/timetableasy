@@ -8,6 +8,13 @@
   <br/>
   <%= form.text_area :description, :rows => 4, :cols => 30 %>
 </p>
+<%- if can? current_user, :manage_courses %>
+	<input type="checkbox" id="checkbox_academical" />
+<%- end -%>
+<p>
+	<%= form.label :event_type %><br/>
+	<%= form.collection_select :event_type_id, EventType.all, :id, :name %>
+</p>
 <p>
   <%= form.text_field :start_day, :class => 'date_picker' %>
   <%= form.text_field :start_time %>

@@ -1,0 +1,7 @@
+.user,
+.fc-agenda .user .fc-event-time,
+.user a {
+    background-color: green; /* background color */
+    border-color: green;     /* border color */
+    color: yellow;           /* text color */
+    }

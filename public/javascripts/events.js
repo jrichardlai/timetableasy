@@ -17,7 +17,8 @@ function resizeEvent(event, dayDelta, minuteDelta){
 }
 
 function showEventDetails(event){
-    $('#event_desc').html(event.description);
+		$('#event_desc').load('/events/'+ event.id);
+    // $('#event_desc').html();
     $('#edit_event').html("<a href='#' onclick='editEvent("+event.id+")'>Edit</a>");
     $('#delete_event').html("<a href='#' onclick='deleteEvent("+event.id+")'>Delete</a>");
     $('#desc_dialog').dialog({

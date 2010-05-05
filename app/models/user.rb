@@ -30,7 +30,7 @@ class User < ActiveRecord::Base
   validates_uniqueness_of   :email
   validates_format_of       :email,    :with => Authentication.email_regex, :message => Authentication.bad_email_message
 
-  has_many  :events, :as => :event_scope
+  has_many  :events, :as => :event_scope, :dependent => :destroy
 
   # HACK HACK HACK -- how to do attr_accessible from here?
   # prevents a user from submitting a crafted form that bypasses activation
@@ -88,8 +88,8 @@ class User < ActiveRecord::Base
   def cumulated_options
     options = [:global_event, [:for_user, self]]
     options.push([:whos_speaker, id]) if intervenant?
-    options.push([:for_campus, campus], [:for_classroom, classroom]) if student?
-    options.push([:for_campus, campuses], [:for_classroom, classrooms]) if manager?
+    # options.push([:for_campus, campus], [:for_classroom, classroom]) if student?
+    # options.push([:for_campus, campuses], [:for_classroom, classrooms]) if manager?
     return options
   end
 

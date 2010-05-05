@@ -2,8 +2,10 @@ class PeriodsController < ApplicationController
   # GET /periods
   # GET /periods.xml
   before_filter :login_required
+  before_filter :set_cursus
+
   def index
-    @periods = Period.all
+    @periods = @cursus.periods.all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -25,7 +27,7 @@ class PeriodsController < ApplicationController
   # GET /periods/new
   # GET /periods/new.xml
   def new
-    @period = Period.new
+    @period = @cursus.periods.build
 
     respond_to do |format|
       format.html # new.html.erb
@@ -41,7 +43,7 @@ class PeriodsController < ApplicationController
   # POST /periods
   # POST /periods.xml
   def create
-    @period = Period.new(params[:period])
+    @period = @cursus.periods.build(params[:period])
 
     respond_to do |format|
       if @period.save
@@ -58,7 +60,7 @@ class PeriodsController < ApplicationController
   # PUT /periods/1
   # PUT /periods/1.xml
   def update
-    @period = Period.find(params[:id])
+    @period = @cursus.periods.find(params[:id])
 
     respond_to do |format|
       if @period.update_attributes(params[:period])
@@ -83,4 +85,9 @@ class PeriodsController < ApplicationController
       format.xml  { head :ok }
     end
   end
+
+  def set_cursus
+    @cursus = Cursus.find(params[:cursus_id])
+  end
+
 end
