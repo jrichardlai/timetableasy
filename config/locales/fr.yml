@@ -27,6 +27,7 @@ fr:
     city: "Ville"
     country: "Pays"
     timezone: "Zone de Temps"
+    campuses: "Campus"
   periods:
     splitting: "Couper le cursus en différentes périodes"
     cursuses: "Cursus"
