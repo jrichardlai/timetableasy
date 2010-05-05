@@ -29,6 +29,8 @@ fr:
     timezone: "Zone de Temps"
   periods:
     splitting: "Couper le cursus en différentes périodes"
+    cursuses: "Cursus"
+    campuses: "Campus"
   login:
     login: "Se Connecter"
     logout: "Se Deconnecter"

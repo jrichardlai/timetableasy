@@ -24,6 +24,8 @@ en:
     city: "City"
     country: "Country"
     timezone: "Time Zone"
+    campuses: "Campus"
+    cursuses: "Cursus"
   login:
     login: "Login"
     logout: "Logout"

@@ -5,5 +5,5 @@ class Campus < ActiveRecord::Base
   has_many :managers, :source => :user, :through => :managements
   # TODO
   has_many :classrooms
-  # has_many :rooms
+  has_many :rooms
 end

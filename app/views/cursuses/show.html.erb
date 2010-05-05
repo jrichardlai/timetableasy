@@ -8,6 +8,16 @@
 	<td><%= t "general.description" %></td>
 	<td><%= @cursus.description %></td>
   </tr>
+	<% if @cursus.campuses.count > 0 %>
+	<tr>
+		<td><%= t "general.campuses" %></td>
+		<td>
+			<% @cursus.campuses.each do |campus| %>
+			<%= campus.name %>
+			<% end %>
+		</td>
+	</tr>
+	<% end %>
 </table>
 
 <br />
