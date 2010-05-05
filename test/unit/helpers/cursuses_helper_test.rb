@@ -1,4 +1,4 @@
 require 'test_helper'
 
-class CursusesHelperTest < ActionView::TestCase
+class CursusHelperTest < ActionView::TestCase
 end
