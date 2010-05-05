@@ -1,2 +1,2 @@
 page.replace_html 'event_desc', :partial => 'remote_form'
-page << "$('.date_picker').datepicker({dateFormat:'dd/mm/yy'});"
+page << render(:partial => 'dialog')

@@ -10,7 +10,7 @@ class Event < ActiveRecord::Base
 
   # Define named scopes for event scopes
   EVENT_SCOPES.each do |scope|
-    named_scope "for_#{scope}".to_sym, lambda {|r| {:conditions => {:event_scope_type => scope.classify.to_s, :event_scope_id => (r.is_a?(Array) ? r.collect(&:id) : r.id)} }}
+    named_scope "for_#{scope}".to_sym, lambda {|r| {:conditions => {:event_scope_type => scope.camelize.to_s, :event_scope_id => (r.is_a?(Array) ? r.collect(&:id) : r.id)} }}
   end
 
   named_scope :whos_speaker, lambda {|user| {:conditions => {:speaker_id => user.id}}}
@@ -58,7 +58,7 @@ class Event < ActiveRecord::Base
   end
 
   def has_scope?
-    global_event? or event_scope
+    global_event? or event_scope_id
   end
   
   def add_to_current_user_events

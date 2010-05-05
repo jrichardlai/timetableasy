@@ -16,10 +16,10 @@
 <%- if can? current_user, :manage, Classroom  %>
 	<p>
 		<%= form.label :event_for %>
-		<%= form.select :event_scope_type, ['campus', 'cursus', 'classroom'], {:include_blank => true} %>
+		<%= form.select :event_scope_type, ['Campus', 'Cursus', 'Classroom'], {:include_blank => true} %>
 		<span id="event_scope_id_select">
-		<% if @event.event_scope_type %>
-			<%= form.collection_select :event_scope_id, @event_scope.class.all, :id, :name %>
+		<% if @event.event_scope_type and @event.event_scope_type != 'User' %>
+			<%= form.collection_select :event_scope_id, Kernel.const_get(@event.event_scope_type).all, :id, :name %>
 		<% end %>
 		</span>
 	</p>
@@ -34,9 +34,9 @@
 </p>
 <p>
   <%= form.text_field :start_day, :class => 'date_picker' %>
-  <%= form.text_field :start_time %>
+  <%= form.text_field :start_time, :class => 'time_picker' %>
 	<%= t('general.to') %>
-  <%= form.text_field :end_time %>
+  <%= form.text_field :end_time, :class => 'time_picker' %>
   <%= form.text_field :end_day, :class => 'date_picker' %>
 </p>
 

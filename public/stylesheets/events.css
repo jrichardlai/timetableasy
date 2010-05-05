@@ -1,15 +1,31 @@
 .user,
 .fc-agenda .user .fc-event-time,
 .user a {
-    background-color: green; /* background color */
-    border-color: green;     /* border color */
-    color: yellow;           /* text color */
-    }
+  background-color: green; /* background color */
+  border-color: green;     /* border color */
+  color: white;           /* text color */
+}
 
 .university,
 .fc-agenda .university .fc-event-time,
 .university a {
 	background-color: orange; /* background color */
 	border-color: orange;     /* border color */
-	color: black;           /* text color */
+	color: white;           /* text color */
+}
+
+.classroom,
+.fc-agenda .classroom .fc-event-time,
+.classroom a {
+	background-color: red; /* background color */
+	border-color: red;     /* border color */
+	color: white;           /* text color */
+}
+
+.cursus,
+.fc-agenda .cursus .fc-event-time,
+.cursus a {
+	background-color: purple; /* background color */
+	border-color: purple;     /* border color */
+	color: white;           /* text color */
 }

@@ -93,9 +93,13 @@ class User < ActiveRecord::Base
 
   def cumulated_options
     options = [:global_event, [:for_user, self]]
-    options.push([:whos_speaker, id]) if intervenant?
-    # options.push([:for_campus, campus], [:for_classroom, classroom]) if student?
-    # options.push([:for_campus, managed_campuses], [:for_classroom, classrooms]) if manager?
+    if admin?
+      options.push([:for_campus, Campus.all], [:for_classroom, Classroom.all], [:for_cursus, Cursus.all])
+    else
+      options.push([:whos_speaker, id]) if intervenant?
+      options.push([:for_campus, campus], [:for_classroom, classroom]) if student?
+      options.push([:for_campus, managed_campuses], [:for_classroom, classrooms]) if manager?
+    end
     return options
   end
 

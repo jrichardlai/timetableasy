@@ -9,5 +9,5 @@ $('#create_event_dialog').dialog({
           #{"$('#calendar').fullCalendar('removeEvents', '#{@dom_id}')" if @dom_id}
         }
     });
-$('.date_picker').datepicker({dateFormat:'dd/mm/yy'});
 "
+page << render(:partial => 'dialog')
