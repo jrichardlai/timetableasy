@@ -9,7 +9,7 @@ class RoomsController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
-      format.xml  { render :xml => @room }
+      format.xml  { render :xml => @rooms }
     end
   end
 
