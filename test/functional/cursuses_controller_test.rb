@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class CursusesControllerTest < ActionController::TestCase
+class CursusControllerTest < ActionController::TestCase
   test "should get index" do
     get :index
     assert_response :success
@@ -13,7 +13,7 @@ class CursusesControllerTest < ActionController::TestCase
   end
 
   test "should create cursuses" do
-    assert_difference('Cursuses.count') do
+    assert_difference('Cursus.count') do
       post :create, :cursuses => { }
     end
 
@@ -36,7 +36,7 @@ class CursusesControllerTest < ActionController::TestCase
   end
 
   test "should destroy cursuses" do
-    assert_difference('Cursuses.count', -1) do
+    assert_difference('Cursus.count', -1) do
       delete :destroy, :id => cursuses(:one).to_param
     end
 

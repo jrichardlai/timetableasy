@@ -14,8 +14,11 @@ class CampusesController < ApplicationController
   # GET /campuses/1
   # GET /campuses/1.xml
   def show
+    
     @campus = Campus.find(params[:id])
-
+    
+    @rooms = @campus.rooms.all
+    
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @campus }

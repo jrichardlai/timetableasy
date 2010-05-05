@@ -11,7 +11,7 @@
   <tr>
     <td><%=h classroom.name %></td>
     <td><%=h classroom.promotion %></td>
-    <td><%=h classroom.campus %></td>
+    <td><%=h classroom.campus.name %></td>
     <td><%= link_to 'Show', classroom %></td>
     <td><%= link_to 'Edit', edit_classroom_path(classroom) %></td>
     <td><%= link_to 'Destroy', classroom, :confirm => 'Are you sure?', :method => :delete %></td>

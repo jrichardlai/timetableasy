@@ -1,15 +1,17 @@
 <h1>Listing campuses</h1>
 
+<!-- #icon :information, "Information icon"-->
+
 <table>
   <tr>
   </tr>
 
 <% @campuses.each do |campus| %>
-  <tr>
-	<td><%= link_to campus.name, campus_path(campus) %></td>
-	<td><%= link_to 'Edit', edit_campus_path(campus) %></td>
-	<td><%= link_to 'Destroy', campus_path(campus), :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
+	<tr class="<%= cycle("", "odd") -%>">
+		<td><%= link_to campus.name, campus_path(campus) %></td>
+		<td><%= link_to 'Edit', edit_campus_path(campus) %></td>
+		<td><%= link_to 'Destroy', campus_path(campus), :confirm => 'Are you sure?', :method => :delete %></td>
+  	</tr>
 <% end %>
 </table>
 

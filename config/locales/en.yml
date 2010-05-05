@@ -7,6 +7,7 @@ en:
     application_caption: "The Easy LightWeight Calendar."
     lastname: "Last Name"
     firstname: "First Name"
+    to: 'to'
     month: "Month"
     week: "Week"
     day: "Day"
@@ -24,6 +25,9 @@ en:
     city: "City"
     country: "Country"
     timezone: "Time Zone"
+    event_for_academical: "Event for courses"
+    campuses: "Campus"
+    cursuses: "Cursus"
   login:
     login: "Login"
     logout: "Logout"
@@ -31,6 +35,8 @@ en:
     authenticate_yourself: "Login"
     create_account: "Create my account"
     logged_out: "You have been succefully logged out"
+  periods:
+    splitting: "Split cursus into periods"
   user:
     create: "Create User"
     roles: "Choose this user's roles"
@@ -41,6 +47,8 @@ en:
       create_event: "Create an event"
     gestion:
       title: "Management"
+      classroom:
+        title: "Classroom"
       campus:
         title: "Campuses"
       cursus:

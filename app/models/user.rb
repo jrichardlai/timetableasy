@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
   has_many :role_types, :through => :roles
   has_many :schooling
   has_many :managements
-  has_many :campuses, :source => :campus, :through => :managements
+  has_many :managed_campuses, :source => :campus, :through => :managements
   has_many :classrooms, :through => :campuses
   has_one :classroom, :through => :schooling
   has_one :campus, :through => :classroom
@@ -30,12 +30,14 @@ class User < ActiveRecord::Base
   validates_uniqueness_of   :email
   validates_format_of       :email,    :with => Authentication.email_regex, :message => Authentication.bad_email_message
 
+  validate                  :should_has_classroom, :if => :student?
+
   has_many  :events, :as => :event_scope, :dependent => :destroy
 
   # HACK HACK HACK -- how to do attr_accessible from here?
   # prevents a user from submitting a crafted form that bypasses activation
   # anything else you want your user to change should be added here.
-  attr_accessible :login, :email, :name, :password, :password_confirmation, :role_types, :role_type_ids
+  attr_accessible :login, :email, :lastname, :firstname, :password, :password_confirmation, :role_types, :role_type_ids, :managed_campus_ids
   accepts_nested_attributes_for :role_types
 
   cattr_accessor :current_user
@@ -74,27 +76,33 @@ class User < ActiveRecord::Base
   end
 
   def manager?
-    !campuses.empty?
+    !managed_campuses.empty?
   end
 
   def role_names
-    @role_names ||= role_types.collect(&:name)
+    @role_names ||= role_types.collect(&:name).uniq
   end
 
   def has_role?(role)
     role_names.include?(role)
   end
 
+  def self.intervenants
+    User.find(:all, :joins => :roles, :conditions => {:roles => {:role_type_id => RoleType.find_by_name('intervenant').id}})
+  end
+
   def cumulated_options
     options = [:global_event, [:for_user, self]]
     options.push([:whos_speaker, id]) if intervenant?
     # options.push([:for_campus, campus], [:for_classroom, classroom]) if student?
-    # options.push([:for_campus, campuses], [:for_classroom, classrooms]) if manager?
+    # options.push([:for_campus, managed_campuses], [:for_classroom, classrooms]) if manager?
     return options
   end
 
   protected
     
-
+  def should_has_classroom
+    errors.add_to_base('user.should_has_class') if classroom_id.nil?
+  end
 
 end

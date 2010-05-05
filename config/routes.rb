@@ -4,7 +4,10 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :cursuses do |cursus|
     cursus.resources :periods
   end
-  map.resources :campuses
+  map.resources :campuses do |campus|
+    campus.resources :rooms
+  end
+  
   map.resources :period_types
 
   map.logout '/logout', :controller => 'sessions', :action => 'destroy'

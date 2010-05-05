@@ -9,6 +9,7 @@
 	<div class="portlet-field">
 		<%= form.label :login, t('general.nickname') %>
 		<%= form.text_field :login %>
+
 	</div>
 
 	<div class="portlet-field">
@@ -44,11 +45,23 @@
 		<span class="label"><%= form.label :role %></span>
 		<div>
 			<% for role in RoleType.all %>
-			<%= check_box_tag "user[role_type_ids][]", role.id, @user.roles.include?(role), :id => "role_#{role.id}" %>
+			<%= check_box_tag "user[role_type_ids][]", role.id, @user.role_types.include?(role), :id => "role_#{role.name.gsub(/ /, '_')}" %>
 			<%= form.label role.name %><br />
 			<% end %>
 		</div>
 		<%= hidden_field_tag "user[role_type_ids][]", "" %>
+	</div>
+	<div id="is_manager" style="display:none">
+		Campus managed:
+		<% Campus.all.each do |campus| %>
+			<%= check_box_tag "user[managed_campus_ids][]", campus.id, @user.managed_campuses.include?(campus), :id => "campus_#{campus.id}" %>
+			<%= campus.name %>
+		<% end %>
+	</div>
+
+	<div id="is_student" style="display:none">
+		Class :
+		<%= collection_select :user, :classroom, Classroom.all, :id, :name_with_campus %>
 	</div>
 
 	<% end %>
