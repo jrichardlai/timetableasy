@@ -1,8 +1,5 @@
-
+<h2><%= image_tag("cursus.png", :class => 'veralign') %>  <%= t 'menu.gestion.cursus.title' %> : <%= @cursus.name %></h2>
 <table>
-  <tr>
-  </tr>
-
   <tr>
 	<td><%= t "general.name" %></td>
 	<td><%= @cursus.name %></td>
@@ -15,6 +12,9 @@
 
 <br />
 
-
 <%= link_to 'Edit', edit_cursus_path(@cursus) %> |
 <%= link_to 'Back', cursuses_path %>
+
+<br />
+
+<h2><%= image_tag("add_periods.png", :class => 'veralign') %> <%= t 'periods.splitting' %></h2>

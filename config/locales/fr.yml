@@ -27,6 +27,8 @@ fr:
     city: "Ville"
     country: "Pays"
     timezone: "Zone de Temps"
+  periods:
+    splitting: "Couper le cursus en différentes périodes"
   login:
     login: "Se Connecter"
     logout: "Se Deconnecter"

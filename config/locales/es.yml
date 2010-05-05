@@ -17,6 +17,8 @@ es:
     nickname: "Login"
     welcome: "Bienvenido sobre"
     authentified_user: "Connectado como"
+    name: "Nombre"
+    description: "Descripción"
   login:
     login: "Connectar"
     logout: "Deconnectar"
@@ -24,6 +26,8 @@ es:
     authenticate_yourself: "Connectarse."
     create_account: "Creer su cuenta"
     logged_out: "Se ha deconnectado con exito"
+  periods:
+    splitting: "Cortar cursuso en periodas"
   user:
     create: "Creer el usario"
     roles: "Seleccione derechos del usuario"

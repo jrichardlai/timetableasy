@@ -1,3 +1,82 @@
+<div class="portlet ">
+	<div class="portlet-header">
+		<h4>Form</h4>
+	</div> <!-- .portlet-header -->	
+	<div class="portlet-content" style="display: block;">				
+		<div class="portlet-tab-content portlet-tab-content-active" id="inline-form" style="display: block;">
+			<form action="#" method="post" class="form label-inline">
+
+				<div class="field"><label for="fname">First Name </label> <input id="fname" name="fname" size="50" type="text" class="medium" /></div>
+
+
+				<div class="field"><label for="lname">Last Name </label> <input id="lname" name="lname" size="50" type="text" class="medium" /></div>
+
+				<div class="field"><label for="address1">Address 1 </label> <input id="address1" size="50" type="text" class="large" /></div>
+				<div class="field"><label for="address2">Address 2</label> <input id="address2" size="50" type="text" class="large" /></div>
+				<div class="field"><label for="country" class="">Country </label> <input id="country" name="country" size="12" type="text" class="medium" />
+
+					<p class="field_help">Errors could be highlighted by giving an <code>error</code> class to the input field, as seen here.</p>
+
+				</div>
+				<div class="field"><label for="telephone">Telephone</label> <input id="telephone" size="3" type="text" class="xsmall" /> - <input size="3" type="text" class="xsmall" /> - <input size="4" type="text" class="xsmall" />
+					<p class="field_help">(###) - ### - ####</p>
+
+				</div>
+
+				<div class="field">
+
+					<label for="type">Type </label>
+					<select id="type" class="medium">
+						<optgroup label="Type of Whatever">
+							<option selected="selected">Corporate</option>
+							<option>Individual</option>
+
+						</optgroup>
+					</select>
+
+				</div>
+
+				<div class="controlset field">
+					<span class="label">User Status </span>
+					<input name="approved" id="approved" value="1" type="checkbox" /> <label for="approved">Approved</label>
+					<input name="pending" id="pending" value="1" type="checkbox" /> <label for="pending">Pending Applications</label>
+
+					<input name="actives" id="actives" value="1" type="checkbox" /> <label for="actives">Active Service</label>
+
+				</div>			
+
+				<div class="controlset field">
+					<span class="label">Preferred Location</span>
+					<input name="radio1" id="radio1" value="1" type="radio" /> <label for="radio1">Option 1</label>
+					<input name="radio1" id="radio2" value="1" type="radio" /> <label for="radio2">Option 2</label>
+
+					<input name="radio1" id="radio3" value="1" type="radio" /> <label for="radio3">Option 3</label>
+
+				</div>			
+
+				<div class="controlset field">
+					<span class="label">Something Else </span>
+					<div>
+						<input name="approved" id="check1" value="1" type="checkbox" />  <label for="check1">Some Option 1</label><br />
+
+						<input name="pending" id="check2" value="1" type="checkbox" />  <label for="check2">Some Option 2</label><br />
+						<input name="actives" id="check3" value="1" type="checkbox" /> <label for="check3">Some Option 3</label><br />
+
+					</div>
+				</div>	
+
+				<div class="buttonrow">
+					<button><span>Primary Action</span></button>
+					<button class="btn-sec"><span>Secondary Action</span></button>
+				</div>
+
+			</form>
+
+		</div> <!-- #inline-form -->
+	</div> <!-- .portlet-content -->	
+</div>
+
+
 <h2><%= image_tag("user_new.png", :class => 'veralign') %> <%= t 'menu.users.create_user' %></h2>
 <div class="fieldset">
 	<div class="formRow">
