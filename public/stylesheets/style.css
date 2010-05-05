@@ -462,7 +462,14 @@ body{
 	}
 
 form {
-	background: #FFFFFF url(../images/form-shadow.jpg) repeat-x scroll 0 0;
+	background: #FFF;
+	width: 100%;	
+	border: 1px solid #CCC;
+	margin-bottom: 1.5em;
+	position: relative;
+	-moz-border-radius: 6px;
+	-webkit-border-radius: 6px;
+/*	background: #FFFFFF url(../images/form-shadow.jpg) repeat-x scroll 0 0;
 	border:1px solid OrangeRed;
   margin:20px auto;
   padding:20px;
@@ -470,8 +477,60 @@ form {
 
   -moz-box-shadow:0 0 1px #444 inset;
  	-webkit-box-shadow:0 0 1px #444 inset;
-  box-shadow:0 0 1px #444 inset;	
+  box-shadow:0 0 1px #444 inset;
+*/
 }
+
+	/* PORTLET */
+
+form .portlet-header {
+	background: url(../images/styles/portlet-header-orange.png) repeat-x top center;
+	color: #FFF;
+	padding: 10px 15px;
+	cursor: pointer;		
+	-moz-border-radius-topright: 6px;
+	-moz-border-radius-topleft: 6px;
+	-webkit-border-top-right-radius: 6px;
+	-webkit-border-top-left-radius: 6px;
+	position: relative;
+	overflow: hidden;
+}
+
+form .portlet-header h4 {
+	font-size: 13px;			
+	font-style: normal;
+	font-weight: bold;
+	color: #FFF;
+	padding: 0;
+	margin: 0;
+	line-height: 1.25;
+	margin-bottom: 1.25em;
+}
+
+form .portlet-content { padding: 15px; position: relative; }
+form .portlet-field { margin-bottom: 1.5em; }
+form .portlet-field label, form .portlet-field span.label { margin-right: 10px; padding-right: 10px; width: 125px; display: block; float: left;  font-weight: bold; text-align: right; position: relative; }
+form .portlet-field input {
+	padding: 4px;
+	border: 1px solid #999;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+}
+form .controlset div label {font-size: 11px; font-weight: normal !important; }
+form .field input {
+	padding: 4px;
+	border: 1px solid #999;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+}
+
+form .medium {
+	width: 200px;
+}
+
+form .controlset div { margin-left: 145px; }
+form div.controlset label, form div.controlset input { display: inline; float: none; }
+form .controlset input { border: none !important; }
 
 .submit {
 	 	border: none;
@@ -490,55 +549,55 @@ input:focus{
     box-shadow:0 0 8px orange;
 }
 
-.label{
+/*.label{
     float:left;
     padding:0 20px 0 0;
     text-align:right;
     width:35%;
 }
-
-form, .fieldset{
+*/
+/*form, */.fieldset{
     -moz-border-radius:12px;
     -webkit-border-radius:12px;
     border-radius:12px;
 }
 
 
-.formRow{
+/*.formRow{
     height:29px;
     padding:5px;
     position:relative;
 }
+*/
 
-
-label{
+/*label{
     font-family:Century Gothic,Myriad Pro,Arial,Helvetica,sans-serif;
 		color:OrangeRed;
     font-size:14px;
 		text-transform:bold;
     letter-spacing:1px;
-    line-height:35px; /* Neat line height trick */
+    line-height:35px;
 }
+*/
 
-
-.field{
+/*.field{
     float:left;
 }
 
-.field input{
+*//*.field input{
     border:1px solid OrangeRed;
     font-family:Arial,Helvetica,sans-serif;
     font-size:12px;
     padding:4px 5px;
     outline:none;
 }
-
-.fieldset {
+*/
+/*.fieldset {
 	border:1px solid white;
   margin:10px auto;
   padding:10px;
 }
-
+*/
 	
 #boxes{
 	clear: both;
