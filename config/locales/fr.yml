@@ -29,6 +29,11 @@ fr:
     country: "Pays"
     timezone: "Zone de Temps"
     event_for_academical: "Evenement pour une matiere"
+    campuses: "Campus"
+  periods:
+    splitting: "Couper le cursus en différentes périodes"
+    cursuses: "Cursus"
+    campuses: "Campus"
   login:
     login: "Se Connecter"
     logout: "Se Deconnecter"

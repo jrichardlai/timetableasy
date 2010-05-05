@@ -27,6 +27,16 @@
 		<td><%= t "general.timezone" %></td>
 		<td><%= @campus.timezone %></td>
   	</tr>
+	<% if @campus.cursuses.count > 0 %>
+	<tr>
+		<td><%= t "general.cursuses" %></td>
+		<td>
+			<% @campus.cursuses.each do |cursus| %>
+			<%= cursus.name %>
+			<% end %>
+		</td>
+  	</tr>
+	<% end %>
 </table>
 
 <br />
