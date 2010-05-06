@@ -29,6 +29,8 @@ fr:
     city: "Ville"
     country: "Pays"
     timezone: "Zone de Temps"
+    mandatory_events: "Événements obligatoires"
+    all_events: "Tous les événements"
     event_for_academical: "Evenement pour une matiere"
     campuses: "Campus"
   periods:

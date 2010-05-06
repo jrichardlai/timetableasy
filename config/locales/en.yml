@@ -26,6 +26,8 @@ en:
     city: "City"
     country: "Country"
     timezone: "Time Zone"
+    mandatory_events: "Mandatory events"
+    all_events: "All events"
     event_for_academical: "Event for courses"
     campuses: "Campus"
     cursuses: "Cursus"

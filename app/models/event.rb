@@ -5,6 +5,8 @@ class Event < ActiveRecord::Base
   named_scope :occurs_between, lambda { |from, to| { :conditions => ["begin_at >= ? and end_at <= ?", Time.at(from.to_i), Time.at(to.to_i)] } if from and to }
   named_scope :mandatory, :conditions => {:force_display => true}
   belongs_to  :event_type
+  belongs_to  :room
+  belongs_to  :speaker, :class_name => 'User'
 
   EVENT_SCOPES = ['campus', 'cursus', 'promotion', 'classroom', 'user']
 
@@ -71,8 +73,11 @@ class Event < ActiveRecord::Base
 
   #cumulate events for an user or an campus or a class
   def self.cumulated(from, to, only_mandatory = false, record = nil)
-    search = occurs_between(from, to)
-    search.mandatory if only_mandatory
+    if only_mandatory
+      search = occurs_between(from, to).mandatory 
+    else
+      search = occurs_between(from, to)
+    end
     if record
       class_name = record.class.to_s.downcase 
       if class_name == 'user'
@@ -85,7 +90,7 @@ class Event < ActiveRecord::Base
   end
 
   def self.to_fullcalendar(from, to, only_mandatory = false, record = nil)
-    self.cumulated(from, to, mandatory, record).collect(&:to_fullcalendar).to_json
+    self.cumulated(from, to, only_mandatory, record).collect(&:to_fullcalendar).to_json
   end
 
   private

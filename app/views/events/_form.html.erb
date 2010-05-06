@@ -26,6 +26,15 @@
 	<p>
 		<%= form.label :speaker %>
 		<%= form.collection_select :speaker_id, User.intervenants, :id, :login, {:include_blank => true} %>
+		<%= form.text_field :speaker_name %>
+	</p>
+<%- end -%>
+
+<%- if can? current_user, :manage, Campus -%>
+	<p>
+		<%= form.label :room %>
+		<%= form.collection_select :room_id, Room.all, :id, :name, {:include_blank => true} %>
+		<%= form.text_field :room_name %>
 	</p>
 <%- end -%>
 <p>

@@ -1,0 +1,26 @@
+ToBool
+======
+
+to_bool is a plugin that provides methods for converting strings and numbers to boolean.
+
+to_bool works on the strings "true" and "false" and any capitalisation of these, and on numbers, as well as on nil.
+
+Examples
+========
+
+These create a TrueClass element of true:
+'true'.to_bool
+'TrUe'.to_bool
+true.to_bool
+1.to_bool
+5.t_bool
+-9.to_bool
+
+These create a FalseClass element of false:
+nil.to_bool
+'false'.to_bool
+'FaLsE'.to_bool
+false.to_bool
+0.to_bool
+
+Copyright (c) 2008 Silvia Pfeiffer, Vquence Pty Ltd, released under the MIT license

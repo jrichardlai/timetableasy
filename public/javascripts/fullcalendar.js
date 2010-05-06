@@ -47,7 +47,7 @@ var defaults = {
 	// event ajax
 	startParam: 'start',
 	endParam: 'end',
-	ajaxParams: {},
+	ajaxParams: function(){},
 	
 	// time formats
 	titleFormat: {
@@ -476,7 +476,7 @@ $.fn.fullCalendar = function(options) {
 				if (options.cacheParam) {
 					params[options.cacheParam] = (new Date()).getTime(); // TODO: deprecate cacheParam
 				}
-				$.extend(params,options.ajaxParams);
+				$.extend(params,options.ajaxParams.apply());
 				pushLoading();
 				$.ajax({
 					type: options.ajaxType,
