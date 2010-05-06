@@ -1,79 +1,96 @@
 <div class="left">
-	<p class="header">INFORMATION CURSUS</p>
-<table style="margin:auto;">
-	<thead>
-		<tr>
-			<th colspan="2"><%= t "general.visualisation" %> <%= t "menu.gestion.cursus.title" %> : <%= @cursus.name %></th>
-		</tr>
-	</thead>
-	<tbody>
-		<tr>
-			<th><strong><%= t "general.name" %></strong></th>
-			<td><%= @cursus.name %></td>
-		</tr>
-		<tr class="odd">
-			<th><strong><%= t "general.description" %></strong></th>
-			<td><%= @cursus.description %></td>
-		</tr>
-		<% if @cursus.campuses.count > 0 %>
-		<tr>
-			<th><strong><%= t "general.campuses" %></strong></th>
-			<td>
-				<% @cursus.campuses.each do |campus| %>
-				<%= campus.name %><br />
-				<% end %>
-			</td>
-		</tr>
-		<% end %>
-		<tfoot>
-		<tr>
-			<th>&nbsp;</th>
-			<th style="text-align:center;">
-			<%= link_to image_tag('edit.png', :class => "veralign") + " " + 'Edit', edit_cursus_path(@cursus), :class => "light_button" %> <%= link_to image_tag('delete.png', :class => "veralign") + " " + 'Delete', cursus_path(@cursus), :confirm => 'Are you sure?', :method => :delete, :class => "light_button" %></th>
-		</tr>
-		</tfoot>
-	</tbody>
-</table>
-</div>
 
-<div class="right">
-	<p class="header">INFORMATION PERIODES</p>
-	
-	<table style="margin:auto;">
-		<thead>
-			<tr>
-				<th width="15%">n°</th>
-				<th width="30%">Du</th>
-				<th width="30%">Au</th>
-				<th width="25%">Actions</th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr>
-				<th><strong>1</strong></th>
-				<td>28 Novembre 2010</td>
-				<td>28 Novembre 2010</td>
-				<td>Editer/Supprimer</td>
-			</tr>
-			<tr class="odd">
-				<th><strong>1</strong></th>
-				<td>28 Novembre 2010</td>
-				<td>28 Novembre 2010</td>
-				<td>Editer/Supprimer</td>
-			</tr>
-			
-			<tfoot>
-			<tr>
-				<th>&nbsp;</th>
-				<th style="text-align:center;">
-				<%= link_to 'Nouvelle periode', edit_cursus_path(@cursus), :class => "light_button" %></th>
-			</tr>
-			</tfoot>
-		</tbody>
-	</table>
-</div>
+	<div class="box">	
+		<div class="box-header">
 
-<div style="clear:both;">
-</div>
+			<h4><%= t "general.visualisation" %> <%= t "menu.gestion.cursus.title" %> : <%= @cursus.name %></h4>	
+		</div> <!-- .portlet-header -->	
 
-<h2><%= image_tag("add_periods.png", :class => 'veralign') %> <%= t 'periods.splitting' %></h2>
+		<div class="box-content">				
+			<div style="width:100%; height:auto;">
+				<table style="margin:auto;">
+					<thead>
+
+					</thead>
+					<tbody>
+						<tr>
+							<th><strong><%= t "general.name" %></strong></th>
+							<td><%= @cursus.name %></td>
+						</tr>
+						<tr class="odd">
+							<th><strong><%= t "general.description" %></strong></th>
+							<td><%= @cursus.description %></td>
+						</tr>
+						<% if @cursus.campuses.count > 0 %>
+						<tr>
+							<th><strong><%= t "general.campuses" %></strong></th>
+							<td>
+								<% @cursus.campuses.each do |campus| %>
+								<%= campus.name %><br />
+								<% end %>
+							</td>
+						</tr>
+						<% end %>
+					</tbody>
+					</table>
+					<br />
+					<div class="abutton">
+						<span><%= link_to image_tag('edit.png', :class => "veralign") + " " + t('general.edit'), edit_cursus_path(@cursus), :class => "button" %> </span>
+						<span><%= link_to image_tag('delete.png', :class => "veralign") + " " + t('general.delete'), cursus_path(@cursus), :confirm => 'Are you sure?', :method => :delete, :class => "button" %></span>
+					</div>
+				</div>
+			</div> <!-- .portlet-content -->	
+		</div> <!-- .portlet -->
+	</div>
+
+	<div class="right">
+
+		<div class="box">	
+			<div class="box-header">
+
+				<h4><%= t 'general.periods' %></h4>	
+			</div> <!-- .portlet-header -->	
+
+			<div class="box-content">				
+				<div style="width:100%; height:auto;">
+					<table style="margin:auto;">
+						<thead>
+							<tr>
+								<th width="15%"><%= t 'general.number' %></th>
+								<th width="30%"><%= t 'general.from' %></th>
+								<th width="30%"><%= t 'general.to' %></th>
+								<th width="25%"><%= t 'general.actions' %></th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<th><strong>1</strong></th>
+								<td>28 Novembre 2010</td>
+								<td>30 Novembre 2010</td>
+								<td>Editer/Supprimer</td>
+							</tr>
+							<tr class="odd">
+								<th><strong>1</strong></th>
+								<td>01 Decembre 2010</td>
+								<td>28 Février 2011</td>
+								<td>Editer/Supprimer</td>
+							</tr>
+						</tbody>
+						<tfoot>
+							<tr>
+								<th>&nbsp;</th>
+								<th style="text-align:center;">
+
+
+								</th>
+							</tr>
+						</tfoot>
+					</table>
+				<div class="abutton"><%= link_to  image_tag('styles/add_periods.png', :class => "veralign") + " " + t('periods.new_period'), edit_cursus_path(@cursus), :class => "button" %></div>
+				</div>
+			</div> <!-- .portlet-content -->	
+		</div> <!-- .portlet -->
+	</div>
+
+	<div style="clear:both;">
+	</div>

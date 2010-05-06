@@ -481,6 +481,50 @@ form {
 */
 }
 
+/* Boxes */
+
+.box
+{
+	background: #FFF;
+	width: 100%;	
+	border: 1px solid #CCC;
+	margin-bottom: 1.5em;
+	position: relative;
+	-moz-border-radius: 6px;
+	-webkit-border-radius: 6px;
+}
+
+.box-header
+	{
+		background: url(../images/styles/portlet-header-orange.png) repeat-x top center;
+		color: #FFF;
+		padding-bottom:0px;
+		padding-left:10px;
+		padding-right:10px;
+		padding-top:10px;
+		cursor: pointer;		
+		-moz-border-radius-topright: 6px;
+		-moz-border-radius-topleft: 6px;
+		-webkit-border-top-right-radius: 6px;
+		-webkit-border-top-left-radius: 6px;
+		position: relative;
+		overflow: hidden;
+	}
+
+	
+.box-header h4 {
+		font-size: 13px;			
+		font-style: normal;
+		font-weight: bold;
+		color: #FFF;
+		padding: 0;
+		margin: 0;
+		line-height: 1.25;
+		margin-bottom: 1.25em;
+	}
+
+.box-content { 	padding: 5px; position: relative; }
+
 	/* PORTLET */
 
 form .portlet-header {
@@ -707,7 +751,7 @@ padding-top:4px;
 
 div.left {
 	float:left;
-	width:45%;
+	width:49%;
 }
 
 div p.header {
@@ -726,5 +770,14 @@ div p.header {
 
 div.right {
 	float:right;
-	width:45%;
+	width:49%;
+}
+
+.button {border: 1px solid orange; -moz-border-radius: 5px; -webkit-border-radius: 5px; border-radius: 5px; background: #0567ad url("../images/styles/button.gif") repeat-x; padding: 5px 9px 5px; color: #fff; cursor: pointer;}
+.button:hover,
+.button:focus,
+.button:active {border-color: #272727; background: #2a2a2a url("../images/styles/altbutton.gif") repeat-x; color: #fff;}
+
+.abutton {
+	text-align:center;
 }
