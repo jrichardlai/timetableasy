@@ -16,4 +16,7 @@ $(document).ready(function(){
 			$('#event_scope_id_select').html('');
 		}
 	});
+	if ($("#only_mandatory").val() == "true") {
+		$("#event_force_display").attr('checked', true);
+	}
 });
