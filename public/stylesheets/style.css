@@ -20,7 +20,7 @@ body{
 }
 
 #wrap{
-	background: #f5f5f5;
+	/*background: #f5f5f5;*/
 	margin: 0 auto;
 	padding: 20px;
 	width: 95%;
@@ -68,7 +68,7 @@ body{
 			}
 			
 			#nav ul{
-				background:#F5F5F5;
+				background:#FFFFFF;
 				display: none;
 				position: absolute;
 				z-index: 999;
