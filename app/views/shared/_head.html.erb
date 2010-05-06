@@ -1,6 +1,6 @@
 <%= ajaxlibs_include :jqueryui %>
-<%= javascript_include_tag 'fullcalendar', 'gcal', 'application' %>
-<%= stylesheet_link_tag 'fullcalendar', 'jquery-ui', 'dialog' %>
+<%= javascript_include_tag 'fullcalendar', 'gcal', 'application', 'jquery.timePicker' %>
+<%= stylesheet_link_tag 'fullcalendar', 'jquery-ui', 'dialog', 'timePicker' %>
 <%= stylesheet_link_tag 'style', 'typography', 'orange' %>
 <%= javascript_include_tag 'superfish', 'custom' %>
 <%= stylesheet_link_tag 'minimal', "show", "list" unless current_page?(events_path) or current_page?(root_path)  %>

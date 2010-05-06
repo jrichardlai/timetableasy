@@ -1,2 +1,2 @@
 page.replace_html 'event_desc', :partial => 'remote_form'
-page << render(:partial => 'dialog')
+page << render(:partial => 'javascripts')

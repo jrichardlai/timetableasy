@@ -10,4 +10,4 @@ $('#create_event_dialog').dialog({
         }
     });
 "
-page << render(:partial => 'dialog')
+page << render(:partial => 'javascripts')
