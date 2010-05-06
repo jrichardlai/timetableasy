@@ -33,6 +33,7 @@ class User < ActiveRecord::Base
   validate                  :should_has_classroom, :if => :student?
 
   has_many  :events, :as => :event_scope, :dependent => :destroy
+  has_many  :intervening_events, :class_name => 'Event', :foreign_key => :speaker_id
 
   # HACK HACK HACK -- how to do attr_accessible from here?
   # prevents a user from submitting a crafted form that bypasses activation
@@ -96,15 +97,23 @@ class User < ActiveRecord::Base
     if admin?
       options.push([:for_campus, Campus.all], [:for_classroom, Classroom.all], [:for_cursus, Cursus.all])
     else
-      options.push([:whos_speaker, id]) if intervenant?
+      options.push([:whos_speaker, self]) if intervenant?
       options.push([:for_campus, campus], [:for_classroom, classroom]) if student?
       options.push([:for_campus, managed_campuses], [:for_classroom, classrooms]) if manager?
     end
     return options
   end
 
+  def busy_at?(date)
+    not Event.whos_speaker(self).all(:conditions => ["? > begin_at and ? < end_at ", date, date]).empty?
+  end
+
+  def busy_between?(start_date, end_date)
+    busy_at?(start_date) | busy_at?(end_date)
+  end
+
   protected
-    
+
   def should_has_classroom
     errors.add_to_base('user.should_has_class') if classroom_id.nil?
   end

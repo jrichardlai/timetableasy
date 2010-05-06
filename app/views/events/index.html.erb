@@ -53,7 +53,7 @@
               showEventDetails(event);
           },
       });
-			$('.fc-header-center h2.fc-header-title').parents('td').first().after('<td style="padding-left:20px"><div class="fc-state-default fc-corner-left fc-corner-right"><a id="mandatory_events" href="#"><span><%= t('general.mandatory_events') %></span><a id="all_events" style="display:none" href="#"><span><%= t('general.all_events') %></span></a></div></td>');
+			$('.fc-header-center h2.fc-header-title').parents('td').first().after('<td style="padding-left:20px"><div class="fc-state-default fc-corner-left fc-corner-right"><a id="mandatory_events" href="#"><span><%= t('general.all_events') %></span><a id="all_events" style="display:none" href="#"><span><%= t('general.mandatory_events') %></span></a></div></td>');
 			$('#mandatory_events').click(function(){
 				$(this).hide();
 				$('#only_mandatory').val('true');

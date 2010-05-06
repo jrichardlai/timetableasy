@@ -37,7 +37,7 @@ class EventsController < ApplicationController
     if @event
       @event.begin_at = (params[:minute_delta].to_i).minutes.from_now((params[:day_delta].to_i).days.from_now(@event.begin_at))
       @event.end_at = (params[:minute_delta].to_i).minutes.from_now((params[:day_delta].to_i).days.from_now(@event.end_at))
-      @event.save
+      response_error unless @event.save 
     end
   end
 
@@ -45,7 +45,7 @@ class EventsController < ApplicationController
     @event = Event.find_by_id params[:id]
     if @event
       @event.end_at = (params[:minute_delta].to_i).minutes.from_now((params[:day_delta].to_i).days.from_now(@event.end_at))
-      @event.save
+      response_error unless @event.save 
     end
   end
 
@@ -102,6 +102,15 @@ class EventsController < ApplicationController
     render :update do |page|
       page << "$('#calendar').fullCalendar( 'refetchEvents' )"
       page << "$('#desc_dialog').dialog('destroy')" 
+    end
+  end
+
+  protected
+
+  def response_error
+    render :update do |page|
+      page << "$('#calendar').fullCalendar('refetchEvents');"
+      page.alert("Error : #{@event.errors.full_messages}")
     end
   end
 end

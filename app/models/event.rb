@@ -2,8 +2,10 @@ class Event < ActiveRecord::Base
 
   before_validation :set_time, :if => :time_to_parse?
 
-  named_scope :occurs_between, lambda { |from, to| { :conditions => ["begin_at >= ? and end_at <= ?", Time.at(from.to_i), Time.at(to.to_i)] } if from and to }
-  named_scope :mandatory, :conditions => {:force_display => true}
+  named_scope :occurs_between,  lambda { |from, to| { :conditions => ["begin_at >= ? and end_at <= ?", Time.at(from.to_i), Time.at(to.to_i)] } if from and to }
+  named_scope :whos_speaker,    lambda {|speaker|   {:conditions => {:speaker_id => speaker.id}}}
+  named_scope :with_room,       lambda {|room|      {:conditions => {:room_id => room.id}}}
+  named_scope :mandatory,       :conditions => {:force_display => true}
   belongs_to  :event_type
   belongs_to  :room
   belongs_to  :speaker, :class_name => 'User'
@@ -22,8 +24,8 @@ class Event < ActiveRecord::Base
   validates_presence_of :begin_at
   validates_presence_of :end_at
 
-  validate :speaker_not_busy?
-  validate :room_not_used?
+  validate :speaker_not_busy?, :if => :speaker
+  validate :room_not_used?, :if => :room
   validate :valid_dates?
   
   before_validation :add_to_current_user_events, :unless => :has_scope?
@@ -73,11 +75,8 @@ class Event < ActiveRecord::Base
 
   #cumulate events for an user or an campus or a class
   def self.cumulated(from, to, only_mandatory = false, record = nil)
-    if only_mandatory
-      search = occurs_between(from, to).mandatory 
-    else
-      search = occurs_between(from, to)
-    end
+    search = occurs_between(from, to)
+    search = search.mandatory if only_mandatory
     if record
       class_name = record.class.to_s.downcase 
       if class_name == 'user'
@@ -101,11 +100,11 @@ class Event < ActiveRecord::Base
   end
 
   def speaker_not_busy?
-    
+    errors.add_to_base("speaker_busy") if speaker.busy_between?(begin_at, end_at)
   end
 
   def room_not_used?
-    
+    errors.add_to_base("room_used") if room.used_between?(begin_at, end_at)
   end
 
 end
