@@ -11,7 +11,11 @@ es:
     mail: "Correo elect."
     month: "Mes"
     week: "Semana"
-    to: hasta
+    periods: "Períodos"
+    from: "De"
+    number: "N°"
+    actions: "Acción"
+    to: Hasta
     day: "día"
     mail_confirm: "Rep. Correo electrónico"
     password: "Contraseña"
@@ -21,6 +25,8 @@ es:
     authentified_user: "Connectado como"
     name: "Nombre"
     description: "Descripción"
+    edit: "Editar"
+    delete: "Eliminar"
   login:
     login: "Connectar"
     logout: "Deconnectar"
@@ -30,6 +36,7 @@ es:
     logged_out: "Se ha deconnectado con exito"
   periods:
     splitting: "Cortar cursuso en periodas"
+    new_period: "Agregue un punto"
   user:
     create: "Creer el usario"
     roles: "Seleccione derechos del usuario"
