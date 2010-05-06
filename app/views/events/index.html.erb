@@ -1,16 +1,11 @@
-<%- content_for :menu do -%>
-
-
-<%- end -%>
-<%- content_for :head_title do -%>
-	<%= t 'general.welcome' %> <%= t 'general.application_name' %>
-<%- end -%>
+<% title t('general.welcome') + ' ' + t('general.application_name') %>
 
 <%- content_for :head_end do -%>
 	<%= stylesheet_link_tag 'events' %>
 	<%= javascript_include_tag 'events' %>
 	<%= javascript_include_tag "fullcalendar/#{I18n.locale}" %>
 <%- end -%>
+
 <script>
   $(document).ready(function(){
       // page is now ready, initialize the calendar...
@@ -27,6 +22,9 @@
           slotMinutes: 60,
 					allDayDefault: false,
 					dragToCreate: true,
+					ajaxParams: function() {
+						return {only_mandatory: $('#only_mandatory').val()}
+					},
 					dragToCreateFn: function(calEvent){
 						var start_day = calEvent.start.getUTCDate() + "/" + (calEvent.start.getUTCMonth() + 1) + '/' + calEvent.start.getFullYear();
 						var end_day = calEvent.end.getUTCDate() + "/" + (calEvent.end.getUTCMonth() + 1) + '/' + calEvent.end.getFullYear();
@@ -55,9 +53,23 @@
               showEventDetails(event);
           },
       });
+			$('.fc-header-center h2.fc-header-title').parents('td').first().after('<td style="padding-left:20px"><div class="fc-state-default fc-corner-left fc-corner-right"><a id="mandatory_events" href="#"><span><%= t('general.mandatory_events') %></span><a id="all_events" style="display:none" href="#"><span><%= t('general.all_events') %></span></a></div></td>');
+			$('#mandatory_events').click(function(){
+				$(this).hide();
+				$('#only_mandatory').val('true');
+				$('#all_events').show();
+				$('#calendar').fullCalendar('refetchEvents');
+			});
+			$('#all_events').click(function(){
+				$(this).hide();
+				$('#only_mandatory').val('false');
+				$('#mandatory_events').show();
+				$('#calendar').fullCalendar('refetchEvents');
+			});
   });
 </script>
 <div>
+	<input type="hidden" id="only_mandatory" value="false" />
   <div id="calendar">
   </div>
 </div>
