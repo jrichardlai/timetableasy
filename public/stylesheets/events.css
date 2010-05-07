@@ -29,3 +29,7 @@
 	border-color: purple;     /* border color */
 	color: white;           /* text color */
 }
+
+input.date_picker, input.time_picker {
+	width: 70px;
+}

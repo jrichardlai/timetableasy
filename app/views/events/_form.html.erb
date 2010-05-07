@@ -8,46 +8,6 @@
   <br/>
   <%= form.text_area :description, :rows => 4, :cols => 30 %>
 </p>
-<%- if can? current_user, :manage, Classroom  %>
-	<%= t('general.event_for_academical') %>
-	<input type="checkbox" id="checkbox_academical" />
-<%- end -%>
-
-<%- if can? current_user, :manage, Classroom  %>
-	<p>
-		<%= form.label :event_for %>
-		<%= form.select :event_scope_type, ['Campus', 'Cursus', 'Classroom'], {:include_blank => true} %>
-		<span id="event_scope_id_select">
-		<% if @event.event_scope_type and @event.event_scope_type != 'User' %>
-			<%= form.collection_select :event_scope_id, Kernel.const_get(@event.event_scope_type).all, :id, :name %>
-		<% end %>
-		</span>
-	</p>
-	<p>
-		<%= form.label :speaker %>
-		<%= form.collection_select :speaker_id, User.intervenants, :id, :login, {:include_blank => true} %>
-		<%= form.text_field :speaker_name %>
-	</p>
-<%- end -%>
-
-<%- if can? current_user, :manage, Campus -%>
-	<p>
-		<%= form.label :room %>
-		<%= form.collection_select :room_id, Room.all, :id, :name, {:include_blank => true} %>
-		<%= form.text_field :room_name %>
-	</p>
-<%- end -%>
-<p>
-	<%= form.label :event_type %><br/>
-	<%= form.collection_select :event_type_id, EventType.all, :id, :name, {:include_blank => true} %>
-</p>
-<p>
-  <%= form.text_field :start_day, :class => 'date_picker' %>
-  <%= form.text_field :start_time, :class => 'time_picker' %>
-	<%= t('general.to') %>
-  <%= form.text_field :end_time, :class => 'time_picker' %>
-  <%= form.text_field :end_day, :class => 'date_picker' %>
-</p>
 
 <%- if can? current_user, :manage, Cursus  %>
 	<%= form.label :force_display %>
@@ -56,6 +16,53 @@
 <%- if current_user.admin? -%>
 <p>
 	<%= form.label :global_event %>
-	<%= form.check_box :global_event, :default => false %>
+	<%= form.check_box :global_event, :default => false, :id => 'toggle_global' %>
 </p>
 <%- end -%>
+
+<div class="not_global">
+	<%- if can? current_user, :manage, Classroom  %>
+		<%= t('general.event_for_academical') %>
+		<input type="checkbox" id="toggle_academical"/>
+		<p class="academical">
+			<p><%= form.label :subject %></p>
+			<p><%= form.label :type %></p>
+			<p><%= form.label :subject_method %></p>
+		</p>
+	<%- end -%>
+	<p class="not_academical">
+		<%= form.label :event_type %><br/>
+		<%= form.collection_select :event_type_id, EventType.all, :id, :name, {:include_blank => true} %>
+	</p>
+	<%- if can? current_user, :manage, Classroom  %>
+		<p>
+			<%= form.label :event_for %>
+			<%= form.select :event_scope_type, ['Campus', 'Cursus', 'Classroom'], {:include_blank => true} %>
+			<span id="event_scope_id_select">
+			<% if not @event.event_scope_type.blank? and @event.event_scope_type != 'User' %>
+				<%= form.collection_select :event_scope_id, Kernel.const_get(@event.event_scope_type).all, :id, :name, {:include_blank => true} %>
+			<% end %>
+			</span>
+		</p>
+		<p>
+			<%= form.label :speaker %>
+			<%= form.collection_select :speaker_id, User.intervenants, :id, :login, {:include_blank => true} %>
+			<%= form.text_field :speaker_name %>
+		</p>
+	<%- end -%>
+
+	<%- if can? current_user, :manage, Campus -%>
+		<p>
+			<%= form.label :room %>
+			<%= form.collection_select :room_id, Room.all, :id, :name, {:include_blank => true} %>
+			<%= form.text_field :room_name %>
+		</p>
+	<%- end -%>
+</div>
+<p>
+  <%= form.text_field :start_day, :class => 'date_picker' %>
+  <%= form.text_field :start_time, :class => 'time_picker' %>
+	<%= t('general.to') %>
+  <%= form.text_field :end_time, :class => 'time_picker' %>
+  <%= form.text_field :end_day, :class => 'date_picker' %>
+</p>

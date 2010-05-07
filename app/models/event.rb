@@ -32,6 +32,8 @@ class Event < ActiveRecord::Base
   belongs_to :event_scope, :polymorphic => true
   belongs_to :academical, :polymorphic => true
 
+  delegate :name, :to => :event_type, :allow_nil => true, :prefix => :event_type
+
   def time_to_parse?
     start_day or end_day or start_time or end_time
   end
