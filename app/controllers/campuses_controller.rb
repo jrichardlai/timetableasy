@@ -1,5 +1,6 @@
 class CampusesController < ApplicationController
   before_filter :login_required
+  load_and_authorize_resource
   # GET /campuses
   # GET /campuses.xml
   def index
@@ -14,11 +15,7 @@ class CampusesController < ApplicationController
   # GET /campuses/1
   # GET /campuses/1.xml
   def show
-    
-    @campus = Campus.find(params[:id])
-    
     @rooms = @campus.rooms.all
-    
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @campus }
@@ -28,8 +25,6 @@ class CampusesController < ApplicationController
   # GET /campuses/new
   # GET /campuses/new.xml
   def new
-    @campus = Campus.new
-
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @campus }
@@ -38,14 +33,11 @@ class CampusesController < ApplicationController
 
   # GET /campuses/1/edit
   def edit
-    @campus = Campus.find(params[:id])
   end
 
   # POST /campuses
   # POST /campuses.xml
   def create
-    @campus = Campus.new(params[:campus])
-
     respond_to do |format|
       if @campus.save
         flash[:notice] = 'Campus was successfully created.'
@@ -61,8 +53,6 @@ class CampusesController < ApplicationController
   # PUT /campuses/1
   # PUT /campuses/1.xml
   def update
-    @campus = Campus.find(params[:id])
-
     respond_to do |format|
       if @campus.update_attributes(params[:campus])
         flash[:notice] = 'Campus was successfully updated.'
@@ -78,9 +68,7 @@ class CampusesController < ApplicationController
   # DELETE /campuses/1
   # DELETE /campuses/1.xml
   def destroy
-    @campus = Campus.find(params[:id])
     @campus.destroy
-
     respond_to do |format|
       format.html { redirect_to(campuses_url) }
       format.xml  { head :ok }

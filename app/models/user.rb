@@ -5,14 +5,17 @@ class User < ActiveRecord::Base
   include Authentication::ByPassword
   include Authentication::ByCookieToken
 
-  has_many :roles
-  has_many :role_types, :through => :roles
-  has_many :schooling
-  has_many :managements
-  has_many :managed_campuses, :source => :campus, :through => :managements
-  has_many :classrooms, :through => :campuses
-  has_one :classroom, :through => :schooling
-  has_one :campus, :through => :classroom
+  has_many  :roles
+  has_many  :role_types, :through => :roles
+
+  #for campus managers
+  has_many  :managements
+  has_many  :managed_campuses, :source => :campus, :through => :managements
+  has_many  :classrooms, :through => :managed_campuses
+
+  #for students
+  has_one   :classroom, :through => :schooling
+  has_one   :campus, :through => :classroom
 
   validates_presence_of     :login
   validates_length_of       :login,    :within => 3..40

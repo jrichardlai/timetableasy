@@ -9,11 +9,14 @@ class Ability
       end
     end
     if user.manager?
-      can :manage, Campus do |campus|
+      can :update, Campus do |campus|
         campus && campus.managers.include?(user)
       end
-      can :manage, Classroom do |classroom|
-        classroom && user.campuses.include?(classroom.campus)
+      can :update, Classroom do |classroom|
+        classroom && user.managed_campuses.include?(classroom.campus)
+      end
+      can :create, Classroom do |classroom|
+        classroom.campus.nil? or user.managed_campuses.include?(classroom.campus)
       end
       can :read, :all
     else
