@@ -36,6 +36,8 @@ class User < ActiveRecord::Base
   validate                  :should_has_classroom, :if => :student?
 
   has_many  :events, :as => :event_scope, :dependent => :destroy
+
+  #for intervenants
   has_many  :intervening_events, :class_name => 'Event', :foreign_key => :speaker_id
 
   # HACK HACK HACK -- how to do attr_accessible from here?
