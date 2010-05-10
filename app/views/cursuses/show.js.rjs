@@ -1,0 +1,1 @@
+page.replace 'form_add_periods', render :partial => :form

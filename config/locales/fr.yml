@@ -7,7 +7,7 @@ fr:
   general:
     home: "Accueil"
     application_name: "TimeTableAsy"
-    application_caption: "Le Calendrier Ultra Légé."
+    application_caption: "Le Calendrier Ultra Léger."
     visualisation: "Visualisation du"
     lastname: "Nom"
     month: "Mois"
@@ -35,6 +35,7 @@ fr:
     timezone: "Zone de Temps"
     mandatory_events: "Événements obligatoires"
     all_events: "Tous les événements"
+    type: "Type"
     event_for_academical: "Evenement pour une matiere"
     campuses: "Campus"
     edit: "Editer"
@@ -44,6 +45,11 @@ fr:
     new_period: "Ajouter une Période"
     cursuses: "Cursus"
     campuses: "Campus"
+    no_periods_available: "Il n'y a pas de periodes pour ce Cursus"
+    begin_at: "Commence le"
+    end_at: "Termine le"
+    create: "Créer la Période"
+    period_type: "Type de Periode"
   login:
     login: "Se Connecter"
     logout: "Se Deconnecter"
@@ -73,3 +79,69 @@ fr:
       title: "Utilisateurs"
       manage_users: "Gestion des comptes"
       create_user: "Créer un Utilisateur"
+  date:
+    formats:
+      default: "%d/%m/%Y"
+      short: "%e %b"
+      long: "%e %B %Y"
+      long_ordinal: "%e %B %Y"
+      only_day: "%e"
+    day_names: [dimanche, lundi, mardi, mercredi, jeudi, vendredi, samedi]
+    abbr_day_names: [dim, lun, mar, mer, jeu, ven, sam]
+    month_names: [~, janvier, février, mars, avril, mai, juin, juillet, août, septembre, octobre, novembre, décembre]
+    abbr_month_names: [~, jan., fév., mar., avr., mai, juin, juil., août, sept., oct., nov., déc.]
+    order: [ :day, :month, :year ]
+
+  time:
+    formats:
+      default: "%a, %e %B %Y %H:%M"
+      time: "%H:%M"
+      short: "%d %b %H:%M"
+      long: "%A %d %B %Y %H:%M:%S %Z"
+      long_ordinal: "%A %d %B %Y %H:%M:%S %Z"
+      only_second: "%S"
+    am: 'am'
+    pm: 'pm'
+
+  datetime:
+    distance_in_words:
+      half_a_minute: "une demi-minute"
+      less_than_x_seconds:
+        zero: "moins d'une seconde"
+        one: "moins de 1 seconde"
+        other: "moins de {{count}} secondes"
+      x_seconds:
+        one: "1 seconde"
+        other: "{{count}} secondes"
+      less_than_x_minutes:
+        zero: "moins d'une minute"
+        one: "moins de 1 minute"
+        other: "moins de {{count}} minutes"
+      x_minutes:
+        one: "1 minute"
+        other: "{{count}} minutes"
+      about_x_hours:
+        one: "environ une heure"
+        other: "environ {{count}} heures"
+      x_days:
+        one: "1 jour"
+        other: "{{count}} jours"
+      about_x_months:
+        one: "environ un mois"
+        other: "environ {{count}} mois"
+      x_months:
+        one: "1 mois"
+        other: "{{count}} mois"
+      about_x_years:
+        one: "environ un an"
+        other: "environ {{count}} ans"
+      over_x_years:
+        one: "plus d'un an"
+        other: "plus de {{count}} ans"
+    prompts:
+      year: "Année"
+      month: "Mois"
+      day: "Jour"
+      hour: "Heure"
+      minute: "Minute"
+      second: "Seconde"

@@ -30,7 +30,7 @@ class PeriodsController < ApplicationController
     @period = @cursus.periods.build
 
     respond_to do |format|
-      format.html # new.html.erb
+      format.html { render :layout => false }
       format.xml  { render :xml => @period }
     end
   end

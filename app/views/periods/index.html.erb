@@ -6,8 +6,8 @@
 
 <% @periods.each do |period| %>
   <tr>
-    <td><%= link_to 'Show', period %></td>
-    <td><%= link_to 'Edit', edit_period_path(period) %></td>
+    <td><%= link_to 'Show', cursus_period %></td>
+    <td><%= link_to 'Edit', cursus_edit_period_path(period) %></td>
     <td><%= link_to 'Destroy', period, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
@@ -15,4 +15,4 @@
 
 <br />
 
-<%= link_to 'New period', new_period_path %>
+<%= link_to 'New period', cursus_new_period_path(@cursus) %>

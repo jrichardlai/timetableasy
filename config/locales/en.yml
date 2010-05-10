@@ -9,10 +9,10 @@ en:
     lastname: "Last Name"
     firstname: "First Name"
     periods: "Periods"
-    from: "from"
+    from: "From"
     number: "N°"
     actions: "Actions"
-    to: 'to'
+    to: 'To'
     month: "Month"
     week: "Week"
     day: "Day"
@@ -30,6 +30,7 @@ en:
     city: "City"
     country: "Country"
     timezone: "Time Zone"
+    type: "Type"
     mandatory_events: "Mandatory events"
     all_events: "All events"
     event_for_academical: "Event for courses"
@@ -47,6 +48,13 @@ en:
   periods:
     splitting: "Split cursus into periods"
     new_period: "Create a new Period"
+    cursuses: "Cursus"
+    campuses: "Campus"
+    no_periods_available: "There is no available periods for that cursus"
+    begin_at: "Begin At"
+    end_at: "End At"
+    create: "Create the new Period"
+    period_type: "Period Type"
   user:
     create: "Create User"
     roles: "Choose this user's roles"
@@ -69,3 +77,18 @@ en:
       title: "Users"
       manage_users: "Manage Users"
       create_user: "Create a User"
+  date:
+    formats:
+      default: "%e/%m/%Y"
+      short: "%e %b"
+      long: "%e %B %Y"
+  time:
+    formats:
+      default: "%a, %e %B %Y %H:%M"
+      time: "%H:%M"
+      short: "%d %b %H:%M"
+      long: "%A %d %B %Y %H:%M:%S %Z"
+      long_ordinal: "%A %d %B %Y %H:%M:%S %Z"
+      only_second: "%S"
+    am: 'am'
+    pm: 'pm'
