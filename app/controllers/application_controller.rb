@@ -9,6 +9,7 @@ class ApplicationController < ActionController::Base
   before_filter :set_locale
   before_filter :set_current_user
   helper_method :locale_accepted
+  helper_method :format_date
 
   def set_locale
     session[:locale] = params[:locale] if params[:locale]
@@ -22,6 +23,13 @@ class ApplicationController < ActionController::Base
   def set_current_user
     User.current_user = current_user if current_user
   end
+  
+  def format_date(date)
+    date_arr = date.to_a
+    return Time.utc(*date_arr)
+    
+  end
+  
 
 private 
   def extract_locale_from_accept_language_header
