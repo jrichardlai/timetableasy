@@ -14,6 +14,7 @@ class User < ActiveRecord::Base
   has_many  :classrooms, :through => :managed_campuses
 
   #for students
+  has_one   :schooling
   has_one   :classroom, :through => :schooling
   has_one   :campus, :through => :classroom
 
