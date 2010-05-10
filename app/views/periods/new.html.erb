@@ -16,7 +16,7 @@
 	</div>
 	<div class="portlet-field">
 		<%= f.label :period_type, t('periods.period_type') %>
-		<%= f.collection_select :period_type_id, PeriodType.all, :id, :name, {:include_blank => true} %>
+		<%= f.collection_select :period_type_id, PeriodType.all, :id, :name, {:include_blank => false} %>
 	</div>
 </div>
 <div class="buttonrow" style="text-align:center;">
