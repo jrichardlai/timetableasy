@@ -52,7 +52,6 @@ class PeriodsController < ApplicationController
 
     respond_to do |format|
       if @period.save
-        flash[:notice] = 'Period was successfully created.'
         format.html { redirect_to( cursus_periods_path(@cursus) ) }
         format.xml  { render :xml => @period, :status => :created, :location => @period }
       else

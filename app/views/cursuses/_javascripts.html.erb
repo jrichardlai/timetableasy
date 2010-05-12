@@ -9,3 +9,8 @@ $(document).ready(function() {
 		});
 	});
 });
+
+$("#cancel_period_creation").click(function() {
+	$('#form_add_periods').empty();
+	$('#create_period_div').css('display', 'block');
+});

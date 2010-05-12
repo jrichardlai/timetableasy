@@ -21,7 +21,7 @@
 </div>
 <div class="buttonrow" style="text-align:center;">
 	<%= f.submit t('periods.create'), :class => "submit", :id => "new_period_creation" %>
-	<%= f.submit t('periods.cancel'), :class => "submit", :id => "cancel_period_creation" %>
+	<%= f.submit t('periods.cancel'), options = {:name => "period[Cancel]", :class => "submit", :id => "cancel_period_creation"} %>
 </div>
 <br />
 <% end %>

@@ -9,3 +9,9 @@ $("#edit_period_update").click( function() {
  	$('#form_add_periods').empty();
 	$('#create_period_div').css('display', 'block');
 });
+
+$("#cancel_period_creation").click(function() {
+	$('#form_add_periods').empty();
+	$('#create_period_div').css('display', 'block');
+	return false;
+});
