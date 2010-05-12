@@ -56,6 +56,7 @@ en:
     create: "Create the new Period"
     period_type: "Period Type"
     update: "Update the period"
+    cancel: "Cancel"
   user:
     create: "Create User"
     roles: "Choose this user's roles"

@@ -46,6 +46,7 @@ es:
     create: "Creer la Perioda"
     period_type: "Typo de Perioda"
     update: "Actualización de la Perioda"
+    cancel: "Cancelar"
   user:
     create: "Creer el usario"
     roles: "Seleccione derechos del usuario"

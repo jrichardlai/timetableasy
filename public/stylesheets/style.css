@@ -598,6 +598,28 @@ input:focus{
     box-shadow:0 0 8px orange;
 }
 
+form input.submit {
+		line-height: 20px;
+		border: 0;
+		font-size: 9px;
+		font-weight: normal;
+		text-transform: uppercase;
+		color: #fff;
+		cursor: pointer;
+		vertical-align: middle;
+		background-color: #d07200;
+		-webkit-border-radius: 3px;
+		-moz-border-radius: 3px;
+		border-radius: 3px;
+		height: 25px;
+		margin: 0px 7px 0px 0px;
+		padding: 5px 8px 5px 8px;
+		background-image: url(../images/styles/button_highlighter.png);
+		background-repeat: repeat-x;
+		}
+form input.submit:hover 		{ text-decoration: underline; background-color: #333333;}
+
+
 /*.label{
     float:left;
     padding:0 20px 0 0;

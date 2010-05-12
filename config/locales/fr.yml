@@ -51,6 +51,7 @@ fr:
     create: "Créer la Période"
     period_type: "Type de Periode"
     update: "Mettre à jours la periode"
+    cancel: "Annuler"
   login:
     login: "Se Connecter"
     logout: "Se Deconnecter"
