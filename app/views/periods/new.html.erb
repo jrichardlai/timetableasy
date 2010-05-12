@@ -2,7 +2,7 @@
 	<%= render :partial => 'javascripts' %>
 </script>
 
-<% remote_form_for([@cursus, @period]) do |f| %>
+<% remote_form_for [@cursus, @period], :update => {:success => "periods_list", :failure => "errors"} do |f| %>
 <%= f.error_messages %>
 <div class="portlet-content">
 
@@ -20,7 +20,7 @@
 	</div>
 </div>
 <div class="buttonrow" style="text-align:center;">
-	<%= f.submit t('periods.create'), :class => "submit" %>
+	<%= f.submit t('periods.create'), :class => "submit", :id => "new_period_creation" %>
 </div>
 <br />
 <% end %>

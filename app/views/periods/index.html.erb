@@ -1,18 +1,22 @@
-<h1>Listing periods</h1>
-
-<table>
-  <tr>
-  </tr>
-
-<% @periods.each do |period| %>
-  <tr>
-    <td><%= link_to 'Show', cursus_period %></td>
-    <td><%= link_to 'Edit', cursus_edit_period_path(period) %></td>
-    <td><%= link_to 'Destroy', period, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
+<table style="margin:auto;">
+	<thead>
+		<tr>
+			<th width="5%"><%= t 'general.number' %></th>
+			<th width="10%"><%= t 'general.type' %></th>
+			<th width="35%"><%= t 'general.from' %></th>
+			<th width="35%"><%= t 'general.to' %></th>
+			<th width="15%"><%= t 'general.actions' %></th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @periods.each do |period| %>
+		<tr>
+			<th><%= period.id %></th>
+			<td><%= period.name %></td>
+			<td><%= format_date(period.begin_at) %></td>
+			<td><%= format_date(period.end_at) %></td>
+			<td>edit / delete</td>
+		</tr>
+		<% end %>
+	</tbody>
 </table>
-
-<br />
-
-<%= link_to 'New period', cursus_new_period_path(@cursus) %>

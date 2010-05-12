@@ -82,7 +82,7 @@ en:
       default: "%e/%m/%Y"
       short: "%e %b"
       long: "%e %B %Y"
-      db: "%e/%m/%Y"
+      db: "%Y-%m-%d"
   time:
     formats:
       default: "%a, %e %B %Y %H:%M"

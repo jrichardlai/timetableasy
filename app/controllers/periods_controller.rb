@@ -5,10 +5,11 @@ class PeriodsController < ApplicationController
   before_filter :set_cursus
 
   def index
+    params[:footnotes] = "false"
     @periods = @cursus.periods.all
 
     respond_to do |format|
-      format.html # index.html.erb
+      format.html { render :layout => false }
       format.xml  { render :xml => @periods }
     end
   end
@@ -48,7 +49,7 @@ class PeriodsController < ApplicationController
     respond_to do |format|
       if @period.save
         flash[:notice] = 'Period was successfully created.'
-        format.html { redirect_to(cursus_periods_path(@cursus, @period)) }
+        format.html { redirect_to( cursus_periods_path(@cursus) ) }
         format.xml  { render :xml => @period, :status => :created, :location => @period }
       else
         format.html { render :action => "new" }
