@@ -15,7 +15,9 @@
 			<td><%= period.name %></td>
 			<td><%= format_date(period.begin_at) %></td>
 			<td><%= format_date(period.end_at) %></td>
-			<td>edit / delete</td>
+			<td><%= link_to_remote image_tag('editer_little.png', :class => "veralign"), :url =>  edit_cursus_period_path(@cursus, period), :method => "get", :update => { :success => "form_add_periods", :failure => "error" } %>
+
+<%= link_to_remote image_tag('delete_little.png', :class => "veralign"), :url => cursus_period_path(@cursus, period), :method => "delete", :update => { :success => "periods_list", :failure => "error" } %></td>
 		</tr>
 		<% end %>
 	</tbody>

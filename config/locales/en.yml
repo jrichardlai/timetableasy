@@ -55,6 +55,7 @@ en:
     end_at: "End At"
     create: "Create the new Period"
     period_type: "Period Type"
+    update: "Update the period"
   user:
     create: "Create User"
     roles: "Choose this user's roles"

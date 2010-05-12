@@ -1,12 +1,25 @@
-<h1>Editing period</h1>
+<script type="text/javascript" charset="utf-8">
+	<%= render :partial => 'javascripts' %>
+</script>
 
-<% form_for(@period) do |f| %>
-  <%= f.error_messages %>
+<% remote_form_for [@cursus, @period], :update => {:success => "periods_list", :failure => "errors"} do |f| %>
+<%= f.error_messages %>
+<div class="portlet-content">
 
-  <p>
-    <%= f.submit 'Update' %>
-  </p>
+	<div class="portlet-field">
+		<%= f.label :begin_at, t('periods.begin_at') %>
+		<%= f.text_field :begin_at, :class => "date_picker" %>
+	</div>
+	<div class="portlet-field">
+		<%= f.label :end_at, t('periods.end_at') %>
+		<%= f.text_field :end_at, :class => "date_picker" %>
+	</div>
+	<div class="portlet-field">
+		<%= f.label :period_type, t('periods.period_type') %>
+		<%= f.collection_select :period_type_id, PeriodType.all, :id, :name, {:include_blank => false} %>
+	</div>
+</div>
+<div class="buttonrow" style="text-align:center;">
+	<%= f.submit t('periods.update'), :class => "submit", :id => "edit_period_update" %>
+</div>
 <% end %>
-
-<%= link_to 'Show', @period %> |
-<%= link_to 'Back', periods_path %>

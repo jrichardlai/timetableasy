@@ -1,0 +1,11 @@
+$(document).ready(function() {
+	$('#create_period').click(function() {
+		$('#create_period_div').css('display', 'none');
+	});
+	
+	$('.edit').each(function() {
+		$(this).click(function() {
+			$('#create_period_div').css('display', 'none');
+		});
+	});
+});

@@ -38,7 +38,11 @@ class PeriodsController < ApplicationController
 
   # GET /periods/1/edit
   def edit
+    params[:footnotes] = "false"
     @period = Period.find(params[:id])
+    respond_to do |format|
+      format.html {render :layout => false}
+    end
   end
 
   # POST /periods
@@ -66,7 +70,7 @@ class PeriodsController < ApplicationController
     respond_to do |format|
       if @period.update_attributes(params[:period])
         flash[:notice] = 'Period was successfully updated.'
-        format.html { redirect_to(@period) }
+        format.html { redirect_to( cursus_periods_path(@cursus) ) }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
@@ -82,7 +86,7 @@ class PeriodsController < ApplicationController
     @period.destroy
 
     respond_to do |format|
-      format.html { redirect_to(periods_url) }
+      format.html { redirect_to( cursus_periods_path(@cursus) ) }
       format.xml  { head :ok }
     end
   end

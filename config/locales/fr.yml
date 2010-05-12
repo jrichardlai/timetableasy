@@ -50,6 +50,7 @@ fr:
     end_at: "Termine le"
     create: "Créer la Période"
     period_type: "Type de Periode"
+    update: "Mettre à jours la periode"
   login:
     login: "Se Connecter"
     logout: "Se Deconnecter"
