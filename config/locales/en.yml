@@ -66,6 +66,7 @@ en:
   rooms:
     no_rooms_available: "There is no room for that campus"
     new_room: "Create a new Room"
+    create_room: "Create Room"
     rooms_title: "Campus' Rooms"
   menu:
     events:

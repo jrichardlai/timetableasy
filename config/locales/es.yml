@@ -56,6 +56,7 @@ es:
   rooms:
     no_rooms_available: "No hay Sala de Clase"
     new_room: "Creer una Sala de Clase"
+    create_room: "Creer Sala"
     rooms_title: "Salas del campus"
   menu:
     events:

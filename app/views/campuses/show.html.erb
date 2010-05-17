@@ -93,7 +93,7 @@
 							<td><%= room.name %></td>
 							<td><%= link_to_remote image_tag('editer_little.png', :class => "veralign edit"), :url =>  edit_campus_room_path(@campus, room), :method => "get", :update => { :success => "form_add_rooms", :failure => "error" } %>
 
-							<%= link_to_remote image_tag('delete_little.png', :class => "veralign"), :url => campus_room_path(@campus, room), :method => "delete", :update => { :success => "rooms_list", :failure => "error" } %></td>
+							<%= link_to_remote image_tag('delete_little.png', :class => "veralign"), :url => campus_room_path(@campus, room), :method => "delete", :update => { :success => "rooms", :failure => "error" } %></td>
 						</tr>
 						<% end %>
 					</tbody>

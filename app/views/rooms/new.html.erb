@@ -1,0 +1,19 @@
+<script type="text/javascript" charset="utf-8">
+	<%= render :partial => 'javascripts' %>
+</script>
+
+<% remote_form_for [@campus, @room], :update => {:success => "rooms", :failure => "errors"} do |f| %>
+<%= f.error_messages %>
+<div class="portlet-content">
+
+	<div class="portlet-field">
+		<%= f.label :name, t('general.name') %>
+		<%= f.text_field :name %>
+	</div>
+</div>
+<div class="buttonrow" style="text-align:center;">
+	<%= f.submit t('rooms.create_room'), :class => "submit", :id => "new_room_creation" %>
+	<%= f.submit t('periods.cancel'), options = {:name => "room[Cancel]", :class => "submit", :id => "cancel_room_creation"} %>
+</div>
+<br />
+<% end %>

@@ -1,19 +1,24 @@
-<h1>Listing rooms</h1>
+<% if @campus.rooms.count > 0 %>
+<table style="margin:auto;">
+	<thead>
+		<tr>
+			<th width="5%"><%= t 'general.number' %></th>
+			<th width="75%"><%= t 'general.name' %></th>
+			<th width="20%"><%= t 'general.actions' %></th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @campus.rooms.each do |room| %>
+		<tr>
+			<th><%= room.id %></th>
+			<td><%= room.name %></td>
+			<td><%= link_to_remote image_tag('editer_little.png', :class => "veralign edit"), :url =>  edit_campus_room_path(@campus, room), :method => "get", :update => { :success => "form_add_rooms", :failure => "error" } %>
 
-<table>
-  <tr>
-    <th>Name</th>
-  </tr>
-
-<% @rooms.each do |room| %>
-  <tr>
-    <td><%=h room.name %></td>
-    <td><%= link_to 'Edit', edit_room_path(room) %></td>
-    <td><%= link_to 'Destroy', room, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
+			<%= link_to_remote image_tag('delete_little.png', :class => "veralign"), :url => campus_room_path(@campus, room), :method => "delete", :update => { :success => "rooms", :failure => "error" } %></td>
+		</tr>
+		<% end %>
+	</tbody>
 </table>
-
-<br />
-
-<%= link_to 'New room', new_campus_room_path(@campus) %>
+<% else %>
+<h6><%= t 'rooms.no_rooms_available' %></h6>
+<% end %>

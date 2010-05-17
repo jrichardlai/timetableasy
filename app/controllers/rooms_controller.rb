@@ -5,6 +5,7 @@ class RoomsController < ApplicationController
   before_filter :set_campus
 
   def index
+    params[:footnotes] = "false"
     @rooms = @campus.rooms.all
 
     respond_to do |format|
@@ -16,6 +17,7 @@ class RoomsController < ApplicationController
   # GET /room/new
   # GET /room/new.xml
   def new
+    params[:footnotes] = "false"
     @room = @campus.rooms.build
 
     respond_to do |format|
@@ -37,7 +39,7 @@ class RoomsController < ApplicationController
     respond_to do |format|
       if @room.save
         flash[:notice] = 'room was successfully created.'
-        format.html { redirect_to(@room) }
+        format.html { redirect_to(campus_rooms_path(@campus)) }
         format.xml  { render :xml => @room, :status => :created, :location => @room }
       else
         format.html { render :action => "new" }
@@ -66,11 +68,11 @@ class RoomsController < ApplicationController
   # DELETE /room/1
   # DELETE /room/1.xml
   def destroy
-    @room = rooms.find(params[:id])
+    @room = Room.find(params[:id])
     @room.destroy
 
     respond_to do |format|
-      format.html { redirect_to(room_url) }
+      format.html { redirect_to(campus_rooms_path(@campus)) }
       format.xml  { head :ok }
     end
   end
