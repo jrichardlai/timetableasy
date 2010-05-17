@@ -28,6 +28,8 @@ es:
     description: "Descripción"
     edit: "Editar"
     delete: "Eliminar"
+    campus: "campus"
+    cursuses: "Cursusos Presentado:"
   login:
     login: "Connectar"
     logout: "Deconnectar"
@@ -51,6 +53,10 @@ es:
     create: "Creer el usario"
     roles: "Seleccione derechos del usuario"
     infos: "Informaciones del usuario"
+  rooms:
+    no_rooms_available: "No hay Sala de Clase"
+    new_room: "Creer una Sala de Clase"
+    rooms_title: "Salas del campus"
   menu:
     events:
       title: "Eventos"

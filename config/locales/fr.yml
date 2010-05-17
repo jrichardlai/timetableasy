@@ -40,6 +40,8 @@ fr:
     campuses: "Campus"
     edit: "Editer"
     delete: "Supprimer"
+    campus: "campus"
+    cursuses: "Cursus Présentés:"
   periods:
     splitting: "Couper le cursus en différentes périodes"
     new_period: "Ajouter une Période"
@@ -63,6 +65,10 @@ fr:
     create: "Créer l'utilisateur"
     roles: "Selectionez les droits de l'utilisateur."
     infos: "Informations sur l'utilisateur."
+  rooms:
+    no_rooms_available: "Il n'y a aucune salle de classe"
+    new_room: "Créer une salle de classe"
+    rooms_title: "Salles du campus"
   menu:
     events:
       title: "Evenements"

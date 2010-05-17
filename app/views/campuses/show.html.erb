@@ -1,65 +1,118 @@
+<script type="text/javascript" charset="utf-8">
+<%= render :partial => 'javascripts' %>
+</script>
 
-<table>
-  <tr>
-  </tr>
+<div class="left">
 
-  	<tr>
-		<td><%= t "general.name" %></td>
-		<td><%= @campus.name %></td>
-  	</tr>
- 	<tr>
-		<td><%= t "general.address" %></td>
-		<td><%= @campus.address %></td>
-  	</tr>
- 	<tr>
-		<td><%= t "general.zip" %></td>
-		<td><%= @campus.zip %></td>
-  	</tr>
- 	<tr>
-		<td><%= t "general.city" %></td>
-		<td><%= @campus.city %></td>
-  	</tr>
- 	<tr>
-		<td><%= t "general.country" %></td>
-		<td><%= @campus.country %></td>
-  	</tr>
- 	<tr>
-		<td><%= t "general.timezone" %></td>
-		<td><%= @campus.timezone %></td>
-  	</tr>
-	<% if @campus.cursuses.count > 0 %>
-	<tr>
-		<td><%= t "general.cursuses" %></td>
-		<td>
-			<% @campus.cursuses.each do |cursus| %>
-			<%= cursus.name %>
-			<% end %>
-		</td>
-  	</tr>
-	<% end %>
-</table>
+	<div class="box">	
+		<div class="box-header">
 
-<br />
-<% if @campus.rooms.count > 0 %>
-<h1>Listing rooms</h1>
+			<h4><%= t "general.visualisation" %> <%= t "general.campus" %> : <%= @campus.name %></h4>	
+		</div> <!-- .portlet-header -->	
 
-<table>
-  <tr>
-    <th>Name</th>
-  </tr>
+		<div class="box-content">				
+			<div style="width:100%; height:auto;">
+				<table style="margin:auto;">
+					<thead>
 
-<% @rooms.each do |room| %>
-  <tr>
-    <td><%=h room.name %></td>
-    <td><%= link_to 'Edit', edit_room_path(room) %></td>
-    <td><%= link_to 'Destroy', room, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
-</table>
+					</thead>
+					<tbody>
+						<tr>
+							<th><%= t "general.name" %></th>
+							<td><%= @campus.name %></td>
+						</tr>
+						<tr>
+							<th><%= t "general.address" %></th>
+							<td><%= @campus.address %></td>
+						</tr>
+						<tr>
+							<th><%= t "general.zip" %></th>
+							<td><%= @campus.zip %></td>
+						</tr>
+						<tr>
+							<th><%= t "general.city" %></th>
+							<td><%= @campus.city %></td>
+						</tr>
+						<tr>
+							<th><%= t "general.country" %></th>
+							<td><%= @campus.country %></td>
+						</tr>
+						<tr>
+							<th><%= t "general.timezone" %></th>
+							<td><%= @campus.timezone %></td>
+						</tr>
+						<% if @campus.cursuses.count > 0 %>
+						<tr>
+							<th><%= t "general.cursuses" %></th>
+							<td>
+								<ul>
+								<% @campus.cursuses.each do |cursus| %>
+									<li><%= cursus.name %></li>
+								<% end %>
+								</ul>
+							</td>
+						</tr>
+						<% end %>
+					</tbody>
+				</table>
+				<br />
+				<div class="abutton">
+					<span><%= link_to image_tag('edit.png', :class => "veralign") + " " + t('general.edit'), edit_campus_path(@campus), :class => "button" %> </span>
+					<span><%= link_to image_tag('delete.png', :class => "veralign") + " " + t('general.delete'), campus_path(@campus), :confirm => 'Are you sure?', :method => :delete, :class => "button" %></span>
+				</div>
+			</div>
+		</div> <!-- .portlet-content -->	
+	</div> <!-- .portlet -->
+</div>
 
-<br />
-<% end %>
 
-<%= link_to 'Edit', edit_campus_path(@campus) %> |
-<%= link_to 'Back', campuses_path %> |
-<%= link_to 'New room', new_campus_room_path(@campus) %>
+
+<div class="right">
+
+	<div class="box">	
+		<div class="box-header">
+
+			<h4><%= t 'rooms.rooms_title' %></h4>	
+		</div> <!-- .portlet-header -->	
+
+		<div class="box-content">				
+			<div style="width:100%; height:auto;" id="rooms">
+				<% if @campus.rooms.count > 0 %>
+				<table style="margin:auto;">
+					<thead>
+						<tr>
+							<th width="5%"><%= t 'general.number' %></th>
+							<th width="75%"><%= t 'general.name' %></th>
+							<th width="20%"><%= t 'general.actions' %></th>
+						</tr>
+					</thead>
+					<tbody>
+						<% @campus.rooms.each do |room| %>
+						<tr>
+							<th><%= room.id %></th>
+							<td><%= room.name %></td>
+							<td><%= link_to_remote image_tag('editer_little.png', :class => "veralign edit"), :url =>  edit_campus_room_path(@campus, room), :method => "get", :update => { :success => "form_add_rooms", :failure => "error" } %>
+
+							<%= link_to_remote image_tag('delete_little.png', :class => "veralign"), :url => campus_room_path(@campus, room), :method => "delete", :update => { :success => "rooms_list", :failure => "error" } %></td>
+						</tr>
+						<% end %>
+					</tbody>
+				</table>
+				<% else %>
+				<h6><%= t 'rooms.no_rooms_available' %></h6>
+				<% end %>
+				<br />
+			</div>
+			<br />
+			<div style="width:100%; height:auto;" id="form_add_rooms">
+
+			</div>
+			<div class="abutton" id="create_room_div"><%= link_to_remote image_tag('styles/add_periods.png', :class => "veralign") + " " + t('rooms.new_room'), :url =>  new_campus_room_path(@campus), :method => "get", :html => {:id => "create_room", :class => "button"}, :update => { :success => "form_add_rooms", :failure => "error" } %></div>
+		</div>
+	</div> <!-- .portlet-content -->	
+</div> <!-- .portlet -->
+</div>
+
+<div style="clear:both;">
+</div>
+	

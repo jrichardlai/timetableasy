@@ -8,7 +8,7 @@ class RoomsController < ApplicationController
     @rooms = @campus.rooms.all
 
     respond_to do |format|
-      format.html # index.html.erb
+      format.html { render :layout => false}
       format.xml  { render :xml => @rooms }
     end
   end
@@ -19,7 +19,7 @@ class RoomsController < ApplicationController
     @room = @campus.rooms.build
 
     respond_to do |format|
-      format.html # new.html.erb
+      format.html { render :layout => false}
       format.xml  { render :xml => @rooms }
     end
   end

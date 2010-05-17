@@ -38,6 +38,7 @@ en:
     cursuses: "Cursus"
     edit: "Edit"
     delete: "Delete"
+    campus: "campus"
   login:
     login: "Login"
     logout: "Logout"
@@ -57,10 +58,15 @@ en:
     period_type: "Period Type"
     update: "Update the period"
     cancel: "Cancel"
+    cursuses: "Campus' Cursuses:"
   user:
     create: "Create User"
     roles: "Choose this user's roles"
     infos: "New user's informations"
+  rooms:
+    no_rooms_available: "There is no room for that campus"
+    new_room: "Create a new Room"
+    rooms_title: "Campus' Rooms"
   menu:
     events:
       title: "Events"
