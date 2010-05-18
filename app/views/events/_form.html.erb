@@ -24,14 +24,31 @@
 	<%- if can? current_user, :manage, Classroom  %>
 		<%= t('general.event_for_academical') %>
 		<input type="checkbox" id="toggle_academical"/>
-		<p class="academical">
-			<p><%= form.label :subject %></p>
-			<p><%= form.label :type %></p>
-			<p><%= form.label :subject_method %></p>
-		</p>
+		<div class="academical">
+			<p>
+			<%= form.label :subject %>
+				<select>
+				<option>Microsoft</option>
+				<option>Cisco</option>
+				</select>
+			</p>
+			<p><%= form.label :type %>
+			<select>
+				<option>Cours</option>
+				<option>TP</option>
+			</select>
+			</p>
+			<p>
+			<%= form.label :subject_method %>
+			<select>
+				<option>Elearning</option>
+				<option>Cours en salle</option>
+			</select>
+			</p>
+		</div>
 	<%- end -%>
 	<p class="not_academical">
-		<%= form.label :event_type %><br/>
+		<%= form.label :event_type %>
 		<%= form.collection_select :event_type_id, EventType.all, :id, :name, {:include_blank => true} %>
 	</p>
 	<%- if can? current_user, :manage, Classroom  %>
@@ -46,16 +63,18 @@
 		</p>
 		<p>
 			<%= form.label :speaker %>
-			<%= form.collection_select :speaker_id, User.intervenants, :id, :login, {:include_blank => true} %>
-			<%= form.text_field :speaker_name %>
+			<input type="checkbox" id="toggle_spearker-exists" <%= 'checked="checked"' if @event.speaker_name.blank? %> />
+			<%= form.collection_select :speaker_id, User.intervenants, :id, :login, {:include_blank => true}, :class => 'spearker-exists' %>
+			<%= form.text_field :speaker_name, :class => 'not_spearker-exists' %>
 		</p>
 	<%- end -%>
 
 	<%- if can? current_user, :manage, Campus -%>
 		<p>
 			<%= form.label :room %>
-			<%= form.collection_select :room_id, Room.all, :id, :name, {:include_blank => true} %>
-			<%= form.text_field :room_name %>
+			<input type="checkbox" id="toggle_room-exists" <%= 'checked="checked"' if @event.room_name.blank? %> />
+			<%= form.collection_select :room_id, Room.all, :id, :name, {:include_blank => true}, :class => 'room-exists' %>
+			<%= form.text_field :room_name, :class => 'not_room-exists' %>
 		</p>
 	<%- end -%>
 </div>
