@@ -98,15 +98,15 @@ class Event < ActiveRecord::Base
 
   def valid_dates?
     return false unless self.begin_at and self.end_at
-    errors.add_to_base("anterior_dates") unless self.begin_at < self.end_at
+    errors.add_to_base(I18n.t("errors.anterior_dates")) unless self.begin_at < self.end_at
   end
 
   def speaker_not_busy?
-    errors.add_to_base("speaker_busy") if speaker.busy_between?(begin_at, end_at)
+    errors.add_to_base(I18n.t("errors.speaker_busy")) if speaker.busy_between?(begin_at, end_at)
   end
 
   def room_not_used?
-    errors.add_to_base("room_used") if room.used_between?(begin_at, end_at)
+    errors.add_to_base(I18n.t("errors.room_used")) if room.used_between?(begin_at, end_at)
   end
 
 end
