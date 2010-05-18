@@ -2,6 +2,7 @@ es:
   copyright:
     company: "Copyright © FBJ.RC Development. - 2010 - Todos los derechos reservados"
   general:
+    get_ical: "Tener la Version iCal de este Calendar"
     home: "Inicio"
     application_name: "TimeTableAsy"
     application_caption: "El Ultra Light Calendario."
@@ -47,7 +48,7 @@ es:
     end_at: "Termina el"
     create: "Creer la Perioda"
     period_type: "Typo de Perioda"
-    update: "Actualización de la Perioda"
+    update: "Actualizar la Perioda"
     cancel: "Cancelar"
   user:
     create: "Creer el usario"
@@ -58,6 +59,7 @@ es:
     new_room: "Creer una Sala de Clase"
     create_room: "Creer Sala"
     rooms_title: "Salas del campus"
+    update_room: "Actualizar la Sala"
   menu:
     events:
       title: "Eventos"

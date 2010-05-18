@@ -28,7 +28,11 @@ class RoomsController < ApplicationController
 
   # GET /room/1/edit
   def edit
-    @room = rooms.find(params[:id])
+    params[:footnotes] = "false"
+    @room = Room.find(params[:id])
+    respond_to do |format|
+      format.html {render :layout => false}
+    end
   end
 
   # POST /room
@@ -56,7 +60,7 @@ class RoomsController < ApplicationController
     respond_to do |format|
       if @room.update_attributes(params[:room])
         flash[:notice] = 'room was successfully updated.'
-        format.html { redirect_to(@room) }
+        format.html { redirect_to(campus_rooms_path(@campus)) }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }

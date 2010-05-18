@@ -3,13 +3,19 @@ $("#new_room_creation").click( function() {
 	$('#create_room_div').css('display', 'block');
 });
 
-$("#edit_period_update").click( function() {
- 	$('#form_add_periods').empty();
-	$('#create_period_div').css('display', 'block');
+$("#edit_room_update").click( function() {
+ 	$('#form_add_rooms').empty();
+	$('#create_room_div').css('display', 'block');
 });
 
 $("#cancel_room_creation").click(function() {
 	$('#form_add_rooms').empty();
 	$('#create_room_div').css('display', 'block');
 	return false;
+});
+
+$('.edit').each(function() {
+	$(this).click(function() {
+		$('#create_room_div').css('display', 'none');
+	});
 });

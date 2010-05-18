@@ -5,6 +5,7 @@ fr:
   copyright:
     company: "Copyright © FBJ.RC Development. - 2010 - Tous droits réservés"
   general:
+    get_ical: "Obtenir le version iCal de ce calendrier"
     home: "Accueil"
     application_name: "TimeTableAsy"
     application_caption: "Le Calendrier Ultra Léger."
@@ -70,6 +71,7 @@ fr:
     new_room: "Créer une salle de classe"
     rooms_title: "Salles du campus"
     create_room: "Créer la salle"
+    update_room: "Mettre à Jours la salle"
   menu:
     events:
       title: "Evenements"
