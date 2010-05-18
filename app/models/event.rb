@@ -27,6 +27,7 @@ class Event < ActiveRecord::Base
   validate :speaker_not_busy?, :if => :speaker
   validate :room_not_used?, :if => :room
   validate :valid_dates?
+  validate :event_scope_should_have_id
   
   before_validation :add_to_current_user_events, :unless => :has_scope?
   belongs_to :event_scope, :polymorphic => true
@@ -63,6 +64,10 @@ class Event < ActiveRecord::Base
     self.end_at   = DateTime.strptime "#{end_day} #{end_time}", '%d/%m/%Y %H:%M'
   end
 
+  def display_name
+    name || (academical.subject.name)
+  end
+
   def has_scope?
     global_event? or event_scope_id
   end
@@ -72,7 +77,7 @@ class Event < ActiveRecord::Base
   end
 
   def to_fullcalendar
-    {:id => id, :title => name, :description => description, :start => begin_at.iso8601, :end => end_at.iso8601, :className => (global_event ? 'university' : event_scope_type.downcase)}
+    {:id => id, :title => display_name, :description => description, :start => begin_at.iso8601, :end => end_at.iso8601, :className => (global_event ? 'university' : event_scope_type.downcase)}
   end
 
   #cumulate events for an user or an campus or a class
@@ -109,4 +114,7 @@ class Event < ActiveRecord::Base
     errors.add_to_base(I18n.t("errors.room_used")) if room.used_between?(begin_at, end_at)
   end
 
+  def event_scope_should_have_id
+    errors.add_to_base(I18n.t("errors.should_have_id")) if not event_scope_type.blank? and event_scope_id.blank?
+  end
 end
