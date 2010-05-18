@@ -2,6 +2,7 @@ en:
   copyright:
     company: "Copyright © FBJ.RC Development. - 2010 - All Rights Reserved"
   general:
+    get_ical: "Get the iCal Version of your Calendar"
     home: "Home"
     application_name: "TimeTableAsy"
     application_caption: "The Easy LightWeight Calendar."

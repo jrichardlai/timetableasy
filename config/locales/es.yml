@@ -2,6 +2,7 @@ es:
   copyright:
     company: "Copyright © FBJ.RC Development. - 2010 - Todos los derechos reservados"
   general:
+    get_ical: "Tener la Version iCal de este Calendar"
     home: "Inicio"
     application_name: "TimeTableAsy"
     application_caption: "El Ultra Light Calendario."
