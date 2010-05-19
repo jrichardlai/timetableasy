@@ -3,10 +3,6 @@
   <%= form.text_field :name %>
 </p>
 <p>
-  <%= form.label :promotion %><br />
-  <%= form.text_field :promotion_id %>
-</p>
-<p>
   <%= form.label :campus %><br />
 	<%= form.collection_select :campus_id, Campus.all, :id, :name %>
 </p>
