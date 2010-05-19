@@ -49,6 +49,7 @@ en:
     edit: "Edit"
     delete: "Delete"
     campus: "campus"
+    school_subjects: "School Subjects"
   login:
     login: "Login"
     logout: "Logout"
@@ -71,6 +72,14 @@ en:
     update: "Update the period"
     cancel: "Cancel"
     cursuses: "Campus' Cursuses:"
+  school_subjects:
+      no_school_subjects_available: "There is no available school subjects for that cursus"
+      new: "Create a new School Subject"
+      name: "Name"
+      description: "Description"
+      create: "Create the new School Subject"
+      update: "Update the School Subject"
+      cancel: "Cancel"
   user:
     create: "Create User"
     roles: "Choose this user's roles"

@@ -1,8 +1,11 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :school_subjects
+
   map.resources :classrooms
 
   map.resources :cursuses do |cursus|
     cursus.resources :periods
+    cursus.resources :school_subjects
   end
   map.resources :campuses do |campus|
     campus.resources :rooms
