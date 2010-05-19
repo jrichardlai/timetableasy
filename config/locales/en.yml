@@ -47,6 +47,8 @@ en:
     authenticate_yourself: "Login"
     create_account: "Create my account"
     logged_out: "You have been succefully logged out"
+  events:
+    create_event: "Create a new Event"
   periods:
     splitting: "Split cursus into periods"
     new_period: "Create a new Period"
