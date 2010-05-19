@@ -1,32 +1,34 @@
-$(document).ready(function() {
-	$('#create_period').click(function() {
-		$('#create_period_div').css('display', 'none');
-	});
-	
-	$('.edit').each(function() {
-		$(this).click(function() {
+<script type="text/javascript" charset="utf-8">
+	$(document).ready(function() {
+		$('#create_period').click(function() {
 			$('#create_period_div').css('display', 'none');
 		});
-	});
-});
-
-$("#cancel_period_creation").click(function() {
-	$('#form_add_periods').empty();
-	$('#create_period_div').css('display', 'block');
-});
-$(document).ready(function() {
-	$('#create_school_subject').click(function() {
-		$('#create_school_subject_div').css('display', 'none');
-	});
 	
-	$('.edit').each(function() {
-		$(this).click(function() {
-			$('#create_school_subject_div').css('display', 'none');
+		$('.edit').each(function() {
+			$(this).click(function() {
+				$('#create_period_div').css('display', 'none');
+			});
 		});
 	});
-});
 
-$("#cancel_school_subject_creation").click(function() {
-	$('#form_add_school_subjects').empty();
-	$('#create_school_subject_div').css('display', 'block');
-});
+	$("#cancel_period_creation").click(function() {
+		$('#form_add_periods').empty();
+		$('#create_period_div').css('display', 'block');
+	});
+	$(document).ready(function() {
+		$('#create_school_subject').click(function() {
+			$('#create_school_subject_div').css('display', 'none');
+		});
+	
+		$('.edit').each(function() {
+			$(this).click(function() {
+				$('#create_school_subject_div').css('display', 'none');
+			});
+		});
+	});
+
+	$("#cancel_school_subject_creation").click(function() {
+		$('#form_add_school_subjects').empty();
+		$('#create_school_subject_div').css('display', 'block');
+	});
+</script>

@@ -75,8 +75,8 @@
 </div>
 <p>
 	<%= form.text_field :start_day, :class => 'date_picker' %>
-	<%= form.text_field :start_time, :class => 'time_picker' %>
+	<%= form.select :start_time, time_options, :class => 'time_picker' %>
 	<%= t('general.to') %>
-	<%= form.text_field :end_time, :class => 'time_picker' %>
+	<%= form.select :end_time, time_options, :class => 'time_picker' %>
 	<%= form.text_field :end_day, :class => 'date_picker' %>
 </p>
