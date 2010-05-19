@@ -3,14 +3,12 @@
 <table>
   <tr>
     <th>Name</th>
-    <th>Promotion</th>
     <th>Campus</th>
   </tr>
 
 <% @classrooms.each do |classroom| %>
   <tr>
     <td><%=h classroom.name %></td>
-    <td><%=h classroom.promotion %></td>
     <td><%=h classroom.campus.name %></td>
     <td><%= link_to 'Show', classroom %></td>
     <td><%= link_to 'Edit', edit_classroom_path(classroom) %></td>

@@ -10,7 +10,7 @@ class Event < ActiveRecord::Base
   belongs_to  :room
   belongs_to  :speaker, :class_name => 'User'
 
-  EVENT_SCOPES = ['campus', 'cursus', 'promotion', 'classroom', 'user']
+  EVENT_SCOPES = ['campus', 'cursus', 'periods', 'classroom', 'user']
 
   # Define named scopes for event scopes
   EVENT_SCOPES.each do |scope|
