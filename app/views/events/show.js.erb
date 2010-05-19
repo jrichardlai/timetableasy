@@ -1,2 +1,7 @@
 <h1><%= @event.event_type_name %></h1>
 <%= @event.description %>
+<br/>
+<%- if can? :manage, @event -%>
+	<%= link_to_function 'Edit', "editEvent(#{@event.id})" %>
+	<%= link_to_function 'Delete', "deleteEvent(#{@event.id})" %>
+<%- end -%>
