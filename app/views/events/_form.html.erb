@@ -9,7 +9,7 @@
   <%= form.text_area :description, :rows => 4, :cols => 70 %>
 </p>
 
-<%- if can? current_user, :manage, Cursus  %>
+<%- if can? current_user, :manage, Cursus -%>
 	<%= form.label :force_display %>
 	<%= form.check_box :force_display, :default => false %>
 <%- end -%>

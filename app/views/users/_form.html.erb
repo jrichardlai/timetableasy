@@ -61,7 +61,7 @@
 
 	<div id="is_student" style="display:none">
 		Class :
-		<%= collection_select :user, :classroom, Classroom.all, :id, :name_with_campus %>
+		<%= collection_select :user, :classroom_id, Classroom.all, :id, :name_with_campus %>
 	</div>
 
 	<% end %>
