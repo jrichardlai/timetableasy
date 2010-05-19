@@ -1,4 +1,13 @@
 en:
+  errors:
+    anterior_dates: "The dates are not valid."
+    speaker_busy: "The speaker is busy at this time."
+    room_used: "The room is used at this time."
+    should_have_id: "Please select a value for the scope of the event."
+    event:
+      cannot_edit: "You don't have the rights to edit this event."
+    user:
+      should_have_class: "A student should belongs to a class."
   copyright:
     company: "Copyright © FBJ.RC Development. - 2010 - All Rights Reserved"
   general:

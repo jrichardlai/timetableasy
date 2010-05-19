@@ -803,3 +803,9 @@ div.right {
 .abutton {
 	text-align:center;
 }
+
+form.dialog-form {
+	-moz-border-radius:default;
+	border:none;
+	background:none;
+}

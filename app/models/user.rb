@@ -14,9 +14,7 @@ class User < ActiveRecord::Base
   has_many  :classrooms, :through => :managed_campuses
 
   #for students
-  has_one   :schooling
-  has_one   :classroom, :through => :schooling
-  has_one   :campus, :through => :classroom
+  belongs_to  :classroom
 
   validates_presence_of     :login
   validates_length_of       :login,    :within => 3..40
@@ -44,11 +42,13 @@ class User < ActiveRecord::Base
   # HACK HACK HACK -- how to do attr_accessible from here?
   # prevents a user from submitting a crafted form that bypasses activation
   # anything else you want your user to change should be added here.
-  attr_accessible :login, :email, :lastname, :firstname, :password, :password_confirmation, :role_types, :role_type_ids, :managed_campus_ids
+  attr_accessible :login, :email, :lastname, :firstname, :password, :password_confirmation, :role_types, :role_type_ids, :managed_campus_ids, :classroom_id
   accepts_nested_attributes_for :role_types
 
   cattr_accessor :current_user
 
+  delegate :campus, :to => :classroom
+  delegate :can?, :cannot?, :to => :ability
 
   # Authenticates a user by their login name and unencrypted password.  Returns the user or nil.
   #
@@ -68,6 +68,10 @@ class User < ActiveRecord::Base
 
   def email=(value)
     write_attribute :email, (value ? value.downcase : nil)
+  end
+
+  def ability
+    @ability ||= Ability.new(self)
   end
 
   def admin?
@@ -121,7 +125,7 @@ class User < ActiveRecord::Base
   protected
 
   def should_has_classroom
-    errors.add_to_base('user.should_has_class') if classroom_id.nil?
+    errors.add_to_base(I18n.t('errors.user.should_has_class')) if classroom_id.nil?
   end
 
 end

@@ -2,6 +2,7 @@ function toggle_type(elem) {
 	var obj_type = $(elem).attr('id').replace('toggle_', '')
 	if ($(elem).attr('checked')) {
 		$('.not_'+ obj_type).hide();
+		$('.not_'+ obj_type).val('');
 		$('.not_'+ obj_type+ ' input').val('');
 		$('.not_'+ obj_type+ ' select').val('');
 		$('.'+ obj_type).show();
@@ -14,30 +15,37 @@ function toggle_type(elem) {
 
 $(document).ready(function(){
 	$('.date_picker').datepicker({dateFormat:'dd/mm/yy'});
-	// $('.time_picker').timePicker({
-//	  startTime: "00:00", // Using string. Can take string or Date object.
-//	  endTime: new Date(0, 0, 0, 23, 00, 0), // Using Date object here.
-//	  step: 60});
 	$('#event_event_scope_type').change(function(){
 		var select_value = $(this).val();
 		if (select_value) {
 			jQuery.get(
 				"javascripts/event_types.js",
-				{type: select_value}
+				{type: select_value}, function() {
+					if (select_value == 'Classroom') {
+						$('#event_event_scope_id').change(function(){
+							if ($(this).val() != '') {
+								$('#for-classrooms').show();
+								jQuery.get("javascripts/academical.js", {classroom_id: $(this).val()});
+							}
+							else {
+								$('#for-classrooms').hide();
+								$('#for-classrooms select').val('');
+							}
+						});
+					}
+				}
 			)
 		}
 		else {
 			$('#event_scope_id_select').html('');
 		}
 	});
-	if ($("#only_mandatory").val() == "true") {
-		$("#event_force_display").attr('checked', true);
-	}
+
 	$('input:checkbox[id^=toggle_]').click(function(){
 		toggle_type(this);
 	});
-	
-	$('input:checkbox[id^=toggle_]:checked').each(function(){
+
+	$('input:checkbox[id^=toggle_]').each(function(){
 		toggle_type(this);
 	});
 });

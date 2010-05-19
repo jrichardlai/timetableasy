@@ -2,6 +2,7 @@ class EventsController < ApplicationController
   # GET /events
   # GET /events.xml
   before_filter :login_required
+  before_filter :check_rights, :only => [:edit, :resize, :move, :update, :destroy]
   
   def index
     respond_to do |format|
@@ -33,16 +34,14 @@ class EventsController < ApplicationController
   end
 
   def move
-    @event = Event.find_by_id params[:id]
     if @event
       @event.begin_at = (params[:minute_delta].to_i).minutes.from_now((params[:day_delta].to_i).days.from_now(@event.begin_at))
       @event.end_at = (params[:minute_delta].to_i).minutes.from_now((params[:day_delta].to_i).days.from_now(@event.end_at))
-      response_error unless @event.save 
+      response_error unless @event.save
     end
   end
 
   def resize
-    @event = Event.find_by_id params[:id]
     if @event
       @event.end_at = (params[:minute_delta].to_i).minutes.from_now((params[:day_delta].to_i).days.from_now(@event.end_at))
       response_error unless @event.save 
@@ -51,7 +50,6 @@ class EventsController < ApplicationController
 
   # GET /events/1/edit
   def edit
-    @event = Event.find(params[:id])
   end
 
   # POST /events
@@ -82,14 +80,15 @@ class EventsController < ApplicationController
   # PUT /events/1
   # PUT /events/1.xml
   def update
-    @event = Event.find_by_id(params[:id])
-    @event.attributes = params[:event]
-    render :update do |page|
-      if @event.save
-        page << "$('#calendar').fullCalendar( 'refetchEvents' )"
-        page << "$('#desc_dialog').dialog('destroy')" 
-      else
-        page.alert("Error : #{@event.errors.full_messages}")
+    if @event 
+      @event.attributes = params[:event]
+      render :update do |page|
+        if @event.save
+          page << "$('#calendar').fullCalendar( 'refetchEvents' )"
+          page << "$('#desc_dialog').dialog('destroy')" 
+        else
+          page.alert("Error : #{@event.errors.full_messages}")
+        end
       end
     end
   end
@@ -97,20 +96,29 @@ class EventsController < ApplicationController
   # DELETE /events/1
   # DELETE /events/1.xml
   def destroy
-    @event = Event.find_by_id(params[:id])
-    @event.destroy
-    render :update do |page|
-      page << "$('#calendar').fullCalendar( 'refetchEvents' )"
-      page << "$('#desc_dialog').dialog('destroy')" 
+    if @event
+      @event.destroy
+      render :update do |page|
+        page << "$('#calendar').fullCalendar( 'refetchEvents' )"
+        page << "$('#desc_dialog').dialog('destroy')" 
+      end
     end
   end
 
   protected
 
-  def response_error
+  def response_error(message = nil)
     render :update do |page|
       page << "$('#calendar').fullCalendar('refetchEvents');"
-      page.alert("Error : #{@event.errors.full_messages}")
+      page.alert("Error : #{message || @event.errors.full_messages}")
+    end
+  end
+
+  def check_rights
+    @event = Event.find_by_id(params[:id])
+    unless can? :manage, @event
+      response_error(I18n.t('errors.event.cannot_edit')) 
+      @event = nil
     end
   end
 end
