@@ -1,30 +1,47 @@
-  <%= form.error_messages %>
-	<%= form.label :name %>
-	<%= form.text_field :name %>
-	<br />
-	<%= form.label :address%>
-	<%= form.text_field :address %>
-	<br />
-	<%= form.label :zip%>
-	<%= form.text_field :zip %>
-	<br />
-	<%= form.label :city%>
-	<%= form.text_field :city %>
-	<br />
-	<%= form.label :country%>
-	<%= form.text_field :country %>
-	<br />
-	<%= form.label :timezone%>
-	<%= form.time_zone_select :timezone, ActiveSupport::TimeZone.all %>
-	<br />
-	<%= form.label :select_cursuses %>
-	<br/>
-	<% for cursus in Cursus.all %>
-	  <%= check_box_tag "campus[cursus_ids][]", cursus.id, @campus.cursuses.include?(cursus), :id => "cursus_#{cursus.id}" %>
-	  <%= cursus.name %><br />
-	<% end %>
-	<%= hidden_field_tag "campus[cursus_ids][]", "" %>
-	
-  <p>
-    <%= form.submit 'Create' %>
-  </p>
+<div class="portlet-header">
+	<h4><%= t 'menu.campus.campus' %></h4>
+</div>
+
+<div class="portlet-content">
+
+	<!-- <h2><%= image_tag("user_new.png", :class => 'veralign') %> <%= t 'menu.campus.create_campus' %></h2> -->
+ <%= form.error_messages %>
+	<div class="portlet-field">
+		<%= form.label :name %>
+		<%= form.text_field :name %>
+	</div>
+	<div class="portlet-field">
+		<%= form.label :address%>
+		<%= form.text_field :address %>
+	</div>
+	<div class="portlet-field">
+		<%= form.label :zip%>
+		<%= form.text_field :zip %>
+	</div>
+	<div class="portlet-field">
+		<%= form.label :city%>
+		<%= form.text_field :city %>
+	</div>
+	<div class="portlet-field">
+		<%= form.label :country%>
+		<%= form.text_field :country %>
+	</div>
+	<div class="portlet-field">
+		<%= form.label :timezone%>
+		<%= form.time_zone_select :timezone, ActiveSupport::TimeZone.all %>
+	</div>
+
+	<div class="controlset portlet-field">
+		<span class="label"><%= form.label :select_cursuses %></span>
+		<div>
+			<% for cursus in Cursus.all %>
+				<%= check_box_tag "campus[cursus_ids][]", cursus.id, @campus.cursuses.include?(cursus), :id => "cursus_#{cursus.id}" %>
+	  			<%= cursus.name %><br />
+				<% end %>
+		</div>
+		<%= hidden_field_tag "campus[cursus_ids][]", "" %>
+	</div>
+  <div class="buttonrow">
+    <%= form.submit t('general.save'), :class => "submit"%>
+  </div>
+</div>

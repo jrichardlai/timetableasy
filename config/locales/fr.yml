@@ -43,6 +43,7 @@ fr:
     delete: "Supprimer"
     campus: "campus"
     cursuses: "Cursus Présentés:"
+    save: "Sauvegarder"
   periods:
     splitting: "Couper le cursus en différentes périodes"
     new_period: "Ajouter une Période"
@@ -90,6 +91,11 @@ fr:
       title: "Utilisateurs"
       manage_users: "Gestion des comptes"
       create_user: "Créer un Utilisateur"
+      user: "user"
+      campus:
+        campus: "Campus"
+      cursus:
+        cursus: "Cursus"
   date:
     formats:
       default: "%d/%m/%Y"

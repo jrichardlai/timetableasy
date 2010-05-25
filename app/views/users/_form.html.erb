@@ -1,11 +1,11 @@
 <div class="portlet-header">
-	<h4><%= t 'menu.users.create_user' %></h4>
+	<h4><%= t 'menu.users.user' %></h4>
 </div>
 
 <div class="portlet-content">
 
-	<!-- <h2><%= image_tag("user_new.png", :class => 'veralign') %> <%= t 'menu.users.create_user' %></h2> -->
-
+	<!-- <h2><%= image_tag("user_new.png", :class => 'veralign') %> <%= t 'menu.users.user' %></h2> -->
+  <%= form.error_messages %>
 	<div class="portlet-field">
 		<%= form.label :login, t('general.nickname') %>
 		<%= form.text_field :login %>
@@ -38,8 +38,6 @@
 
 	<% if can? :assign_roles, current_user %>
 
-	<!-- <h2><%= image_tag("roles.png", :class => 'veralign') %> <%= t 'user.roles' %></h2> -->
-
 	<div class="controlset portlet-field">
 		<span class="label"><%= form.label :role %></span>
 		<div>
@@ -66,6 +64,6 @@
 	<% end %>
 
 	<div class="buttonrow">
-		<%= form.submit t('user.create'), :class => "submit" %>
+		<%= form.submit t('general.save'), :class => "submit" %>
 	</div>
 </div>

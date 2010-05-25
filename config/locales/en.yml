@@ -49,6 +49,7 @@ en:
     edit: "Edit"
     delete: "Delete"
     campus: "campus"
+    save: "Save"
   login:
     login: "Login"
     logout: "Logout"
@@ -99,6 +100,11 @@ en:
       title: "Users"
       manage_users: "Manage Users"
       create_user: "Create a User"
+      user: "User"
+    campus:
+      campus: "Campus"
+    cursus:
+      cursus: "Cursus"
   date:
     formats:
       default: "%e/%m/%Y"
