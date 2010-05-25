@@ -11,11 +11,8 @@ class Ability
       can :update, Campus do |campus|
         campus && campus.managers.include?(user)
       end
-      can :update, Classroom do |classroom|
-        classroom && user.managed_campuses.include?(classroom.campus)
-      end
-      can :create, Classroom do |classroom|
-        classroom.campus.nil? or user.managed_campuses.include?(classroom.campus)
+      can :manage, Classroom do |action, classroom|
+        classroom.blank? || classroom && user.managed_campuses.include?(classroom.campus)
       end
       can :manage, Event do |action, event|
         event and case event.event_scope_type

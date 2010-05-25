@@ -1,0 +1,17 @@
+$('.date_picker').datepicker({dateFormat:'dd-mm-yy'});
+
+$("#new_school_subject_creation").click( function() {
+ 	$('#form_add_school_subjects').empty();
+	$('#create_school_subject_div').css('display', 'block');
+});
+
+$("#edit_school_subject_update").click( function() {
+ 	$('#form_add_school_subjects').empty();
+	$('#create_school_subject_div').css('display', 'block');
+});
+
+$("#cancel_school_subject_creation").click(function() {
+	$('#form_add_school_subjects').empty();
+	$('#create_school_subject_div').css('display', 'block');
+	return false;
+});

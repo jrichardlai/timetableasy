@@ -1,17 +1,19 @@
-$('.date_picker').datepicker({dateFormat:'dd-mm-yy'});
+<script type="text/javascript" charset="utf-8">
+	$('.date_picker').datepicker({dateFormat:'dd-mm-yy'});
 
-$("#new_period_creation").click( function() {
- 	$('#form_add_periods').empty();
-	$('#create_period_div').css('display', 'block');
-});
+	$("#new_period_creation").click( function() {
+	 	$('#form_add_periods').empty();
+		$('#create_period_div').css('display', 'block');
+	});
 
-$("#edit_period_update").click( function() {
- 	$('#form_add_periods').empty();
-	$('#create_period_div').css('display', 'block');
-});
+	$("#edit_period_update").click( function() {
+	 	$('#form_add_periods').empty();
+		$('#create_period_div').css('display', 'block');
+	});
 
-$("#cancel_period_creation").click(function() {
-	$('#form_add_periods').empty();
-	$('#create_period_div').css('display', 'block');
-	return false;
-});
+	$("#cancel_period_creation").click(function() {
+		$('#form_add_periods').empty();
+		$('#create_period_div').css('display', 'block');
+		return false;
+	});
+</script>

@@ -1,0 +1,45 @@
+<div class="box">	
+	<div class="box-header">
+
+		<h4><%= t 'general.periods' %></h4>	
+	</div> <!-- .portlet-header -->	
+
+	<div class="box-content">				
+		<div style="width:100%; height:auto;" id="periods_list">
+			<% if @cursus.periods.count > 0 %>
+			<table style="margin:auto;">
+				<thead>
+					<tr>
+						<th width="5%"><%= t 'general.number' %></th>
+						<th width="10%"><%= t 'general.type' %></th>
+						<th width="35%"><%= t 'general.from' %></th>
+						<th width="35%"><%= t 'general.to' %></th>
+						<th width="15%"><%= t 'general.actions' %></th>
+					</tr>
+				</thead>
+				<tbody>
+					<% @cursus.periods.each do |period| %>
+					<tr>
+						<th><%= period.id %></th>
+						<td><%= period.name %></td>
+						<td><%= format_date(period.begin_at) %></td>
+						<td><%= format_date(period.end_at) %></td>
+						<td><%= link_to_remote image_tag('editer_little.png', :class => "veralign edit"), :url =>  edit_cursus_period_path(@cursus, period), :method => "get", :update => { :success => "form_add_periods", :failure => "error" } %>
+
+						<%= link_to_remote image_tag('delete_little.png', :class => "veralign"), :url => cursus_period_path(@cursus, period), :method => "delete", :update => { :success => "periods_list", :failure => "error" } %></td>
+					</tr>
+					<% end %>
+				</tbody>
+			</table>
+			<% else %>
+			<h6><%= t 'periods.no_periods_available' %></h6>
+			<% end %>
+			<br />
+		</div>
+		<br />
+		<div style="width:100%; height:auto;" id="form_add_periods">
+
+		</div>
+		<div class="abutton" id="create_period_div"><%= link_to_remote image_tag('styles/add_periods.png', :class => "veralign") + " " + t('periods.new_period'), :url =>  new_cursus_period_path(@cursus), :method => "get", :html => {:id => "create_period", :class => "button"}, :update => { :success => "form_add_periods", :failure => "error" } %></div>
+	</div>
+</div> <!-- .portlet-content -->	

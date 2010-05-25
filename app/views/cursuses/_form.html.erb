@@ -1,0 +1,29 @@
+<div class="portlet-header">
+	<h4><%= t 'menu.campus.campus' %></h4>
+</div>
+
+<div class="portlet-content">
+	<%= form.error_messages %>
+	<div class="portlet-field">
+		<%= form.label :name %>
+		<%= form.text_field :name %>
+	</div>
+	<div class="portlet-field">
+		<%= form.label :description %>
+		<%= form.text_area :description %>
+	</div>
+	<div class="controlset portlet-field">
+		<span class="label"><%= form.label :select_cursuses %></span>
+		<div>
+		<% for campus in Campus.all %>
+	  		<%= check_box_tag "cursus[campus_ids][]", campus.id, @cursus.campuses.include?(campus), :id => "campus_#{campus.id}" %>
+	  		<%= campus.name %><br />
+		<% end %>
+		</div>
+	<%= hidden_field_tag "cursus[campus_ids][]", "" %>
+ 	</div>
+	<div class="buttonrow">
+	    <%= form.submit t('general.save'), :class => "submit"%>
+	</div>
+</div>	
+	
