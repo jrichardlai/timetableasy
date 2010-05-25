@@ -16,6 +16,7 @@ end
 [
   ['timeadmin', 'admin@timetableasy.com', ['admin']],
   ['manager', 'manager@timetableasy.com', ['campus manager']],
+  ['manager_solo', 'manager_solo@timetableasy.com', ['campus manager']],
   ['student', 'student@timetableasy.com', ['student']],
   ['intervenant', 'intervenant@timetableasy.com', ['intervenant', 'student']],  
 ].each do |user|
@@ -171,6 +172,88 @@ end
     puts "Creating Period Type #{name}"
     @period_type = PeriodType.create(:name => name)
   end
+end
+
+[
+  ['PARIS', 'manager_solo'],
+  ['MONTPELLIER', 'manager'],
+  ['MONTPELLIER', 'manager_solo'],
+  ['BEIJING', 'manager'],
+  ['BORDEAUX', 'manager'],
+  ['TOULOUSE', 'manager'],
+  ['LILLE', 'manager'],
+  ['METZ', 'manager'],
+  ['LYON', 'manager'],
+  ['GRENOBLE', 'manager'],
+  ['SAN FRANCISCO', 'manager'],
+  ['MEXICO', 'manager'],
+].each do |manager|
+  name_campus, login = manager
+  campus = Campus.find_by_name(name_campus)
+  user = User.find_by_login(login)
+  
+  unless campus.managers.include? user
+    campus.managers << user
+    puts "Giving the Campus Manager Role on #{campus.name} to #{user.login}"
+  end
+end
+
+[
+  ['PARIS', 'PARIS - BAT A - ETAGE 1 - SALLE A'],
+  ['PARIS', 'PARIS - BAT A - ETAGE 2 - SALLE A'],
+  ['PARIS', 'PARIS - BAT A - ETAGE 3 - SALLE A'],
+  ['PARIS', 'PARIS - BAT A - ETAGE 4 - SALLE A'],
+  ['PARIS', 'PARIS - BAT B - ETAGE 1 - SALLE A'],
+  ['PARIS', 'PARIS - BAT B - ETAGE 2 - SALLE A'],
+  ['PARIS', 'PARIS - BAT C - ETAGE 1 - SALLE A'],
+  ['MONTPELLIER', 'MONTPELLIER - BAT A - ETAGE 1 - SALLE A'],
+  ['MONTPELLIER', 'MONTPELLIER - BAT A - ETAGE 2 - SALLE A'],
+  ['MONTPELLIER', 'MONTPELLIER - BAT A - ETAGE 3 - SALLE A'],
+  ['MONTPELLIER', 'MONTPELLIER - BAT A - ETAGE 4 - SALLE A'],
+  ['MONTPELLIER', 'MONTPELLIER - BAT A - ETAGE 5 - SALLE A'],
+  ['MONTPELLIER', 'MONTPELLIER - BAT A - ETAGE 6 - SALLE A'],
+  ['BEIJING', 'BEIJING - BAT C - ETAGE 1 - SALLE MAO'],
+  ['BEIJING', 'BEIJING - BAT C - ETAGE 2 - SALLE MAO'],
+  ['BEIJING', 'BEIJING - BAT C - ETAGE 3 - SALLE MAO'],
+  ['BEIJING', 'BEIJING - BAT C - ETAGE 4 - SALLE MAO'],
+  ['BORDEAUX', 'BORDEAUX - BAT B - ETAGE 1 - SALLE VINCI'],
+  ['BORDEAUX', 'BORDEAUX - BAT B - ETAGE 2 - SALLE DESCARTES'],
+  ['BORDEAUX', 'BORDEAUX - BAT B - ETAGE 3 - SALLE APOLINAIRE'],
+  ['BORDEAUX', 'BORDEAUX - BAT B - ETAGE 4 - SALLE CLAUDEL'],
+  ['TOULOUSE', 'BORDEAUX - BAT A - ETAGE 1 - SALLE A'],
+  ['TOULOUSE', 'BORDEAUX - BAT A - ETAGE 2 - SALLE B'],
+  ['TOULOUSE', 'BORDEAUX - BAT A - ETAGE 3 - SALLE C'],
+  ['LILLE', 'LILLE - BAT A - ETAGE 1 - SALLE A'],
+  ['LILLE', 'LILLE - BAT A - ETAGE 2 - SALLE B'],
+  ['METZ', 'METZ - BAT A - ETAGE 1 - SALLE A'],
+  ['METZ', 'METZ - BAT A - ETAGE 2 - SALLE B'],
+  ['METZ', 'METZ - BAT A - ETAGE 3 - SALLE C'],
+  ['METZ', 'METZ - BAT A - ETAGE 4 - SALLE D'],
+  ['LYON', 'LYON - BAT A - ETAGE 1 - SALLE A'],
+  ['LYON', 'LYON - BAT A - ETAGE 2 - SALLE B'],
+  ['LYON', 'LYON - BAT A - ETAGE 3 - SALLE C'],
+  ['LYON', 'LYON -BAT A - ETAGE 4 - SALLE D'],
+  ['GRENOBLE', 'GRENOBLE - BAT A - ETAGE 1 - SALLE A'],
+  ['GRENOBLE', 'GRENOBLE - BAT A - ETAGE 2 - SALLE B'],
+  ['GRENOBLE', 'GRENOBLE - BAT A - ETAGE 3 - SALLE C'],
+  ['SAN FRANCISCO', 'SAN FRANCISCO - BAT A - ETAGE 1 - SALLE A'],
+  ['SAN FRANCISCO', 'SAN FRANCISCO - BAT A - ETAGE 2 - SALLE B'],
+  ['SAN FRANCISCO', 'SAN FRANCISCO - BAT A - ETAGE 3 - SALLE C'],
+  ['MEXICO', 'MEXICO - BAT A - ETAGE 1 - SALLE A'],
+  ['MEXICO', 'MEXICO - BAT A - ETAGE 2 - SALLE A'],
+  ['MEXICO', 'MEXICO - BAT A - ETAGE 3 - SALLE A'],
+  ['MEXICO', 'MEXICO - BAT A - ETAGE 4 - SALLE A'],
+  ['MEXICO', 'MEXICO - BAT A - ETAGE 5 - SALLE A'],
+].each do |salle|
+  name_campus, nom_salle = salle
+  campus = Campus.find_by_name(name_campus)
+  my_salle = campus.rooms.find_by_name(nom_salle)
+  
+  unless campus.rooms.include? my_salle
+    campus.rooms.create(:name => nom_salle)
+    puts "Creating Room for campus #{campus.name} => #{nom_salle}"
+  end
+
 end
 
 # User.create({:login => '61316', :firstname => "Clement", :lastname => "BEUDOT", :email => "61316@supinfo.com", :password => "toto14", :password_confirmation => "toto14" }) unless User.find_by_login('61316')
