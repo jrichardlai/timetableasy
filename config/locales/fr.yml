@@ -43,6 +43,7 @@ fr:
     delete: "Supprimer"
     campus: "campus"
     cursuses: "Cursus Présentés:"
+    school_subjects: "Matières"
   periods:
     splitting: "Couper le cursus en différentes périodes"
     new_period: "Ajouter une Période"
@@ -62,6 +63,14 @@ fr:
     authenticate_yourself: "Se Connecter"
     create_account: "Créer mon compte"
     logged_out: "Vous vous êtes déconnecté avec succès"
+  school_subjects:
+    no_school_subjects_available: "Il n'y a aucune matière pour ce Cursus"
+    new: "Créer une nouvelle Matière"
+    name: "Nom"
+    description: "Description"
+    create: "Créer la nouvelle Matière"
+    update: "Mettre à Jours la Matière"
+    cancel: "Annuler"
   user:
     create: "Créer l'utilisateur"
     roles: "Selectionez les droits de l'utilisateur."
