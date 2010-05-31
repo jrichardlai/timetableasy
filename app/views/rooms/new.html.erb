@@ -1,6 +1,4 @@
-<script type="text/javascript" charset="utf-8">
-	<%= render :partial => 'javascripts' %>
-</script>
+<%= render :partial => 'javascripts' %>
 
 <% remote_form_for [@campus, @room], :update => {:success => "rooms", :failure => "errors"} do |f| %>
 <%= f.error_messages %>
