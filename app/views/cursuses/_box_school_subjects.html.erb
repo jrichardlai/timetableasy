@@ -23,9 +23,9 @@
 						<td><%= school_subject.name %></td>
 						<td><%= school_subject.description %></td>
 						<td>
-							<%= link_to_remote image_tag('bouton_show.png', :class => "veralign"), :url =>  school_subject_teaching_methods_path(school_subject), :method => "get", :update => { :success => "form_view_teaching_methods", :failure => "error" } %>
-							<%= link_to_remote image_tag('editer_little.png', :class => "veralign edit"), :url =>  edit_cursus_school_subject_path(@cursus, school_subject), :method => "get", :update => { :success => "form_add_school_subjects", :failure => "error" } %>
-							<%= link_to_remote image_tag('delete_little.png', :class => "veralign"), :url => cursus_school_subject_path(@cursus, school_subject), :method => "delete", :update => { :success => "school_subjects_list", :failure => "error" } %>
+							<%= link_to_remote image_tag('bouton_show.png', :class => "veralign"), :url =>  school_subject_teaching_methods_path(school_subject), :method => "get", :update => { :success => "form_view_teaching_methods", :failure => "errors_ss" } %>
+							<%= link_to_remote image_tag('editer_little.png', :class => "veralign edit"), :url =>  edit_cursus_school_subject_path(@cursus, school_subject), :method => "get", :update => { :success => "form_add_school_subjects", :failure => "errors_ss" } %>
+							<%= link_to_remote image_tag('delete_little.png', :class => "veralign"), :url => cursus_school_subject_path(@cursus, school_subject), :method => "delete", :update => { :success => "school_subjects_list", :failure => "errors_ss" } %>
 						</td>
 					</tr>
 					<% end %>
@@ -35,8 +35,11 @@
 			<h6><%= t 'school_subjects.no_school_subjects_available' %></h6>
 			<% end %>
 		</div>
+		<br />
+		<div class="message message-error message-closable" style="display:none;" id="errors_ss"><%= t "errors.error_header" %></div>
 		<div style="width:100%; height:auto;" id="form_add_school_subjects"></div>
 		<div class="abutton bouton-box" id="create_school_subject_div"><%= link_to_remote image_tag('styles/add_periods.png', :class => "veralign") + " " + t('school_subjects.new'), :url =>  new_cursus_school_subject_path(@cursus), :method => "get", :html => {:id => "create_school_subject", :class => "button"}, :update => { :success => "form_add_school_subjects", :failure => "error" } %></div>
+		<br />
 		<div style="width:100%; height:auto;" id="form_view_teaching_methods"></div>
 	</div>
 </div> <!-- .portlet-content -->	
