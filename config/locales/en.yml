@@ -124,7 +124,7 @@ en:
       cursus: "Cursus"
   date:
     formats:
-      default: "%e/%m/%Y"
+      default: "%a, %e %B %Y"
       short: "%e %b"
       long: "%e %B %Y"
       db: "%Y-%m-%d"

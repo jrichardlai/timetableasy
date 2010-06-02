@@ -3,7 +3,7 @@ class CreatePeriods < ActiveRecord::Migration
     create_table :periods do |t|
       t.references :cursus
       t.references :period_type
-      t.datetime :begin_at, :end_at
+      t.date :begin_at, :end_at
       t.timestamps
     end
   end
