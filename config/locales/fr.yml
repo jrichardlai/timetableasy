@@ -130,7 +130,7 @@ fr:
         cursus: "Cursus"
   date:
     formats:
-      default: "%d/%m/%Y"
+      default: "%a, %e %B %Y"
       short: "%e %b"
       long: "%e %B %Y"
       long_ordinal: "%e %B %Y"
