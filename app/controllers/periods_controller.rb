@@ -55,7 +55,9 @@ class PeriodsController < ApplicationController
         format.html { redirect_to( cursus_periods_path(@cursus) ) }
         format.xml  { render :xml => @period, :status => :created, :location => @period }
       else
-        format.html { render :action => "new" }
+        format.js do
+          render :status => 500, :text => 'toto'
+        end
         format.xml  { render :xml => @period.errors, :status => :unprocessable_entity }
       end
     end
@@ -93,5 +95,6 @@ class PeriodsController < ApplicationController
   def set_cursus
     @cursus = Cursus.find(params[:cursus_id])
   end
+
 
 end

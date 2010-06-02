@@ -1,5 +1,6 @@
 en:
   errors:
+    overlapping_date: "Dates are Overlapping an Other Period."
     anterior_dates: "The dates are not valid."
     speaker_busy: "The speaker is busy at this time."
     room_used: "The room is used at this time."

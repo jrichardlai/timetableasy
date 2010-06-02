@@ -2,6 +2,16 @@
 # See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 fr:
+  errors:
+    overlapping_date: "Les Dates Entrées s'entrecroisent avec une Période."
+    anterior_dates: "Les Dates ne sont pas valides."
+    speaker_busy: "L'intervenant est occupé au moment demandé."
+    room_used: "La pièce est déjà utilisée à ce moment."
+    should_have_id: "Merci de selectionner une valeur pour le scope."
+    event:
+      cannot_edit: "Vous n'avez pas la possibilité d'editer cet évenement."
+    user:
+      should_have_class: "Un Etudiant doit appartenir à une classe."
   copyright:
     company: "Copyright © FBJ.RC Development. - 2010 - Tous droits réservés"
   general:
