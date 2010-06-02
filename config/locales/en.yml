@@ -13,6 +13,8 @@ en:
   copyright:
     company: "Copyright © FBJ.RC Development. - 2010 - All Rights Reserved"
   general:
+    how_to_connect: "In order to login yourself, please use your credentials (Login/Password)"
+    protected_page: "This is a Protected Page, please Login."
     get_ical: "Get the iCal Version of your Calendar"
     home: "Home"
     application_name: "TimeTableAsy"

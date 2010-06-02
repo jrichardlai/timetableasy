@@ -3,46 +3,39 @@
 <%- end -%>
 
 <%- content_for :head_end do -%>
-	<%= javascript_include_tag 'jquery' %>
-	<%= javascript_include_tag 'jquery-ui' %>
-	<%= javascript_include_tag 'jrails' %>
-	<%= stylesheet_link_tag 'login' %>
+<%= ajaxlibs_include :jqueryui %>
+<%= javascript_include_tag 'application' %>
+<%= stylesheet_link_tag 'jquery-ui', 'dialog', 'timePicker' %>
+<%= stylesheet_link_tag 'style', 'typography', 'orange' %>
+<%= stylesheet_link_tag 'minimal', "show", "list" unless current_page?(events_path) or current_page?(root_path)  %>
 <%- end -%>
 
-<% form_tag session_path do -%>
-	<fieldset>
+<div class="listing-box">
+	<div class="listing-header">
+		<h4><%= t 'login.authenticate_yourself' %></h4>
+	</div>
+	<!-- #icon :information, "Information icon"-->
+
+	<div class="listing-content" style="width:100%; margin-left:5px;">
+		<h5><%= image_tag 'cadena.png', :class => "veralign" %> <%= t "general.protected_page" %></h5>
+		<p><%= t "general.how_to_connect" %></p>
+		<% form_tag session_path, :style => "width:75%; margin-top:2%; margin:auto; margin-bottom:3%;" do -%>
 		<!--[if !IE]>start row<![endif]-->
-		<div class="row">
+		<div class="portlet-field" style="margin-top:3%">
 			<%= label_tag t('general.nickname') %>
-				<span class="input_wrapper">
-					<%= text_field_tag 'login', @login, :class => 'inputStyle' %>
-				</span>
-			</div>
-
-			<div class="row">
-				<%= label_tag t('general.password') %>
-					<span class="input_wrapper">
-						<%= password_field_tag 'password', nil, :class => 'inputStyle' %>
-					</span>
-			</div>
-
-			<div class="row">
-				<div class="inputs small_inputs">
-					<span class="button blue_button unlock_button">
-						<span>
-							<span>
-								<em>
-									<span class="button_ico">
-							
-									</span>
-								<%= t 'login.login' %>
-							</em>
-						</span>
-					</span>
-					<%= submit_tag 'Log in' %>
-				</span>
-			</div>
+			<%= text_field_tag 'login', @login, :class => 'inputStyle' %>
 		</div>
+
+		<div class="portlet-field">
+			<%= label_tag t('general.password') %>
+			<%= password_field_tag 'password', nil, :class => 'inputStyle' %>
+		</div>
+
+		<div class="buttonrow" style="text-align:center;">
+			<%= submit_tag t('login.login'), :class => "submit", :id => "new_period_creation" %>
+		</div>
+		<br />
 		<!--[if !IE]>end row<![endif]-->	
-	</fieldset>
-<% end -%>
+		<% end -%>
+	</div>
+</div>

@@ -34,6 +34,8 @@ fr:
   copyright:
     company: "Copyright © FBJ.RC Development. - 2010 - Tous droits réservés"
   general:
+    how_to_connect: "Pour vous connecter, veuillez utiliser votre login et votre mot de passe"
+    protected_page: "Cette page est protégée, veuillez vous connecter"
     get_ical: "Obtenir le version iCal de ce calendrier"
     home: "Accueil"
     application_name: "TimeTableAsy"

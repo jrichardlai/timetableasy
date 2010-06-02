@@ -7,41 +7,55 @@
 <!--[if lte IE 6]><link media="screen" rel="stylesheet" type="text/css" href="css/ie-login.css" /><![endif]-->
 </head>
 
-<body>
-	<!--[if !IE]>start wrapper<![endif]-->
-	<div id="wrapper">
-		<!--[if !IE]>start header<![endif]-->
-		<div id="header">
-			<div class="inner">
 
+<body>
+	<div id="wrap">
+		<div id="header">
+			<div id="logo">
+				<h1><%= link_to(t('general.application_name'), root_path) %></h1>
+				<p class="description"><%= t 'general.application_caption' %></p>
 			</div>
-		</div>
-		<!--[if !IE]>end header<![endif]-->
-		<!--[if !IE]>start content<![endif]-->
-		<div id="content">
-				<!--[if !IE]>start login_wrapper<![endif]-->
-				<div id="login_wrapper">
-					<span class="extra1"></span>
-					<div class="title_wrapper">
-						 <% if flash[:notice] -%>
-					        <div id = 'flash_notice'>
-					          <%= flash[:notice] %>
-					        </div>
-					     <% end -%>
-					     <% if flash[:error] -%>
-					        <div id = 'flash_error'>
-					          <%= flash[:error] %>
-					        </div>
-					     <%end -%>
-						<h2><%= t 'login.authenticate_yourself' %></h2>
-					</div>
-					<%= yield %>
+		</div> <!--#header-->
+		
+		<div id="inner-wrap" class="clearfix">
+			<div id="content" class="clearfix">
+					<div class="subPageContent">
+						<% if flash[:notice] -%>
+						<div id = 'flash_notice'>
+					 		<%= flash[:notice] %>
+				        </div>
+				        <% end -%>
+				        <% if flash[:error] -%>
+				        	<div id = 'flash_error'>
+					         	<%= flash[:error] %>
+						    </div>
+						<%end -%>
+						<div id = 'loading'>
+							
+						</div>
+						<div class="aplicationContent">
+							<div class="appRightContent">
+							   <%= yield %>
+							</div>
+						</div>
+				</div>  <!--#content-->
+
+		</div> <!--#inner-wrap-->
+
+				<div id="footer" class="clearfix">
+					<span id="copyright"><%= t 'copyright.company' %></span>
+					<ul class="nav">
+						<li>
+							<%= link_to image_tag('flags/fr.png'), :locale => :fr %>
+						</li>
+						<li>
+							<%= link_to image_tag('flags/gb.png'), :locale => :en %>
+						</li>
+						<li>
+							<%= link_to image_tag('flags/es.png'), :locale => :es %>
+						</li>		
+					</ul>
 				</div>
-				<!--[if !IE]>end login_wrapper<![endif]-->
-			
-		</div>
-		<!--[if !IE]>end content<![endif]-->
-	</div>
-	<!--[if !IE]>end wrapper<![endif]-->
-</body>
+			</div> <!--#wrap-->
+  </body>
 </html>
