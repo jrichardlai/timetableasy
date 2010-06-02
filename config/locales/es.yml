@@ -90,7 +90,7 @@ es:
       create_user: "Creer un Usario"   
   date:
     formats:
-      default: "%e/%m/%Y"
+      default: "%a, %e %B %Y"
       short: "%e de %b"
       long: "%e de %B de %Y"
       db: "%Y-%m-%d"
