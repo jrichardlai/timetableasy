@@ -1,0 +1,46 @@
+<div style="margin:3%;">
+	<h3><%= @campus.name %></h3>
+	<table style="margin:auto; width:75%">
+		<thead>
+
+		</thead>
+		<tbody>
+			<tr>
+				<th style="text-align:left;"><%= t "general.name" %></th>
+				<td><%= @campus.name %></td>
+			</tr>
+			<tr>
+				<th style="text-align:left;"><%= t "general.address" %></th>
+				<td><%= @campus.address %></td>
+			</tr>
+			<tr>
+				<th style="text-align:left;"><%= t "general.zip" %></th>
+				<td><%= @campus.zip %></td>
+			</tr>
+			<tr>
+				<th style="text-align:left;"><%= t "general.city" %></th>
+				<td><%= @campus.city %></td>
+			</tr>
+			<tr>
+				<th style="text-align:left;"><%= t "general.country" %></th>
+				<td><%= @campus.country %></td>
+			</tr>
+			<tr>
+				<th style="text-align:left;"><%= t "general.timezone" %></th>
+				<td><%= @campus.timezone %></td>
+			</tr>
+			<% if @campus.cursuses.count > 0 %>
+			<tr>
+				<th style="text-align:left;"><%= t "general.cursuses" %></th>
+				<td>
+					<ul>
+						<% @campus.cursuses.each do |cursus| %>
+						<li><%= cursus.name %></li>
+						<% end %>
+					</ul>
+				</td>
+			</tr>
+			<% end %>
+		</tbody>
+	</table>
+</div>

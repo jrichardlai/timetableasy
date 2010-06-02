@@ -14,6 +14,12 @@ fr:
               blank: "- La date de départ ne peut pas être vide."
             end_at:
               blank: "- La date de fin ne peut pas être vide."
+        school_subject:
+          attributes:
+            name:
+              blank: "- Le nom ne peut être vide."
+            description:
+              blank: "- La description ne peut être vide."
   errors:
     error_header: "Des Erreurs ont été apperçue"
     overlapping_date: "Les Dates Entrées s'entrecroisent avec une Période."
@@ -68,6 +74,13 @@ fr:
     cursuses: "Cursus Présentés:"
     save: "Sauvegarder"
     school_subjects: "Matières"
+  campus:
+    header: "Campus"
+    new_campus: "Créer un nouveau Campus"
+    action: "Aperçu/Editer/Supprimer"
+    name: "Nom du Campus"
+    quick_look: "Aperçu rapide du Campus"
+    quick_look_desc: "Pour Avoir un aperçu rapide, cliquez sur la loupe d'un campus"
   periods:
     splitting: "Couper le cursus en différentes périodes"
     new_period: "Ajouter une Période"
@@ -95,6 +108,11 @@ fr:
     create: "Créer la nouvelle Matière"
     update: "Mettre à Jours la Matière"
     cancel: "Annuler"
+  teaching_methods:
+    title: "Méthode d'Enseignement"
+    no_teaching_methods_available: "Il n'y a pas de méthode d'enseignement pour cette Matière"
+    types:
+      elearning: E-Learning
   user:
     create: "Créer l'utilisateur"
     roles: "Selectionez les droits de l'utilisateur."

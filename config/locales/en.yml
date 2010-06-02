@@ -93,6 +93,13 @@ en:
     create: "Create User"
     roles: "Choose this user's roles"
     infos: "New user's informations"
+  campus:
+    header: "Campuses"
+    new_campus: "Create a new Campus"
+    action: "Quick Look/Edit/Delete"
+    name: "Campus' Name"
+    quick_look: "Campus' Quick Look"
+    quick_look_desc: "To Have a Quick Look of a campus, click on the magnify of the choosen campus"
   rooms:
     no_rooms_available: "There is no room for that campus"
     new_room: "Create a new Room"

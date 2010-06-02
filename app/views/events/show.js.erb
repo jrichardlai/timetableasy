@@ -1,6 +1,46 @@
-<h1><%= @event.event_type_name %></h1>
+<%- if @event.event_type_name -%>
+	<span class="label-show">Event Type: </span>
+	<%= @event.event_type_name %>
+	<br />
+<%- end -%>
+<%- if @event.event_type_name -%>
+	<span class="label-show">Description: </span>
 <%= @event.description %>
-<br/>
+<br />
+<%- end -%>
+<%- if @event.event_type_name -%>
+	<span class="label-show">Speaker: </span>
+<%= @event.speaker.login %>
+<br />
+<%- end -%>
+<%- if @event.event_type_name -%>
+	<span class="label-show">Event for: </span>
+<%= @event.event_scope_type %>
+<br />
+<%- end -%>
+<%- if @event.event_type_name -%>
+	<span class="label-show">Campus: </span>
+<%= @event.event_scope.name %>
+<br />
+<%- end -%>
+
+<%- if @event.event_type_name -%>
+	<span class="label-show">Room: </span>
+<%= @event.room.name %>
+<br />
+<%- end -%>
+<%- if @event.event_type_name -%>
+	<span class="label-show">Begin at: </span>
+<%= @event.begin_at %>
+&nbsp;
+<%- end -%>
+<%- if @event.event_type_name -%>
+	<span class="label-show">End at: </span>
+<%= @event.end_at %>
+<br />
+<%- end -%>
+
+
 <%- if can? :manage, @event -%>
 	<%= link_to_function 'Edit', "editEvent(#{@event.id})" %>
 	<%= link_to_function 'Delete', "deleteEvent(#{@event.id})" %>
