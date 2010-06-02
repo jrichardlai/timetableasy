@@ -25,9 +25,7 @@ class ApplicationController < ActionController::Base
   end
   
   def format_date(date)
-    date_arr = date.to_a
-    return Time.utc(*date_arr)
-    
+    I18n.l date, :format => :default
   end
   
 

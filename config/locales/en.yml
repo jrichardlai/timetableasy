@@ -128,7 +128,7 @@ en:
       db: "%Y-%m-%d"
   time:
     formats:
-      default: "%a, %e %B %Y %H:%M"
+      default: "%a, %e %B %Y"
       time: "%H:%M"
       short: "%d %b %H:%M"
       long: "%A %d %B %Y %H:%M:%S %Z"
