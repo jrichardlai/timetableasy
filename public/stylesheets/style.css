@@ -557,6 +557,8 @@ form {
 	position: relative; 
 }
 
+.bouton-box { margin: 15px 0 5px; }
+
 	/* PORTLET */
 
 form .portlet-header {

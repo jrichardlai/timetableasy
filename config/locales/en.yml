@@ -52,6 +52,7 @@ en:
     campus: "campus"
     save: "Save"
     school_subjects: "School Subjects"
+    duration: "Duration"
   login:
     login: "Login"
     logout: "Logout"
@@ -82,6 +83,11 @@ en:
     create: "Create the new School Subject"
     update: "Update the School Subject"
     cancel: "Cancel"
+  teaching_methods:
+    title: "Teaching Methods"
+    no_teaching_methods_available: There is no available teaching methods for that school subject
+    types:
+      elearning: E-Learning
   user:
     create: "Create User"
     roles: "Choose this user's roles"
