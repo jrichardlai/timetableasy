@@ -56,7 +56,7 @@ class PeriodsController < ApplicationController
         format.xml  { render :xml => @period, :status => :created, :location => @period }
       else
         format.js do
-          render :status => 500, :text => 'toto'
+          render :status => 500, :partial => "error_partial"
         end
         format.xml  { render :xml => @period.errors, :status => :unprocessable_entity }
       end

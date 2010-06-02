@@ -2,7 +2,20 @@
 # See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 fr:
+  activerecord:
+    errors:
+      template:
+        header: "une ou plusieurs Erreurs ont été détecté"
+        body: "Des Erreurs ont été detecté, empechant la sauvegarde de l'élément."
+      models:
+        period:
+          attributes:
+            begin_at:
+              blank: "- La date de départ ne peut pas être vide."
+            end_at:
+              blank: "- La date de fin ne peut pas être vide."
   errors:
+    error_header: "Des Erreurs ont été apperçue"
     overlapping_date: "Les Dates Entrées s'entrecroisent avec une Période."
     anterior_dates: "Les Dates ne sont pas valides."
     speaker_busy: "L'intervenant est occupé au moment demandé."

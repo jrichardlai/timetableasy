@@ -2,18 +2,25 @@
 	$(document).ready(function() {
 		$('#create_period').click(function() {
 			$('#create_period_div').css('display', 'none');
+			$('#errors').fadeOut("slow");
 		});
 	
 		$('.edit').each(function() {
 			$(this).click(function() {
 				$('#create_period_div').css('display', 'none');
+				$('#errors').fadeOut("slow");
 			});
+		});
+		
+		$("#errors").click(function() {
+			$(this).fadeOut("slow");
 		});
 	});
 
 	$("#cancel_period_creation").click(function() {
 		$('#form_add_periods').empty();
 		$('#create_period_div').css('display', 'block');
+		$('#errors').fadeOut("slow");
 	});
 	$(document).ready(function() {
 		$('#create_school_subject').click(function() {
