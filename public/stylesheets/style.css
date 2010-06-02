@@ -552,11 +552,31 @@ form {
 		margin-bottom: 1.25em;
 	}	
 
-.listing-content { 
-	padding: 15px; 
-	position: relative; 
+.listing-table {
+	margin-left: 30%;
+	width:55%;
+	position: relative;
 }
 
+.listing-box
+{
+	background: #FFF;
+	margin-left:25%;
+	width: 50%;	
+	border: 1px solid #CCC;
+	margin-bottom: 1.5em;
+	position: relative;
+	-moz-border-radius: 6px;
+	-webkit-border-radius: 6px;
+}
+
+.listing-link
+{
+	margin-left: 27%;
+	
+}
+
+}
 	/* PORTLET */
 
 form .portlet-header {

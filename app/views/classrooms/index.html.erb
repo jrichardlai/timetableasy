@@ -1,22 +1,24 @@
-<h1>Listing classrooms</h1>
-
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Campus</th>
-  </tr>
+	<div class="listing-box">
+<div class="listing-header">
+	<h4><%= t 'menu.classroom.classroom' %></h4>
+	
+</div>
+<div class="listing-content">
+<table  class="listing-table">
 
 <% @classrooms.each do |classroom| %>
   <tr>
     <td><%=h classroom.name %></td>
     <td><%=h classroom.campus.name %></td>
-    <td><%= link_to 'Show', classroom %></td>
-    <td><%= link_to 'Edit', edit_classroom_path(classroom) %></td>
-    <td><%= link_to 'Destroy', classroom, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to  image_tag('editer_little.png', :class => "veralign edit"), edit_classroom_path(classroom) %>
+	&nbsp;
+    <%= link_to  image_tag('delete_little.png', :class => "veralign edit"), classroom, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
-
+</div>
 <br />
-
+</div>
+<div class="listing-link"> 
 <%= link_to 'New classroom', new_classroom_path %>
+</div>

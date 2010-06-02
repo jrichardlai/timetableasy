@@ -6,6 +6,6 @@ class Classroom < ActiveRecord::Base
   validates_presence_of :campus
 
   def name_with_campus
-    "#{campus.name} - #{name}"
+    "#{campus.name if campus} - #{name}"
   end
 end
