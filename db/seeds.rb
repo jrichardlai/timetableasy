@@ -307,6 +307,58 @@ end
   end
 end
 
+# Creating classrooms
+[
+  ['PARIS', 'PSA - INFORMATIQUE 2011', ['PSA1', 'PSA2']],
+  ['PARIS', 'PSA - INFORMATIQUE 2012', ['PSA1', 'PSA2']],
+  ['MONTPELLIER', 'PSA - MEDECINE 2011', ['PSA1', 'PSA2']],
+  ['MONTPELLIER', 'PSA - MEDECINE 2012', ['PSA1', 'PSA2']],
+  ['BORDEAUX','PSA - INFORMATIQUE 2011', ['PSA1', 'PSA2']],
+  ['BORDEAUX','PSA - INFORMATIQUE 2012', ['PSA1', 'PSA2']]
+].each do |array|
+  campus_name, cursus_name, classrooms = array
+  campus = Campus.find_by_name(campus_name)
+  cursus = Cursus.find_by_name(cursus_name)
+  classrooms.each do |classroom_name|
+    unless Classroom.exists?(:name => classroom_name, :campus_id => campus.id, :cursus_id => cursus.id)
+      Classroom.create(:name => classroom_name, :campus_id => campus.id, :cursus_id => cursus.id)
+      puts "Creating Classroom #{classroom_name} => #{cursus_name} and #{campus_name}"
+    end
+  end
+end
+
+# Creating Students
+[
+  ['PARIS', 'PSA - INFORMATIQUE 2011', 'PSA1', ['junior', 'acado', 'boboy']],
+  ['PARIS', 'PSA - INFORMATIQUE 2011', 'PSA2', ['tidus', 'fabrice', 'yuniko']],
+  ['PARIS', 'PSA - INFORMATIQUE 2012', 'PSA1', ['junior', 'acado', 'boboy']],
+  ['PARIS', 'PSA - INFORMATIQUE 2012', 'PSA2', ['tidus', 'fabrice', 'yuniko']],
+  ['MONTPELLIER', 'PSA - MEDECINE 2011', 'PSA1', ['ronald', 'fabrix', 'tehlor']],
+  ['MONTPELLIER', 'PSA - MEDECINE 2011', 'PSA2', ['yonisha', 'clemence', 'alice']],
+  ['MONTPELLIER', 'PSA - MEDECINE 2012', 'PSA1', ['jonathan', 'andre', 'clement']],
+  ['MONTPELLIER', 'PSA - MEDECINE 2012', 'PSA2', ['ludacris', 'lorie', 'axel']],
+  ['BORDEAUX', 'PSA - INFORMATIQUE 2011', 'PSA1', ['thuyanh', 'sonia', 'phuu']],
+  ['BORDEAUX', 'PSA - INFORMATIQUE 2011', 'PSA2', ['vaneha', 'micadoex', 'redverds']],
+  ['BORDEAUX', 'PSA - INFORMATIQUE 2012', 'PSA1', ['zackary', 'kantinc', 'yehnew']],
+  ['BORDEAUX', 'PSA - INFORMATIQUE 2012', 'PSA2', ['michel', 'francois', 'luckas']]
+].each do |array|
+  campus_name, cursus_name, classroom_name, students = array
+  role = RoleType.find_by_name('student')
+  campus = Campus.find_by_name(campus_name)
+  cursus = Cursus.find_by_name(cursus_name)
+  if campus and cursus
+    classroom = Classroom.find(:first, :conditions => {:name => classroom_name, :campus_id => campus.id, :cursus_id => cursus.id})
+    students.each do |login|
+      if User.find_by_login(login).nil?
+        email = "#{login}@timetableasy.com"
+        puts "creating student #{login} #{email}"
+        @user = User.create(:login => login, :email => email, :password => login, :password_confirmation => login, :classroom => classroom)
+        @user.role_types << role
+      end
+    end if classroom
+  end
+end
+
 [
   ["PSA - INFORMATIQUE 2011","Cisco", "Cisco - Security 2"],
   ["PSA - INFORMATIQUE 2011","Cisco VoIP", "Cisco - VoIP"],

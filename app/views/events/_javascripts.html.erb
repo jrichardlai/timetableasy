@@ -1,3 +1,6 @@
+<% unless request.xhr? %>
+	<script type="text/javascript" charset="utf-8">
+<% end %>
 function toggle_type(elem) {
 	var obj_type = $(elem).attr('id').replace('toggle_', '')
 	if ($(elem).attr('checked')) {
@@ -49,3 +52,6 @@ $(document).ready(function(){
 		toggle_type(this);
 	});
 });
+<% unless request.xhr?  %>
+</script>
+<% end %>

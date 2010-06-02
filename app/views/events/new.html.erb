@@ -1,9 +1,7 @@
 <%- content_for :head_end do -%>
 	<%= stylesheet_link_tag 'events' %>
 <%- end -%>
-<script type="text/javascript" charset="utf-8">
-	<%= render :partial => 'javascripts' %>
-</script>
+<%= render :partial => 'javascripts' %>
 
 	<% form_for(@event) do |f| %>
 		<%= f.error_messages %>
