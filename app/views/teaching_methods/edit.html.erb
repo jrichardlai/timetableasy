@@ -1,0 +1,24 @@
+<h1>Editing teaching_method</h1>
+
+<% form_for(@teaching_method) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :teaching_type %><br />
+    <%= f.text_field :teaching_type %>
+  </p>
+  <p>
+    <%= f.label :duration %><br />
+    <%= f.text_field :duration %>
+  </p>
+  <p>
+    <%= f.label :school_subject_id %><br />
+    <%= f.text_field :school_subject_id %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @teaching_method %> |
+<%= link_to 'Back', teaching_methods_path %>

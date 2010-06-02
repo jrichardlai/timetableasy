@@ -1,5 +1,9 @@
 ActionController::Routing::Routes.draw do |map|
-  map.resources :school_subjects
+  map.resources :teaching_methods
+
+  map.resources :school_subjects do |school_subject|
+    school_subject.resources :teaching_methods
+  end
 
   map.resources :classrooms
 

@@ -1,0 +1,18 @@
+<p>
+  <b>Teaching type:</b>
+  <%=h @teaching_method.teaching_type %>
+</p>
+
+<p>
+  <b>Duration:</b>
+  <%=h @teaching_method.duration %>
+</p>
+
+<p>
+  <b>School subject:</b>
+  <%=h @teaching_method.school_subject_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_teaching_method_path(@teaching_method) %> |
+<%= link_to 'Back', teaching_methods_path %>

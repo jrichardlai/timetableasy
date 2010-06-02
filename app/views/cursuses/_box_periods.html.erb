@@ -34,12 +34,8 @@
 			<% else %>
 			<h6><%= t 'periods.no_periods_available' %></h6>
 			<% end %>
-			<br />
 		</div>
-		<br />
-		<div style="width:100%; height:auto;" id="form_add_periods">
-
-		</div>
-		<div class="abutton" id="create_period_div"><%= link_to_remote image_tag('styles/add_periods.png', :class => "veralign") + " " + t('periods.new_period'), :url =>  new_cursus_period_path(@cursus), :method => "get", :html => {:id => "create_period", :class => "button"}, :update => { :success => "form_add_periods", :failure => "error" } %></div>
+		<div style="width:100%; height:auto;" id="form_add_periods"></div>
+		<div class="abutton bouton-box" id="create_period_div"><%= link_to_remote image_tag('styles/add_periods.png', :class => "veralign") + " " + t('periods.new_period'), :url =>  new_cursus_period_path(@cursus), :method => "get", :html => {:id => "create_period", :class => "button"}, :update => { :success => "form_add_periods", :failure => "error" } %></div>
 	</div>
 </div> <!-- .portlet-content -->	

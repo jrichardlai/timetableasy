@@ -35,8 +35,7 @@
 						<% end %>
 					</tbody>
 					</table>
-					<br />
-					<div class="abutton">
+					<div class="abutton bouton-box">
 						<span><%= link_to image_tag('edit.png', :class => "veralign") + " " + t('general.edit'), edit_cursus_path(@cursus), :class => "button" %> </span>
 						<span><%= link_to image_tag('delete.png', :class => "veralign") + " " + t('general.delete'), cursus_path(@cursus), :confirm => 'Are you sure?', :method => :delete, :class => "button" %></span>
 					</div>
