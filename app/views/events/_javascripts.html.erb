@@ -1,6 +1,6 @@
-<% unless request.xhr? %>
-	<script type="text/javascript" charset="utf-8">
-<% end %>
+<%- unless request.xhr? -%>
+<script type="text/javascript" charset="utf-8">
+<%- end -%>
 function toggle_type(elem) {
 	var obj_type = $(elem).attr('id').replace('toggle_', '')
 	if ($(elem).attr('checked')) {
@@ -18,26 +18,53 @@ function toggle_type(elem) {
 
 $(document).ready(function(){
 	$('.date_picker').datepicker({dateFormat:'dd/mm/yy'});
+
+	// Generate all triger for select boxes
 	$('#event_event_scope_type').change(function(){
 		var select_value = $(this).val();
 		if (select_value) {
 			jQuery.get(
-				"javascripts/event_types.js",
-				{type: select_value}, function() {
-					if (select_value == 'Classroom') {
-						$('#event_event_scope_id').change(function(){
-							if ($(this).val() != '') {
-								$('#for-classrooms').show();
-								jQuery.get("javascripts/academical.js", {classroom_id: $(this).val()});
-							}
-							else {
-								$('#for-classrooms').hide();
-								$('#for-classrooms select').val('');
-							}
-						});
+				"/javascripts/event_types.js",
+				{type: select_value}, function(e) {
+					switch (select_value){
+						case 'Classroom':
+							$('#event_event_scope_id').change(function(){
+								// if a value is selected
+								if ($(this).val() != '') {
+									$('#for-classrooms').show();
+									// When selecting a school subject
+									jQuery.get("/javascripts/school_subjects.js", {classroom_id: $(this).val()}, function(e) {
+										$('#school_subject_school_subject_id').change(function(){
+											if ($(this).val() != '') {
+												jQuery.get("/javascripts/teaching_methods.js", {
+													school_subject_id: $(this).val(), 
+													classroom_id: $('#event_event_scope_id').val()
+												});
+											}
+										})
+									});
+									// Hide the other rooms that not belong to the classroom by checking the campus rooms
+									jQuery.get("/javascripts/rooms.js", {type: 'Classroom', id: $(this).val()});
+								}
+								else {
+									$('#for-classrooms').hide();
+									$('#for-classrooms select').val('');
+								}
+							});
+							break;
+						case 'Cursus':
+							// Hide the other rooms that not belong to a campus
+							$('#event_event_scope_id').change(function(){
+								jQuery.get("/javascripts/rooms.js", {type: 'Cursus', id: $(this).val()});
+							});
+							$('#for-classrooms').hide();
+							break;
+						default:
+							$('#event_room_id option').show();
+							$('#for-classrooms').hide();
 					}
 				}
-			)
+			);
 		}
 		else {
 			$('#event_scope_id_select').html('');
@@ -52,6 +79,6 @@ $(document).ready(function(){
 		toggle_type(this);
 	});
 });
-<% unless request.xhr?  %>
+<%- unless request.xhr? -%>
 </script>
-<% end %>
+<%- end -%>

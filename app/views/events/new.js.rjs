@@ -1,13 +1,25 @@
-page.replace_html 'create_event', :partial => 'remote_form'
+page.replace_html 'event_desc', :partial => 'remote_form'
 page << "
-$('#create_event_dialog').dialog({
-        title: 'New Event',
-        modal: true,
-        width: 500,
-        close: function(event, ui) { 
-          $('#create_event_dialog').dialog('destroy');
-          #{"$('#calendar').fullCalendar('removeEvents', '#{@dom_id}')" if @dom_id}
-        }
-    });
+$('#desc_dialog').dialog({
+    title: 'New Event',
+    modal: true,
+    width: 500,
+    close: function(event, ui) {
+      #{"$('#calendar').fullCalendar('removeEvents', '#{@dom_id}')" if @dom_id}
+			$('#desc_dialog').dialog('destroy');
+		}
+});
 "
+# page << "$('#desc_dialog').dialog('open');"
+# page << "
+# $('#create_event_dialog').dialog({
+#         title: 'New Event',
+#         modal: true,
+#         width: 500,
+#         close: function(event, ui) { 
+#           $('#create_event_dialog').dialog('destroy');
+#           #{"$('#calendar').fullCalendar('removeEvents', '#{@dom_id}')" if @dom_id}
+#         }
+#     });
+# "
 page << render(:partial => 'javascripts')

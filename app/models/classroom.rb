@@ -2,6 +2,7 @@ class Classroom < ActiveRecord::Base
   belongs_to :campus
   belongs_to :cursus
   has_many :students, :source => :user
+  has_many :school_subjects, :through => :cursus
 
   validates_uniqueness_of :name, :scope => [:campus_id, :cursus_id]
 

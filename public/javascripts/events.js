@@ -22,7 +22,9 @@ function showEventDetails(event){
         title: event.title,
         modal: true,
         width: 500,
-        close: function(event, ui) { $('#desc_dialog').dialog('destroy') }
+        close: function(event, ui) {
+					$('#desc_dialog').dialog('destroy')
+ 				}
     });
 }
 
