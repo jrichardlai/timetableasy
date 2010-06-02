@@ -74,6 +74,13 @@ fr:
     cursuses: "Cursus Présentés:"
     save: "Sauvegarder"
     school_subjects: "Matières"
+  campus:
+    header: "Campus"
+    new_campus: "Créer un nouveau Campus"
+    action: "Aperçu/Editer/Supprimer"
+    name: "Nom du Campus"
+    quick_look: "Aperçu rapide du Campus"
+    quick_look_desc: "Pour Avoir un aperçu rapide, cliquez sur la loupe d'un campus"
   periods:
     splitting: "Couper le cursus en différentes périodes"
     new_period: "Ajouter une Période"

@@ -21,6 +21,13 @@ class CampusesController < ApplicationController
       format.xml  { render :xml => @campus }
     end
   end
+  
+  def quick_look
+    respond_to do |format|
+      format.html { render :layout => false }
+      format.xml
+    end
+  end
 
   # GET /campuses/new
   # GET /campuses/new.xml
