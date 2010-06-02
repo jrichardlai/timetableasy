@@ -1,5 +1,7 @@
 en:
   errors:
+    error_header: "Some Mistakes have Occured"
+    overlapping_date: "Dates are Overlapping an Other Period."
     anterior_dates: "The dates are not valid."
     speaker_busy: "The speaker is busy at this time."
     room_used: "The room is used at this time."
@@ -51,6 +53,7 @@ en:
     campus: "campus"
     save: "Save"
     school_subjects: "School Subjects"
+    duration: "Duration"
   login:
     login: "Login"
     logout: "Logout"
@@ -81,6 +84,11 @@ en:
     create: "Create the new School Subject"
     update: "Update the School Subject"
     cancel: "Cancel"
+  teaching_methods:
+    title: "Teaching Methods"
+    no_teaching_methods_available: There is no available teaching methods for that school subject
+    types:
+      elearning: E-Learning
   user:
     create: "Create User"
     roles: "Choose this user's roles"
@@ -122,7 +130,7 @@ en:
       db: "%Y-%m-%d"
   time:
     formats:
-      default: "%a, %e %B %Y %H:%M"
+      default: "%a, %e %B %Y"
       time: "%H:%M"
       short: "%d %b %H:%M"
       long: "%A %d %B %Y %H:%M:%S %Z"

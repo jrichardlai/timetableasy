@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  teaching_type: MyString
+  duration: 
+  school_subject_id: 
+
+two:
+  teaching_type: MyString
+  duration: 
+  school_subject_id: 
