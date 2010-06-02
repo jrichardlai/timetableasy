@@ -573,6 +573,17 @@ form {
 	-webkit-border-radius: 6px;
 }
 
+.listing-box2
+{
+	background: #FFF;
+	width: 100%;	
+	border: 1px solid #CCC;
+	margin-bottom: 1.5em;
+	position: relative;
+	-moz-border-radius: 6px;
+	-webkit-border-radius: 6px;
+}
+
 .listing-link
 {
 	margin-left: 27%;

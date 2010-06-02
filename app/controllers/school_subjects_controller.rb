@@ -55,7 +55,9 @@ class SchoolSubjectsController < ApplicationController
         format.html { redirect_to( cursus_school_subjects_path(@cursus) ) }
         format.xml  { render :xml => @school_subject, :status => :created, :location => @school_subject }
       else
-        format.html { render :action => "new" }
+        format.js do
+          render :status => 500, :partial => "error_partial"
+        end
         format.xml  { render :xml => @school_subject.errors, :status => :unprocessable_entity }
       end
     end

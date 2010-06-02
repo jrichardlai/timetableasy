@@ -1,26 +1,60 @@
-	<div class="listing-box">
-<div class="listing-header">
-	<h4><%= t 'menu.campus.campus' %></h4>
-	
-</div>
-<!-- #icon :information, "Information icon"-->
+<div id="container" style="width:100%">
+	<div style="float:left; width: 48%">
+		<div class="listing-box2">
+			<div class="listing-header">
+				<h4><%= t 'campus.header' %></h4>
 
-<div class="listing-content">
-<table class="listing-table">
-  <tr>
-  </tr>
-<% @campuses.each do |campus| %>
-	<tr class="<%= cycle("", "odd") -%>">
-		<td class="listing-table-name"><%= link_to campus.name, campus_path(campus) %></td>
-		<td><%= link_to image_tag('editer_little.png', :class => "veralign edit"), edit_campus_path(campus) %>
-			&nbsp;
-	<%= link_to image_tag('delete_little.png', :class => "veralign edit"), campus_path(campus), :confirm => 'Are you sure?', :method => :delete %></td>
-  	</tr>
-<% end %>
-</table>
+			</div>
+			<!-- #icon :information, "Information icon"-->
 
-</div>
-</div>
-<div class="listing-link"> 
-<%= link_to 'New campus', new_campus_path %>
+			<div class="listing-content" style="width:100%; margin-left:0">
+				<table class="listing-table" style="width:90%; margin:auto;">
+
+					<thead>
+						<tr>
+							<th><%= t "campus.name" %></th>
+							<th style="text-align:center;"><%= t "campus.action" %></th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+						</tr>
+						<% @campuses.each do |campus| %>
+						<tr class="<%= cycle("", "odd") -%>">
+							<td class="listing-table-name"><%= link_to campus.name, campus_path(campus) %></td>
+							<td style="text-align:center;">
+								<%= link_to_remote image_tag('bouton_show.png', :class => "veralign"), :url => quick_look_campus_path(campus), :method => "get", :update => { :success => "quick_look_result", :failure => "errors_ss" } %> &nbsp;
+							<%= link_to image_tag('editer_little.png', :class => "veralign edit"), edit_campus_path(campus) %>
+								&nbsp;
+								<%= link_to image_tag('delete_little.png', :class => "veralign edit"), campus_path(campus), :confirm => 'Are you sure?', :method => :delete %></td>
+							</tr>
+							<% end %>
+							<tr><td></td><td><br/></td></tr>
+						</tbody>
+					</table>
+
+				</div>
+			</div>
+			<div class="abutton bouton-box"> 
+				<%= link_to image_tag('styles/add_periods.png', :class => "veralign") + " " + t('campus.new_campus'), new_campus_path, :class => "button" %>
+			</div>
+		</div>
+	</div>
+	<div style="float:right; width: 48%">
+			<div class="listing-box2">
+				<div class="listing-header">
+					<h4><%= t 'campus.quick_look' %></h4>
+
+				</div>
+				<!-- #icon :information, "Information icon"-->
+
+				<div class="listing-content" style="width:100%; margin-left:0">
+					<div id="quick_look_result">
+						<p style="font-weight:bold; text-align:center;"><%= t "campus.quick_look_desc" %></p>
+					</div>
+				</div>
+			</div>
+	</div>
+	<div style:"clear:both;">
+	</div>
 </div>
