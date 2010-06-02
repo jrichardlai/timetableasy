@@ -74,7 +74,9 @@ class PeriodsController < ApplicationController
         format.html { redirect_to( cursus_periods_path(@cursus) ) }
         format.xml  { head :ok }
       else
-        format.html { render :action => "edit" }
+        format.js do
+          render :status => 500, :partial => "error_partial"
+        end
         format.xml  { render :xml => @period.errors, :status => :unprocessable_entity }
       end
     end
