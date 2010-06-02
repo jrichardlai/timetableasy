@@ -886,4 +886,11 @@ form.dialog-form {
 	color: #c32727;
 	border-color: #e18484;
 }
+/* Event show */
 
+.label-show {
+	font-size: 12px; 
+	font-style: italic;
+	font-weight: bold;
+	}
+	
