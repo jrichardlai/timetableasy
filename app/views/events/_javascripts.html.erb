@@ -52,10 +52,11 @@ $(document).ready(function(){
 								}
 							});
 							break;
-						case 'Cursus':
+						case 'Campus':
 							// Hide the other rooms that not belong to a campus
 							$('#event_event_scope_id').change(function(){
-								jQuery.get("/javascripts/rooms.js", {type: 'Cursus', id: $(this).val()});
+								if ($(this).val())
+									jQuery.get("/javascripts/rooms.js", {type: 'Campus', id: $(this).val()});
 							});
 							$('#for-classrooms').hide();
 							break;

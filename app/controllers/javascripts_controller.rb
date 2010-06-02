@@ -35,9 +35,10 @@ class JavascriptsController < ApplicationController
       Classroom.find(params[:id]).campus.rooms
     end
     render :update do |page|
+      js_selector = @rooms.collect {|room| "[value!=#{room.id}]"}.join('')
       # [value!=1][value!=2]
       page << "$('#event_room_id option').show();"
-      page << "$('#event_room_id option:not()')"
+      page << "$('#event_room_id option#{js_selector}').hide()"
     end
   end
 
