@@ -1,4 +1,33 @@
 es:
+  activerecord:
+    errors:
+      template:
+        header: "Una o Más errores Fueron Detectado"
+        body: "Los errores detectados, no permite de registrar el elemento."
+      models:
+        period:
+          attributes:
+            begin_at:
+              blank: "- La Fecha de salida no puede estar vacío."
+            end_at:
+              blank: "- La Fecha de finalización no puede estar vacío."
+        school_subject:
+          attributes:
+            name:
+              blank: "- El Nombre no puede estar vacío."
+            description:
+              blank: "- La Descripcion no puede estar vacío."
+  errors:
+    error_header: "Una o Más errores Fueron Detectado"
+    overlapping_date: "Las Fechas estan cruzandose con un Periodo."
+    anterior_dates: "Las fechas no estan válido."
+    speaker_busy: "El orador no puede ser seleccionado en el momento solicitado."
+    room_used: "La sala es utilizado para este momento."
+    should_have_id: "Gracias a seleccionar un valor para el ámbito de aplicación."
+    event:
+      cannot_edit: "Usted no tiene el derecho para editar este evento."
+    user:
+      should_have_class: "Un estudiante debe pertenecer a una clase."
   copyright:
     company: "Copyright © FBJ.RC Development. - 2010 - Todos los derechos reservados"
   general:
@@ -33,6 +62,11 @@ es:
     cursuses: "Cursusos Presentado:"
     school_subjects: "Materia de la escuela"
     all_events: "Todos los Eventos"
+    address: "Dirección"
+    zip: "Zip"
+    city: "Ciudad"
+    country: "Pais"
+    timezone: "Zona Horaria"
   login:
     login: "Connectar"
     logout: "Deconnectar"
@@ -40,17 +74,24 @@ es:
     authenticate_yourself: "Connectarse."
     create_account: "Creer su cuenta"
     logged_out: "Se ha deconnectado con exito"
+  campus:
+    header: "Campuses"
+    new_campus: "Creer un Campus"
+    action: "Estudio/Editar/Eliminar"
+    name: "Nombre del Campus"
+    quick_look: "Campus Estudio"
+    quick_look_desc: "Para tener un estudio de un campus, clic sobre la lupa"
   periods:
-    splitting: "Cortar cursuso en periodas"
+    splitting: "Cortar cursuso en Periodos"
     new_period: "Agregue un punto"
     cursuses: "Plan de Estudio"
     campuses: "Campuses"
-    no_periods_available: "No hay periodas para este Plan de Estudio"
+    no_periods_available: "No hay Periodos para este Plan de Estudio"
     begin_at: "Empeza el"
     end_at: "Termina el"
-    create: "Creer la Perioda"
-    period_type: "Typo de Perioda"
-    update: "Actualizar la Perioda"
+    create: "Creer la Periodo"
+    period_type: "Typo de Periodo"
+    update: "Actualizar la Periodo"
     cancel: "Cancelar"
   school_subjects:
     no_school_subjects_available: "No hay Materia por este Plan de Estudio"
@@ -81,7 +122,7 @@ es:
       cursus:
         title: "Plan de estudios"
       periods:
-        title: "Periodas"
+        title: "Periodos"
       classroom:
         title: "Classes"
     users:
