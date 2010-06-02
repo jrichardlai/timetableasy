@@ -1,8 +1,21 @@
-<p>
-  <%= form.label :name %><br />
-  <%= form.text_field :name %>
-</p>
-<p>
-  <%= form.label :campus %><br />
-	<%= form.collection_select :campus_id, Campus.all, :id, :name %>
-</p>
+<div class="portlet-header">
+	<h4><%= t 'menu.classroom.classroom' %></h4>
+</div>
+
+<div class="portlet-content">
+	
+	<div class="portlet-field">
+  		<%= form.label :name %>
+  		<%= form.text_field :name %>
+	</div>
+	
+	<div class="controlset portlet-field">
+		<span class="label"><%= form.label :campus %></span>
+		<%= form.collection_select :campus_id, Campus.all, :id, :name %>
+	</div>
+	
+
+<div class="buttonrow">
+    <%= form.submit t('general.save'), :class => "submit"%>
+</div>
+</div>

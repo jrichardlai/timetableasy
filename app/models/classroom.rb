@@ -13,6 +13,6 @@ class Classroom < ActiveRecord::Base
   end
 
   def name_with_campus
-    "#{campus.name} - #{name}"
+    "#{campus.name if campus} - #{name}"
   end
 end

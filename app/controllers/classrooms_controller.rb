@@ -15,12 +15,6 @@ class ClassroomsController < ApplicationController
 
   # GET /classrooms/1
   # GET /classrooms/1.xml
-  def show
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @classroom }
-    end
-  end
 
   # GET /classrooms/new
   # GET /classrooms/new.xml

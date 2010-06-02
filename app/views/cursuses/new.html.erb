@@ -1,49 +1,8 @@
-<h1>New cursus</h1>
+
 
 <% form_for @cursus do |f| %>
-	<%= f.error_messages %>
-	<div class="fieldset">
-		<div class="formRow">
-			<div class="label">
-				<%= f.label :name %>
-			</div>
-			<div class="field">
-				<%= f.text_field :name %>
-			</div>
-		</div>
-		<div class="formRow">
-			<div class="label">
-				<%= f.label :description %>
-			</div>
-			<div class="field">
-				<%= f.text_area :description %>
-			</div>
-		</div>
+	<%= render :partial => f %>
+<% end %>
 
-		<div class="formRow">
-			<div class="label">
-				<%= f.label :campuses %>
-			</div>
-			<div class="field">
-				<% for campus in Campus.all %>
-				<%= check_box_tag "cursus[campus_ids][]", campus.id, @cursus.campuses.include?(campus), :id => "campus_#{campus.id}" %>
-				<%= campus.name %><br />
-				<% end %>
-				<%= hidden_field_tag "cursus[campus_ids][]", "" %>
-			</div>
-		</div>
-	</div>
-	<br />
-	<div class="fieldset">
-		<div class="formRow">
-			<div class="label">
-				&nbsp;
-			</div>
-			<div class="field">
-				<%= f.submit 'Create', :class => "submit" %>
-			</div>
-		</div>
-	</div>
-	<% end %>
 
 	<%= link_to 'Back', cursuses_path %>

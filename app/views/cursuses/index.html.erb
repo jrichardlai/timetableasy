@@ -1,18 +1,22 @@
-<h1>Listing cursuses</h1>
-
+	<div class="box">
+<div class="listing-header">
+	<h4><%= t 'menu.cursus.cursus' %></h4>
+	
+</div>
 <table>
   <tr>
   </tr>
 
 <% @cursuses.each do |cursus| %>
   <tr class="<%= cycle("", "odd") -%>">
-    <td><%= link_to cursus.name, cursus_path(cursus) %></td>
-    <td><%= link_to 'Edit', edit_cursus_path(cursus) %></td>
-    <td><%= link_to 'Destroy', cursus_path(cursus), :confirm => 'Are you sure?', :method => :delete %></td>
+    <td class="tablenamefield"><%= link_to cursus.name, cursus_path(cursus) %></td>
+    <td class="tableiconfield"><%= link_to image_tag('editer_little.png', :class => "veralign edit"), edit_cursus_path(cursus) %>
+	&nbsp;
+    <%= link_to image_tag('delete_little.png', :class => "veralign edit"), cursus_path(cursus), :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
-
+</div>
 <%= link_to 'New cursus', new_cursus_path %>

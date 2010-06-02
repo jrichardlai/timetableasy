@@ -1,11 +1,8 @@
-<h1>Editing classroom</h1>
 
 <% form_for(@classroom) do |f| %>
   <%= f.error_messages %>
 	<%= render :partial => f %>
-	<p>
-	  <%= f.submit 'Update' %>
-	</p>
+
 <% end %>
 
 <%= link_to 'Show', @classroom %> |

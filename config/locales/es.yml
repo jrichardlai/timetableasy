@@ -32,6 +32,7 @@ es:
     campus: "campus"
     cursuses: "Cursusos Presentado:"
     school_subjects: "Materia de la escuela"
+    all_events: "Todos los Eventos"
   login:
     login: "Connectar"
     logout: "Deconnectar"
@@ -81,6 +82,8 @@ es:
         title: "Plan de estudios"
       periods:
         title: "Periodas"
+      classroom:
+        title: "Classes"
     users:
       title: "Usuarios"
       manage_users: "Gestión de usuarios"
