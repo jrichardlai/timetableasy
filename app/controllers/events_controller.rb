@@ -8,6 +8,9 @@ class EventsController < ApplicationController
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @events }
+      format.ics do
+        send_data(Event.to_ical(current_user), :type => 'text/calendar', :disposition => 'inline; filename=calendar.ics', :filename=>'calendar.ics')
+      end
       format.js do 
         render :json => Event.to_fullcalendar(params[:start], params[:end], params[:only_mandatory].to_bool, current_user)
       end

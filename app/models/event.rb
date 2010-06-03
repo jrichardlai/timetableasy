@@ -80,9 +80,18 @@ class Event < ActiveRecord::Base
     {:id => id, :title => display_name, :description => description, :start => begin_at.iso8601, :end => end_at.iso8601, :className => (global_event ? 'university' : event_scope_type.downcase)}
   end
 
+  def organizer
+    "organizer"
+  end
+
+  def location
+    "lieu"
+  end
+
   #cumulate events for an user or an campus or a class
-  def self.cumulated(from, to, only_mandatory = false, record = nil)
-    search = occurs_between(from, to)
+  def self.cumulated(from = nil, to = nil, only_mandatory = false, record = nil)
+    search = self
+    search = occurs_between(from, to) if from and to
     search = search.mandatory if only_mandatory
     if record
       class_name = record.class.to_s.downcase 
@@ -97,6 +106,26 @@ class Event < ActiveRecord::Base
 
   def self.to_fullcalendar(from, to, only_mandatory = false, record = nil)
     self.cumulated(from, to, only_mandatory, record).collect(&:to_fullcalendar).to_json
+  end
+
+  def self.to_ical(user)
+    events = self.cumulated(nil, nil, nil, user)
+    cal = Icalendar::Calendar.new
+    cal.custom_property("METHOD","PUBLISH")
+    events.each do |event|
+      cal.event do
+        created       event.created_at
+        organizer     event.organizer
+        dtstart       event.begin_at
+        dtend         event.end_at
+        summary       event.name
+        last_modified event.updated_at
+        description   event.description
+        klass         "PUBLIC"
+        location      event.location
+      end
+    end
+    cal.to_ical
   end
 
   private
