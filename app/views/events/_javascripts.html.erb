@@ -28,12 +28,14 @@ $(document).ready(function(){
 				{type: select_value}, function(e) {
 					switch (select_value){
 						case 'Classroom':
+							$('#event_event_scope_id').css("width", "50%");
 							$('#event_event_scope_id').change(function(){
 								// if a value is selected
 								if ($(this).val() != '') {
 									$('#for-classrooms').show();
 									// When selecting a school subject
 									jQuery.get("/javascripts/school_subjects.js", {classroom_id: $(this).val()}, function(e) {
+										
 										$('#school_subject_school_subject_id').change(function(){
 											if ($(this).val() != '') {
 												jQuery.get("/javascripts/teaching_methods.js", {
@@ -53,6 +55,7 @@ $(document).ready(function(){
 							});
 							break;
 						case 'Campus':
+							$('#event_event_scope_id').css("width", "50%");
 							// Hide the other rooms that not belong to a campus
 							$('#event_event_scope_id').change(function(){
 								if ($(this).val())
@@ -61,6 +64,7 @@ $(document).ready(function(){
 							$('#for-classrooms').hide();
 							break;
 						default:
+							$('#event_event_scope_id').css("width", "50%");
 							$('#event_room_id option').show();
 							$('#for-classrooms').hide();
 					}
