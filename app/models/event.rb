@@ -81,11 +81,11 @@ class Event < ActiveRecord::Base
   end
 
   def organizer
-    "organizer"
+    speaker ? speaker.name : speaker_name
   end
 
   def location
-    "lieu"
+    room ? room.name : room_name
   end
 
   #cumulate events for an user or an campus or a class
@@ -115,14 +115,14 @@ class Event < ActiveRecord::Base
     events.each do |event|
       cal.event do
         created       event.created_at.strftime("%Y%m%dT%H%M%S")
-        organizer     event.organizer
+        organizer     event.organizer if event.organizer
         dtstart       event.begin_at.strftime("%Y%m%dT%H%M%S")
         dtend         event.end_at.strftime("%Y%m%dT%H%M%S")
         summary       event.name
         last_modified event.updated_at.strftime("%Y%m%dT%H%M%S")
         description   event.description
         klass         "PUBLIC"
-        location      event.location
+        location      event.location if event.location
       end
     end
     cal.to_ical
