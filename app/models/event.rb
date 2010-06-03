@@ -114,12 +114,12 @@ class Event < ActiveRecord::Base
     cal.custom_property("METHOD","PUBLISH")
     events.each do |event|
       cal.event do
-        created       event.created_at
+        created       event.created_at.strftime("%Y%m%dT%H%M%S")
         organizer     event.organizer
-        dtstart       event.begin_at
-        dtend         event.end_at
+        dtstart       event.begin_at.strftime("%Y%m%dT%H%M%S")
+        dtend         event.end_at.strftime("%Y%m%dT%H%M%S")
         summary       event.name
-        last_modified event.updated_at
+        last_modified event.updated_at.strftime("%Y%m%dT%H%M%S")
         description   event.description
         klass         "PUBLIC"
         location      event.location
