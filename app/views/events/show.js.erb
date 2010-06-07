@@ -3,42 +3,33 @@
 	<%= @event.event_type_name %>
 	<br />
 <%- end -%>
-<%- if @event.event_type_name -%>
+<%- if @event.description -%>
 	<span class="label-show">Description: </span>
 <%= @event.description %>
 <br />
 <%- end -%>
-<%- if @event.event_type_name -%>
+<%- if @event.speaker -%>
 	<span class="label-show">Speaker: </span>
 <%= @event.speaker.login %>
 <br />
 <%- end -%>
-<%- if @event.event_type_name -%>
+<%- if @event.event_scope_type -%>
 	<span class="label-show">Event for: </span>
 <%= @event.event_scope_type %>
 <br />
 <%- end -%>
-<%- if @event.event_type_name -%>
+<%- if @event.event_scope -%>
 	<span class="label-show">Campus: </span>
 <%= @event.event_scope.name %>
 <br />
 <%- end -%>
 
-<%- if @event.event_type_name -%>
+<%- if @event.room -%>
 	<span class="label-show">Room: </span>
 <%= @event.room.name %>
 <br />
 <%- end -%>
-<%- if @event.event_type_name -%>
-	<span class="label-show">Begin at: </span>
-<%= @event.begin_at %>
-&nbsp;
-<%- end -%>
-<%- if @event.event_type_name -%>
-	<span class="label-show">End at: </span>
-<%= @event.end_at %>
-<br />
-<%- end -%>
+<span class="label-show">Begin at: </span> <%= l @event.begin_at %> <span class="label-show"> End at: </span> <%= l @event.end_at %> <br />
 
 
 <%- if can? :manage, @event -%>
