@@ -115,14 +115,14 @@ class Event < ActiveRecord::Base
     events.each do |event|
       cal.event do
         created       event.created_at.strftime("%Y%m%dT%H%M%S")
-        organizer     event.organizer if event.organizer
+        organizer     event.organizer
         dtstart       event.begin_at.strftime("%Y%m%dT%H%M%S")
         dtend         event.end_at.strftime("%Y%m%dT%H%M%S")
         summary       event.name
         last_modified event.updated_at.strftime("%Y%m%dT%H%M%S")
         description   event.description
         klass         "PUBLIC"
-        location      event.location if event.location
+        location      event.location
       end
     end
     cal.to_ical
@@ -136,11 +136,11 @@ class Event < ActiveRecord::Base
   end
 
   def speaker_not_busy?
-    errors.add_to_base(I18n.t("errors.speaker_busy")) if speaker.busy_between?(begin_at, end_at)
+    errors.add_to_base(I18n.t("errors.speaker_busy")) if speaker.busy_between?(begin_at, end_at, try(:id))
   end
 
   def room_not_used?
-    errors.add_to_base(I18n.t("errors.room_used")) if room.used_between?(begin_at, end_at)
+    errors.add_to_base(I18n.t("errors.room_used")) if room.used_between?(begin_at, end_at, try(:id))
   end
 
   def event_scope_should_have_id
