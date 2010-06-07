@@ -131,8 +131,10 @@ fr:
       create_event: "Créer un Evenement"
     gestion:
       title: "Gestion"
+      user:
+        title: "Utilisateurs"
       classroom:
-        title: "Classe"
+        title: "Classes"
       campus:
         title: "Campus"
       cursus:
