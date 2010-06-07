@@ -7,7 +7,7 @@
 <%= javascript_include_tag 'application' %>
 <%= stylesheet_link_tag 'jquery-ui', 'dialog', 'timePicker' %>
 <%= stylesheet_link_tag 'style', 'typography', 'orange' %>
-<%= stylesheet_link_tag 'minimal', "show", "list" unless current_page?(events_path) or current_page?(root_path)  %>
+<%= stylesheet_link_tag 'minimal', "show" unless current_page?(events_path) or current_page?(root_path)  %>
 <%- end -%>
 
 <div class="listing-box">

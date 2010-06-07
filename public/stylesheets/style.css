@@ -927,3 +927,9 @@ form.dialog-form {
 	font-weight: bold;
 	}
 	
+#desc_dialog form .portlet-field {
+	margin:0px;
+	margin-top:5px;
+	padding:0px;
+	border:none;
+}
