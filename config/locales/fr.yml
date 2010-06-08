@@ -48,7 +48,7 @@ fr:
     firstname: "Prenom"
     mail: "E-mail"
     mail_confirm: "Verif. Email"
-    password: "Mot de Pass"
+    password: "Mot de passe"
     password_confirm: "Verif. Pass"
     periods: "Periodes"
     from: "Du"
