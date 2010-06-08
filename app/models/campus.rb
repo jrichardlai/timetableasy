@@ -1,9 +1,11 @@
 class Campus < ActiveRecord::Base
   has_many :educations
   has_many :cursuses, :through => :educations, :source => :cursus
-  has_many :managements
+  has_many :managements, :dependent => :destroy
   has_many :managers, :source => :user, :through => :managements
-  # TODO
-  has_many :classrooms
-  has_many :rooms
+
+  has_many :classrooms, :dependent => :destroy
+  has_many :rooms, :dependent => :destroy
+
+  validates_presence_of :name
 end

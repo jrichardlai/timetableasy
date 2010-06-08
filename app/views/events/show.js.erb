@@ -8,10 +8,10 @@
 <%= @event.description %>
 <br />
 <%- end -%>
-<%- if @event.speaker -%>
+<%- if @event.speaker or !@event.speaker_name.blank? -%>
 	<span class="label-show">Speaker: </span>
-<%= @event.speaker.login %>
-<br />
+	<%= @event.organizer %>
+	<br />
 <%- end -%>
 <%- if @event.event_scope_type -%>
 	<span class="label-show">Event for: </span>
@@ -20,14 +20,14 @@
 <%- end -%>
 <%- if @event.event_scope -%>
 	<span class="label-show">Campus: </span>
-<%= @event.event_scope.name %>
-<br />
+	<%= @event.event_scope.name %>
+	<br />
 <%- end -%>
 
-<%- if @event.room -%>
+<%- if @event.room or !@event.room_name.blank? -%>
 	<span class="label-show">Room: </span>
-<%= @event.room.name %>
-<br />
+	<%= @event.location %>
+	<br />
 <%- end -%>
 <span class="label-show">Begin at: </span> <%= l @event.begin_at %> <span class="label-show"> End at: </span> <%= l @event.end_at %> <br />
 
