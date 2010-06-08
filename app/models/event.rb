@@ -31,7 +31,8 @@ class Event < ActiveRecord::Base
   
   before_validation :add_to_current_user_events, :unless => :has_scope?
   belongs_to :event_scope, :polymorphic => true
-  belongs_to :academical, :polymorphic => true
+  belongs_to :teaching_method
+  belongs_to :school_subject
 
   delegate :name, :to => :event_type, :allow_nil => true, :prefix => :event_type
 

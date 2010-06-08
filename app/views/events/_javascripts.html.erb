@@ -36,7 +36,7 @@ $(document).ready(function(){
 									// When selecting a school subject
 									jQuery.get("/javascripts/school_subjects.js", {classroom_id: $(this).val()}, function(e) {
 										
-										$('#school_subject_school_subject_id').change(function(){
+										$('#event_school_subject_id').change(function(){
 											if ($(this).val() != '') {
 												jQuery.get("/javascripts/teaching_methods.js", {
 													school_subject_id: $(this).val(), 

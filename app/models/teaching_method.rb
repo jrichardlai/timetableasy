@@ -9,7 +9,7 @@ class TeachingMethod < ActiveRecord::Base
     "#{teaching_type} (#{left_time})"
   end
 
-  def left_time_for(classroom = nil)
+  def left_time(classroom = nil)
     classroom ||= TeachingMethod.referal_classroom
     @left_time ||= duration
   end

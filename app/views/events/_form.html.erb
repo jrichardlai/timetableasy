@@ -49,24 +49,29 @@
 		
 			<span id="event_scope_id_select" style="width:50%">
 				<% if not @event.event_scope_type.blank? and @event.event_scope_type != 'User' %>
-				<%= form.collection_select :event_scope_id, Kernel.const_get(@event.event_scope_type).all, :id, :name, {:include_blank => true}, {:style => "width:50%"} %>
+				<%= form.collection_select :event_scope_id, Kernel.const_get(@event.event_scope_type).all, :id, @select_name || :name, {:include_blank => true}, {:style => "width:50%"} %>
 				<% end %>
 			</span>
 		</div>
-		<div id="for-classrooms" class="portlet-field" <%= 'style="display:none"' unless @event.academical %>>
+		<div id="for-classrooms" class="portlet-field" <%= 'style="display:none"' unless @event.school_subject %>>
 			<%= t('general.event_for_academical') %>
-			<input type="checkbox" id="toggle_academical"/>
+			<input type="checkbox" id="toggle_academical" <%= 'checked=checked' if @event.school_subject %>/>
 			<div class="academical portlet-field">
 					<div>
 					<%= label :school_subject, :school_subject %>
 					<span id="school_subject_select" style="width:50%">
+						<%= form.collection_select(:school_subject_id, @event.event_scope.school_subjects, :id, :name, :include_blank => true) if @event.school_subject %>
 					</span>
 					</div>
 
 					<div style="margin-bottom:20px">
 					<%= label :teaching_method, :teaching_method %>
 					<span id="teaching_method_select" style="width:50%">
-						<select></select>
+						<% if @event.school_subject %>
+								<%= form.collection_select(:teaching_method_id, @event.school_subject.teaching_methods, :id, :type_with_allowed_time, :include_blank => true) %>
+						<% else %>
+							<select></select>
+						<% end %>
 					</span>
 					</div>
 			</div>

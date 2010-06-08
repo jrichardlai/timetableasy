@@ -53,6 +53,11 @@ class EventsController < ApplicationController
 
   # GET /events/1/edit
   def edit
+    TeachingMethod.referal_classroom = @event.event_scope if @event.event_scope_type == 'Classroom'
+    @select_name = 'name'
+    if @event.event_scope
+      @select_name = (@event.event_scope.respond_to?(:name_for_select) ? 'name_for_select' : 'name').to_sym
+    end
   end
 
   # POST /events
