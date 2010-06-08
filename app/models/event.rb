@@ -34,6 +34,8 @@ class Event < ActiveRecord::Base
   belongs_to :teaching_method
   belongs_to :school_subject
 
+  validates_presence_of :teaching_method, :if => :school_subject
+
   delegate :name, :to => :event_type, :allow_nil => true, :prefix => :event_type
 
   def time_to_parse?
@@ -87,6 +89,10 @@ class Event < ActiveRecord::Base
 
   def location
     room ? room.name : room_name
+  end
+
+  def duration
+    end_at - begin_at
   end
 
   #cumulate events for an user or an campus or a class

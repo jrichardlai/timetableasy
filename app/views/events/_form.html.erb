@@ -68,7 +68,7 @@
 					<%= label :teaching_method, :teaching_method %>
 					<span id="teaching_method_select" style="width:50%">
 						<% if @event.school_subject %>
-								<%= form.collection_select(:teaching_method_id, @event.school_subject.teaching_methods, :id, :type_with_allowed_time, :include_blank => true) %>
+								<%= form.select(:teaching_method_id, @event.school_subject.teaching_methods.collect {|tm| [ tm.type_with_allowed_time(@event.event_scope, @event.id), tm.id ] }, :include_blank => true) %>
 						<% else %>
 							<select></select>
 						<% end %>
