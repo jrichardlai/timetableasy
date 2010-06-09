@@ -76,6 +76,7 @@ fr:
     cursuses: "Cursus Présentés:"
     save: "Sauvegarder"
     school_subjects: "Matières"
+    duration: "Durée"
   campus:
     header: "Campus"
     new_campus: "Créer un nouveau Campus"
@@ -108,13 +109,16 @@ fr:
     name: "Nom"
     description: "Description"
     create: "Créer la nouvelle Matière"
-    update: "Mettre à Jours la Matière"
+    update: "Mettre à Jour la Matière"
     cancel: "Annuler"
   teaching_methods:
     title: "Méthode d'Enseignement"
+    new: "Créer une nouvelle méthode d'enseignement"
+    update: "Mettre à jour la méthode d'enseignement"
+    cancel: "Annuler"
     no_teaching_methods_available: "Il n'y a pas de méthode d'enseignement pour cette Matière"
-    types:
-      elearning: E-Learning
+    teaching_type :
+      foundation: Foundation
   user:
     create: "Créer l'utilisateur"
     roles: "Selectionez les droits de l'utilisateur."
