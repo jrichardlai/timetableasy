@@ -1,4 +1,4 @@
-<%- if @event.event_type_name -%>
+<%- if @event.event_type_name and !@event.school_subject -%>
 	<span class="label-show">Event Type: </span>
 	<%= @event.event_type_name %>
 	<br />
