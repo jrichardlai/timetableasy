@@ -17,6 +17,7 @@ class Ability
       can :manage, Classroom do |action, classroom|
         classroom.blank? || classroom && user.managed_campuses.include?(classroom.campus)
       end
+      can :create, Classroom
       can :manage, Event do |action, event|
         event and case event.event_scope_type
         when 'Campus'

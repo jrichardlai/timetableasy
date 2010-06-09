@@ -11,6 +11,7 @@ class User < ActiveRecord::Base
   #for campus managers
   has_many  :managements
   has_many  :managed_campuses, :source => :campus, :through => :managements
+  has_many  :managed_rooms, :through => :managed_campuses, :source => :rooms
   has_many  :classrooms, :through => :managed_campuses
   alias     :campuses :managed_campuses
 

@@ -10,7 +10,7 @@
 	
 	<div class="controlset portlet-field">
 		<span class="label"><%= form.label :campus %></span>
-		<%= form.collection_select :campus_id, Campus.all, :id, :name %>
+		<%= form.collection_select :campus_id, (current_user.manager? ? current_user.campuses : Campus.all), :id, :name %>
 	</div>
 
 	<div class="controlset portlet-field" id="classroom_cursus">

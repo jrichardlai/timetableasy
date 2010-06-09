@@ -5,7 +5,7 @@ module EventsHelper
 
   def room_select_options
     if current_user.manager?
-      @room_select_options ||= current_user.campuses.collect(&:rooms).flatten
+      current_user.managed_rooms
     else
       Room.all
     end

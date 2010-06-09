@@ -4,11 +4,12 @@
 	
 </div>
 <div class="listing-content">
-<table  class="listing-table">
+<table>
 
 <% @classrooms.each do |classroom| %>
   <tr>
     <td><%=h classroom.name %></td>
+    <td><%=h classroom.cursus.name %></td>
     <td><%=h classroom.campus.name %></td>
     <td><%= link_to  image_tag('editer_little.png', :class => "veralign edit"), edit_classroom_path(classroom) %>
 	&nbsp;
