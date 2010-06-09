@@ -76,6 +76,12 @@ fr:
     cursuses: "Cursus Présentés:"
     save: "Sauvegarder"
     school_subjects: "Matières"
+    userlist: "Liste des utilisateurs"
+  cursus:
+    header: "Cursus"
+    new_cursus: "Nouveau cursus"
+    quick_look: "Aperçu rapide d'un cursus"
+    quick_look_desc: "Pour avoir un aperçu rapide, cliquez sur la loupe d'un cursus"
   campus:
     header: "Campus"
     new_campus: "Créer un nouveau Campus"

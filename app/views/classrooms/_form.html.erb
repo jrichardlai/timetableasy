@@ -1,5 +1,5 @@
 <div class="portlet-header">
-	<h4><%= t 'menu.classroom.classroom' %></h4>
+	<h4><%= t 'menu.gestion.classroom.title' %></h4>
 </div>
 
 <div class="portlet-content">
@@ -11,9 +11,17 @@
 	
 	<div class="controlset portlet-field">
 		<span class="label"><%= form.label :campus %></span>
-		<%= form.collection_select :campus_id, Campus.all, :id, :name %>
+		<%= form.collection_select :campus_id, Campus.all, :id, :name, :include_blank => :true %>
 	</div>
 	
+	<div class="controlset portlet-field" id="classroom_cursus" style="display:none">
+		<span class="label"><%= form.label :cursus %></span>
+		<%= form.collection_select :cursus_id, Cursus.all, :id, :name %>
+	</div>
+	
+	
+
+
 
 <div class="buttonrow">
     <%= form.submit t('general.save'), :class => "submit"%>
