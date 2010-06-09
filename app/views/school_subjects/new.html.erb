@@ -1,25 +1,21 @@
-<script type="text/javascript" charset="utf-8">
-	<%= render :partial => 'javascripts' %>
-</script>
+<%= render :partial => 'javascripts' %>
 
 <% remote_form_for [@cursus, @school_subject], :update => {:success => "school_subjects_list", :failure => "errors_ss"} do |f| %>
 <%= f.error_messages %>
 <div class="portlet-content">
 
 	<div class="portlet-field">
-		<%= f.label :school_subject_name, t('school_subjects.name') %>
+		<%= f.label :name, t('school_subjects.name') %>
 		<%= f.text_field :name %>
 	</div>
 	<div class="portlet-field">
-		<%= f.label :school_subject_description, t('school_subjects.description') %>
+		<%= f.label :description, t('school_subjects.description') %>
 		<%= f.text_field :description %>
 	</div>
-
 </div>
-<div class="buttonrow" style="text-align:center;">
+<div class="bouton-box2" style="text-align:center;">
 	<%= f.submit t('school_subjects.create'), :class => "submit", :id => "new_school_subject_creation" %>
 	<%= f.submit t('school_subjects.cancel'), options = {:name => "school_subject[Cancel]", :class => "submit", :id => "cancel_school_subject_creation"} %>
 </div>
-<br />
 <% end %>
 

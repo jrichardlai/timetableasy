@@ -1,24 +1,26 @@
-$('.date_picker').datepicker({dateFormat:'dd-mm-yy'});
+<script type="text/javascript" charset="utf-8">
+	$('.date_picker').datepicker({dateFormat:'dd-mm-yy'});
 
-$("#new_school_subject_creation").click( function() {
- 	$('#form_add_school_subjects').empty();
-	$('#create_school_subject_div').css('display', 'block');
-	$("#errors_ss").fadeOut("slow");
-});
+	$("#new_school_subject_creation").click( function() {
+	 	$('#form_add_school_subjects').empty();
+		$('#create_school_subject_div').css('display', 'block');
+		$("#errors_ss").fadeOut("slow");
+	});
 
-$("#errors_ss").click(function() {
-	$(this).fadeOut("slow");
-});
+	$("#errors_ss").click(function() {
+		$(this).fadeOut("slow");
+	});
 
-$("#edit_school_subject_update").click( function() {
- 	$('#form_add_school_subjects').empty();
-	$('#create_school_subject_div').css('display', 'block');
-	$("#errors_ss").fadeOut("slow");
-});
+	$("#edit_school_subject_update").click( function() {
+	 	$('#form_add_school_subjects').empty();
+		$('#create_school_subject_div').css('display', 'block');
+		$("#errors_ss").fadeOut("slow");
+	});
 
-$("#cancel_school_subject_creation").click(function() {
-	$('#form_add_school_subjects').empty();
-	$('#create_school_subject_div').css('display', 'block');
-	$("#errors_ss").fadeOut("slow");
-	return false;
-});
+	$("#cancel_school_subject_creation").click(function() {
+		$('#form_add_school_subjects').empty();
+		$('#create_school_subject_div').css('display', 'block');
+		$("#errors_ss").fadeOut("slow");
+		return false;
+	});
+</script>

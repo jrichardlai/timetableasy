@@ -1,10 +1,8 @@
 <div class="box">	
 	<div class="box-header">
-
-		<h4><%= t 'general.periods' %></h4>	
-	</div> <!-- .portlet-header -->	
-
-	<div class="box-content">				
+		<h4><%= t 'general.periods' %></h4>
+	</div> <!-- .portlet-header -->
+	<div class="box-content">
 		<div style="width:100%; height:auto;" id="periods_list">
 			<% if @cursus.periods.count > 0 %>
 			<table style="margin:auto;">
@@ -35,9 +33,8 @@
 			<h6><%= t 'periods.no_periods_available' %></h6>
 			<% end %>
 		</div>
-		<br/>
 		<div class="message message-error message-closable" style="display:none;" id="errors"><%= t "errors.error_header" %></div>
-		<div style="width:100%; height:auto;" id="form_add_periods"></div>
+		<div class="portlet-form" style="width:100%; height:auto;" id="form_add_periods"></div>
 		<div class="abutton bouton-box" id="create_period_div"><%= link_to_remote image_tag('styles/add_periods.png', :class => "veralign") + " " + t('periods.new_period'), :url =>  new_cursus_period_path(@cursus), :method => "get", :html => {:id => "create_period", :class => "button"}, :update => { :success => "form_add_periods", :failure => "error" } %></div>
 	</div>
-</div> <!-- .portlet-content -->	
+</div> <!-- .portlet-content -->
