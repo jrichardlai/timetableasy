@@ -69,7 +69,7 @@ class Event < ActiveRecord::Base
 
   def display_name
     if teaching_method
-      "#{school_subject.name} (#{I18n.t("teaching_methods.teaching_type.#{teaching_method.teaching_type}")}) #{ name ? "- #{name}" : ''}"
+      "#{school_subject.name} (#{I18n.t("teaching_methods.teaching_type.#{teaching_method.teaching_type}")}) #{ name.blank? ? '' : "- #{name}" }"
     else
       name
     end
