@@ -359,6 +359,16 @@ end
   end
 end
 
+#Add intervening rights to users
+['veritable', 'acalmie', 'rotogok', 'jonathan', 'andred', 'clement'].each do |login|
+  user = User.find_by_login(login)
+  role = RoleType.find_by_name('intervenant')
+  unless user.intervenant?
+    puts "Add to #{login} intervening rights"
+    user.role_types << role
+  end
+end
+
 [
   ["PSA - INFORMATIQUE 2011","Cisco", "Cisco - Security 2"],
   ["PSA - INFORMATIQUE 2011","Cisco VoIP", "Cisco - VoIP"],
