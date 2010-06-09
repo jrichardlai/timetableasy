@@ -8,7 +8,6 @@
 			<table style="margin:auto;">
 				<thead>
 					<tr>
-						<th width="5%"><%= t 'general.number' %></th>
 						<th width="10%"><%= t 'general.name' %></th>
 						<th width="35%"><%= t 'general.description' %></th>
 						<th width="15%"><%= t 'general.actions' %></th>
@@ -17,7 +16,6 @@
 				<tbody>
 					<% @cursus.school_subjects.each do |school_subject| %>
 					<tr>
-						<th><%= school_subject.id %></th>
 						<td><%= school_subject.name %></td>
 						<td><%= school_subject.description %></td>
 						<td class="action">
