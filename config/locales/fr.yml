@@ -117,8 +117,9 @@ fr:
     update: "Mettre à jour la méthode d'enseignement"
     cancel: "Annuler"
     no_teaching_methods_available: "Il n'y a pas de méthode d'enseignement pour cette Matière"
-    teaching_type :
+    teaching_type:
       foundation: Foundation
+      graded_exercice: Exercice noté
   user:
     create: "Créer l'utilisateur"
     roles: "Selectionez les droits de l'utilisateur."
