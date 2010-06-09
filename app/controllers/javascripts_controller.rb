@@ -26,6 +26,17 @@ class JavascriptsController < ApplicationController
     end
   end
 
+  def cursuses
+    @cursuses = Campus.find(params[:campus_id]).cursuses
+    render :update do |page|
+      js_selector = @cursuses.collect {|cursus| "[value!=#{cursus.id}]"}.join('')
+      page.show 'classroom_cursus'
+      # [value!=1][value!=2]
+      page << "$('#classroom_cursus_id option').show();"
+      page << "$('#classroom_cursus_id option#{js_selector}').hide()"
+    end
+  end
+
   #hide rooms that not belongs to a campus or a classroom campus
   def rooms
     @rooms = case params[:type]

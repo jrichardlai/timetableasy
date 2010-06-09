@@ -8,7 +8,10 @@ class Ability
         user.admin?
       end
     elsif user.manager?
-      can :update, Campus do |campus|
+      can :manage_campus, User do
+        user.manager?
+      end
+      can :manage, Campus do |action, campus|
         campus && campus.managers.include?(user)
       end
       can :manage, Classroom do |action, classroom|

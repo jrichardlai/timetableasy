@@ -13,7 +13,11 @@
 		<span class="label"><%= form.label :campus %></span>
 		<%= form.collection_select :campus_id, Campus.all, :id, :name %>
 	</div>
-	
+
+	<div class="controlset portlet-field" id="classroom_cursus">
+		<span class="label"><%= form.label :cursus %></span>
+		<%= form.collection_select :cursus_id, Cursus.all, :id, :name %>
+	</div>
 
 <div class="buttonrow">
     <%= form.submit t('general.save'), :class => "submit"%>

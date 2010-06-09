@@ -41,6 +41,7 @@ en:
     description: "Description"
     address: "Addresse"
     zip: "Postal Code"
+    managers: "Managers"
     city: "City"
     country: "Country"
     timezone: "Time Zone"

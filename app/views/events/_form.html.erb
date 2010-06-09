@@ -44,7 +44,9 @@
 	
 		<%- if can? :manage, Classroom  %>
 		<div class="portlet-field">
-			<%= form.label :event_for %>
+				<%= form.label :event_for, nil, :style => 'float:none; text-align:left;' %>
+		</div>
+		<div class="portlet-field">
 			<%= form.select :event_scope_type, (current_user.admin? ? ['Campus', 'Cursus', 'Classroom'] : ['Campus', 'Classroom']), {:include_blank => true} %>
 		
 			<span id="event_scope_id_select" style="width:50%">
@@ -79,19 +81,15 @@
 		<p>
 		<div class="portlet-field">
 			<%= form.label :speaker %>
-			<%- if can? :manage, Campus -%>
 			<input type="checkbox" id="toggle_spearker-exists" <%= 'checked="checked"' if @event.speaker_name.blank? %> />
 			<%= form.collection_select :speaker_id, User.intervenants, :id, :login, {:include_blank => true}, :class => 'spearker-exists' %>
-			<%- end -%>
 			<%= form.text_field :speaker_name, :class => 'not_spearker-exists' %>
 		</div>
 
 		<div class="portlet-field">
 			<%= form.label :room %>
-			<%- if can? :manage, Campus -%>
 			<input type="checkbox" id="toggle_room-exists" <%= 'checked="checked"' if @event.room_name.blank? %> />
-			<%= form.collection_select :room_id, Room.all, :id, :name, {:include_blank => true}, :class => 'room-exists', :style => 'width:50%' %>
-			<%- end -%>
+			<%= form.collection_select :room_id, room_select_options, :id, :name, {:include_blank => true}, :class => 'room-exists', :style => 'width:50%' %>
 			<%= form.text_field :room_name, :class => 'not_room-exists' %>
 		</div>
 		<%- else -%>

@@ -45,7 +45,6 @@ class PeriodTypesController < ApplicationController
 
     respond_to do |format|
       if @period_type.save
-        flash[:notice] = 'PeriodType was successfully created.'
         format.html { redirect_to(@period_type) }
         format.xml  { render :xml => @period_type, :status => :created, :location => @period_type }
       else
@@ -62,7 +61,6 @@ class PeriodTypesController < ApplicationController
 
     respond_to do |format|
       if @period_type.update_attributes(params[:period_type])
-        flash[:notice] = 'PeriodType was successfully updated.'
         format.html { redirect_to(@period_type) }
         format.xml  { head :ok }
       else

@@ -13,12 +13,11 @@
 				<p class="description"><%= t 'general.application_caption' %></p>
 			</div>
 			<ul class="sf-js-enabled sf-shadow" id="nav">
-				<li><%= link_to t('general.home'), root_path %></li>
 				<li class="">
 					<%= link_to t('menu.events.title'), events_path %>
 				</li>
 				<li class="">
-					<%- if can? current_user, :manage_users -%>
+					<%- if can? :manage, User -%>
 					<a class="sf-with-ul" href="#"><%= t 'menu.users.title' %><span class="sf-sub-indicator"> </span></a>
 					<ul style="display: none; visibility: hidden; ">
 						<li class="submenu"><%= link_to t('menu.users.manage_users'), users_path %></li>
@@ -27,12 +26,14 @@
 					<%- end -%>
 				</li>
 				<li class="">
-					<%- if can? current_user, :manage_campus -%>
+					<%- if can? :manage_campus, current_user -%>
 					<a class="sf-with-ul" href="#"><%= t 'menu.gestion.title' %><span class="sf-sub-indicator"> </span></a>
 					<ul style="display: none; visibility: hidden; ">
 						<li class="submenu"><%= link_to t('menu.gestion.campus.title'), campuses_path %></li>
 						<li class="submenu"><%= link_to t('menu.gestion.classroom.title'), classrooms_path %></li>
-						<li class="submenu"><%= link_to t('menu.gestion.cursus.title'), cursuses_path %></li>
+						<%- if can? :manage, Cursus -%>
+							<li class="submenu"><%= link_to t('menu.gestion.cursus.title'), cursuses_path %></li>
+						<% end %>
 					</ul>
 					<%- end -%>
 				</li>
