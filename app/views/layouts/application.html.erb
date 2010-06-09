@@ -16,9 +16,6 @@
 				<li><%= link_to t('general.home'), root_path %></li>
 				<li class="">
 					<%= link_to t('menu.events.title'), events_path %>
-					<ul style="display: none; visibility: hidden; ">
-						<li class="submenu"><%= link_to t('menu.events.create_event'), new_event_path %></li>
-					</ul>
 				</li>
 				<li class="">
 					<%- if can? current_user, :manage_users -%>

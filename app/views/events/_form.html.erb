@@ -94,7 +94,16 @@
 			<%- end -%>
 			<%= form.text_field :room_name, :class => 'not_room-exists' %>
 		</div>
-		<%- end -%>
+		<%- else -%>
+		<div class="portlet-field">
+			<%= form.label :speaker %>
+			<%= form.text_field :speaker_name %>
+		</div>
+		<div class="portlet-field">
+			<%= form.label :room %>
+			<%= form.text_field :room_name %>
+		</div>
+		<% end %>
 	</div>
 </div>
 
