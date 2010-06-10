@@ -3,7 +3,7 @@
 	<%= @event.event_type_name %>
 	<br />
 <%- end -%>
-<%- if @event.description -%>
+<%- unless @event.description.blank? -%>
 	<span class="label-show">Description: </span>
 <%= @event.description %>
 <br />

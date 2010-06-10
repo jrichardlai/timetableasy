@@ -77,7 +77,7 @@ class User < ActiveRecord::Base
   end
 
   def name
-    return "#{firstname} #{lastname}" if firstname or lastname
+    return "#{firstname} #{lastname}" unless (firstname.blank? and lastname.blank?)
     login
   end
 

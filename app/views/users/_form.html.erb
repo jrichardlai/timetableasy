@@ -61,8 +61,8 @@
 		</div>
 	</div>
 
-	<div id="is_student" style="display:none">
-		Class :
+	<div id="is_student" class="controlset portlet-field" style="display:none">
+		<%= form.label :classroom %>
 		<%= collection_select :user, :classroom_id, Classroom.all, :id, :name_with_campus %>
 	</div>
 
