@@ -13,7 +13,7 @@ class JavascriptsController < ApplicationController
   def school_subjects
     @classroom = Classroom.find(params[:classroom_id]) unless params[:classroom_id].blank?
     render :update do |page|
-      page.replace_html 'school_subject_select', collection_select(:school_subject, :school_subject_id, @classroom.school_subjects, :id, :name, :include_blank => true)
+      page.replace_html 'school_subject_select', collection_select(:event, :school_subject_id, @classroom.school_subjects, :id, :name, :include_blank => true)
     end
   end
 
@@ -22,7 +22,7 @@ class JavascriptsController < ApplicationController
     @school_subject = SchoolSubject.find(params[:school_subject_id]) unless params[:school_subject_id].blank?
     TeachingMethod.referal_classroom = Classroom.find(params[:classroom_id]) unless params[:classroom_id].blank?
     render :update do |page|
-      page.replace_html 'teaching_method_select', collection_select(:teaching_method, :teaching_method_id, @school_subject.teaching_methods, :id, :type_with_allowed_time, :include_blank => true)
+      page.replace_html 'teaching_method_select', collection_select(:event, :teaching_method_id, @school_subject.teaching_methods, :id, :type_with_allowed_time, :include_blank => true)
     end
   end
 

@@ -28,13 +28,16 @@ $(document).ready(function(){
 				{type: select_value}, function(e) {
 					switch (select_value){
 						case 'Classroom':
+							$('#event_event_scope_id').css("width", "50%");
 							$('#event_event_scope_id').change(function(){
+								$('#teaching_method_select').html('<select></select>');
 								// if a value is selected
 								if ($(this).val() != '') {
 									$('#for-classrooms').show();
 									// When selecting a school subject
 									jQuery.get("/javascripts/school_subjects.js", {classroom_id: $(this).val()}, function(e) {
-										$('#school_subject_school_subject_id').change(function(){
+										
+										$('#event_school_subject_id').change(function(){
 											if ($(this).val() != '') {
 												jQuery.get("/javascripts/teaching_methods.js", {
 													school_subject_id: $(this).val(), 
@@ -53,6 +56,7 @@ $(document).ready(function(){
 							});
 							break;
 						case 'Campus':
+							$('#event_event_scope_id').css("width", "50%");
 							// Hide the other rooms that not belong to a campus
 							$('#event_event_scope_id').change(function(){
 								if ($(this).val())
@@ -61,6 +65,7 @@ $(document).ready(function(){
 							$('#for-classrooms').hide();
 							break;
 						default:
+							$('#event_event_scope_id').css("width", "50%");
 							$('#event_room_id option').show();
 							$('#for-classrooms').hide();
 					}
@@ -71,6 +76,58 @@ $(document).ready(function(){
 			$('#event_scope_id_select').html('');
 		}
 	});
+
+	$('#event_event_scope_type').each(function(e){
+		var select_value = $(this).val();
+		if (select_value) {
+			switch (select_value){
+				case 'Classroom':
+					$('#event_event_scope_id').css("width", "50%");
+					$('#event_event_scope_id').change(function(){
+						$('#teaching_method_select').html('<select></select>');
+						// if a value is selected
+						if ($(this).val() != '') {
+							$('#for-classrooms').show();
+							// When selecting a school subject
+							jQuery.get("/javascripts/school_subjects.js", {classroom_id: $(this).val()}, function(e) {
+								
+								$('#event_school_subject_id').change(function(){
+									if ($(this).val() != '') {
+										jQuery.get("/javascripts/teaching_methods.js", {
+											school_subject_id: $(this).val(), 
+											classroom_id: $('#event_event_scope_id').val()
+										});
+									}
+								})
+							});
+							// Hide the other rooms that not belong to the classroom by checking the campus rooms
+							jQuery.get("/javascripts/rooms.js", {type: 'Classroom', id: $(this).val()});
+						}
+						else {
+							$('#for-classrooms').hide();
+							$('#for-classrooms select').val('');
+						}
+					});
+					break;
+				case 'Campus':
+					$('#event_event_scope_id').css("width", "50%");
+					// Hide the other rooms that not belong to a campus
+					$('#event_event_scope_id').change(function(){
+						if ($(this).val())
+							jQuery.get("/javascripts/rooms.js", {type: 'Campus', id: $(this).val()});
+					});
+					$('#for-classrooms').hide();
+					break;
+				default:
+					$('#event_event_scope_id').css("width", "50%");
+					$('#event_room_id option').show();
+					$('#for-classrooms').hide();
+			}
+		}
+		else {
+			$('#event_scope_id_select').html('');
+		}
+	})
 
 	$('input:checkbox[id^=toggle_]').click(function(){
 		toggle_type(this);

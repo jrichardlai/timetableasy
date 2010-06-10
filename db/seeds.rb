@@ -329,15 +329,15 @@ end
 
 # Creating Students
 [
-  ['PARIS', 'PSA - INFORMATIQUE 2011', 'PSA1', ['junior', 'acado', 'boboy']],
-  ['PARIS', 'PSA - INFORMATIQUE 2011', 'PSA2', ['tidus', 'fabrice', 'yuniko']],
-  ['PARIS', 'PSA - INFORMATIQUE 2012', 'PSA1', ['junior', 'acado', 'boboy']],
-  ['PARIS', 'PSA - INFORMATIQUE 2012', 'PSA2', ['tidus', 'fabrice', 'yuniko']],
-  ['MONTPELLIER', 'PSA - MEDECINE 2011', 'PSA1', ['ronald', 'fabrix', 'tehlor']],
-  ['MONTPELLIER', 'PSA - MEDECINE 2011', 'PSA2', ['yonisha', 'clemence', 'alice']],
-  ['MONTPELLIER', 'PSA - MEDECINE 2012', 'PSA1', ['jonathan', 'andre', 'clement']],
-  ['MONTPELLIER', 'PSA - MEDECINE 2012', 'PSA2', ['ludacris', 'lorie', 'axel']],
-  ['BORDEAUX', 'PSA - INFORMATIQUE 2011', 'PSA1', ['thuyanh', 'sonia', 'phuu']],
+  ['PARIS', 'PSA - INFORMATIQUE 2011', 'PSA1', ['junior', 'acadoss', 'boboyx']],
+  ['PARIS', 'PSA - INFORMATIQUE 2011', 'PSA2', ['tiduse', 'fabrice', 'yuniko']],
+  ['PARIS', 'PSA - INFORMATIQUE 2012', 'PSA1', ['veritable', 'acalmie', 'rotogok']],
+  ['PARIS', 'PSA - INFORMATIQUE 2012', 'PSA2', ['jeanlede', 'fabrice', 'yuniko']],
+  ['MONTPELLIER', 'PSA - MEDECINE 2011', 'PSA1', ['ronald', 'yehened', 'tehlor']],
+  ['MONTPELLIER', 'PSA - MEDECINE 2011', 'PSA2', ['yonisha', 'clemence', 'yalice']],
+  ['MONTPELLIER', 'PSA - MEDECINE 2012', 'PSA1', ['jonathan', 'andred', 'clement']],
+  ['MONTPELLIER', 'PSA - MEDECINE 2012', 'PSA2', ['ludacris', 'loried', 'axeled']],
+  ['BORDEAUX', 'PSA - INFORMATIQUE 2011', 'PSA1', ['thuyanh', 'soniale', 'phuulix']],
   ['BORDEAUX', 'PSA - INFORMATIQUE 2011', 'PSA2', ['vaneha', 'micadoex', 'redverds']],
   ['BORDEAUX', 'PSA - INFORMATIQUE 2012', 'PSA1', ['zackary', 'kantinc', 'yehnew']],
   ['BORDEAUX', 'PSA - INFORMATIQUE 2012', 'PSA2', ['michel', 'francois', 'luckas']]
@@ -472,7 +472,14 @@ end
   cursus = Cursus.find_by_name(cursus_name)
   
   unless cursus.school_subjects.exists?(:name => ss_name, :description => ss_description)
-   cursus.school_subjects.create(:name => ss_name, :description => ss_description)
-   puts "Creating School Subject for Cursus #{cursus.name} => #{ss_name} (#{ss_description})"
+    school_subject = cursus.school_subjects.create(:name => ss_name, :description => ss_description)
+    puts "Creating School Subject for Cursus #{cursus.name} => #{ss_name} (#{ss_description})"
+    TeachingMethod::TYPES.each do |type|
+      nb_hours = rand(5) - 1
+      if (nb_hours > 0) 
+        school_subject.teaching_methods.create(:teaching_type => type, :duration => nb_hours)
+        puts "Creating teaching method (#{type}) with #{nb_hours} for #{ss_name}"
+      end
+    end
   end
 end

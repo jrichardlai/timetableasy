@@ -1,78 +1,100 @@
-<p>
-	<%= form.label :name %>
-	<br/>
-	<%= form.text_field :name %>
-</p>
-<p>
-	<%= form.label :description %>
-	<br/>
-	<%= form.text_area :description, :rows => 4, :cols => 70 %>
-</p>
-
-<%- if can? :manage, Classroom -%>
-<%= form.label :force_display %>
-<%= form.check_box :force_display, :default => false %>
-<%- end -%>
-<%- if current_user.admin? -%>
-<p>
-	<%= form.label :global_event %>
-	<%= form.check_box :global_event, :default => false, :id => 'toggle_global' %>
-</p>
-<%- end -%>
-
-<div class="not_global">
-
-	<p class="not_academical">
-		<%= form.label :event_type %>
-		<%= form.collection_select :event_type_id, EventType.all, :id, :name, {:include_blank => true} %>
-	</p>
-	<%- if can? :manage, Classroom  %>
-	<p>
-		<%= form.label :event_for %>
-		<%= form.select :event_scope_type, (current_user.admin? ? ['Campus', 'Cursus', 'Classroom'] : ['Campus', 'Classroom']), {:include_blank => true} %>
-		<span id="event_scope_id_select">
-			<% if not @event.event_scope_type.blank? and @event.event_scope_type != 'User' %>
-			<%= form.collection_select :event_scope_id, Kernel.const_get(@event.event_scope_type).all, :id, :name, {:include_blank => true} %>
-			<% end %>
-		</span>
-	</p>
-	<div id="for-classrooms" <%= 'style="display:none"' unless @event.academical %>>
-		<%= t('general.event_for_academical') %>
-		<input type="checkbox" id="toggle_academical"/>
-		<div class="academical">
-			<p>
-				<%= label :school_subject, :school_subject %>
-				<span id="school_subject_select">
-				</span>
-			</p>
-			<p>
-				<%= label :teaching_method, :teaching_method %>
-				<span id="teaching_method_select">
-				</span>
-			</p>
-		</div>
+<h4>Informations Générales</h4>
+<div class="message message-success message-closable">
+	<div class="portlet-field">
+		<%= form.label :name %>
+		<%= form.text_field :name %>
 	</div>
-	<p>
-		<%= form.label :speaker %>
-		<input type="checkbox" id="toggle_spearker-exists" <%= 'checked="checked"' if @event.speaker_name.blank? %> />
-		<%= form.collection_select :speaker_id, User.intervenants, :id, :login, {:include_blank => true}, :class => 'spearker-exists' %>
-		<%= form.text_field :speaker_name, :class => 'not_spearker-exists' %>
-	</p>
+	<div class="portlet-field">
+		<%= form.label :description %>
+		<%= form.text_area :description, :rows => 4, :cols => 30 %>
+	</div>
+	<div class="portlet-field">
+		<%= form.label :start_day %>
+		<%= form.text_field :start_day, :class => 'date_picker' %>
+		<%= form.select :start_time, time_options, :class => 'time_picker' %>
+	</div>
+	<div class="portlet-field">
+		<%= form.label :end_day %>
+		<%= form.text_field :end_day, :class => 'date_picker' %>
+		<%= form.select :end_time, time_options, :class => 'time_picker' %>
+	</div>
+</div>
+
+<h4>Options de L'Évenement</h4>
+<div class="message message-success message-closable">
+	<%- if can? :manage, Classroom -%>
+	<div class="portlet-field">
+		<%= form.label :force_display %>
+		<%= form.check_box :force_display, :default => false %>
+	</div>
+	<%- end -%>
+	
+	<%- if current_user.admin? -%>
+	<div class="portlet-field">
+		<%= form.label :global_event %>
+		<%= form.check_box :global_event, :default => false, :id => 'toggle_global' %>
+	</div>
 	<%- end -%>
 
-	<p>
-		<%= form.label :room %>
-		<%- if can? :manage, Campus -%>
-		<input type="checkbox" id="toggle_room-exists" <%= 'checked="checked"' if @event.room_name.blank? %> />
-		<%= form.collection_select :room_id, Room.all, :id, :name, {:include_blank => true}, :class => 'room-exists' %>
+	<div class="not_global">
+		<div class="portlet-field">
+			<%= form.label :event_type %>
+			<%= form.collection_select :event_type_id, EventType.all, :id, :name, {:include_blank => true} %>
+		</div>
+	
+		<%- if can? :manage, Classroom  %>
+		<div class="portlet-field">
+			<%= form.label :event_for %>
+			<%= form.select :event_scope_type, (current_user.admin? ? ['Campus', 'Cursus', 'Classroom'] : ['Campus', 'Classroom']), {:include_blank => true} %>
+		
+			<span id="event_scope_id_select" style="width:50%">
+				<% if not @event.event_scope_type.blank? and @event.event_scope_type != 'User' %>
+				<%= form.collection_select :event_scope_id, Kernel.const_get(@event.event_scope_type).all, :id, @select_name || :name, {:include_blank => true}, {:style => "width:50%"} %>
+				<% end %>
+			</span>
+		</div>
+		<div id="for-classrooms" class="portlet-field" <%= 'style="display:none"' unless @event.school_subject %>>
+			<%= t('general.event_for_academical') %>
+			<input type="checkbox" id="toggle_academical" <%= 'checked=checked' if @event.school_subject %>/>
+			<div class="academical portlet-field">
+					<div>
+					<%= label :school_subject, :school_subject %>
+					<span id="school_subject_select" style="width:50%">
+						<%= form.collection_select(:school_subject_id, @event.event_scope.school_subjects, :id, :name, :include_blank => true) if @event.school_subject %>
+					</span>
+					</div>
+
+					<div style="margin-bottom:20px">
+					<%= label :teaching_method, :teaching_method %>
+					<span id="teaching_method_select" style="width:50%">
+						<% if @event.school_subject %>
+								<%= form.select(:teaching_method_id, @event.school_subject.teaching_methods.collect {|tm| [ tm.type_with_allowed_time(@event.event_scope, @event.id), tm.id ] }, :include_blank => true) %>
+						<% else %>
+							<select></select>
+						<% end %>
+					</span>
+					</div>
+			</div>
+		</div>
+		<p>
+		<div class="portlet-field">
+			<%= form.label :speaker %>
+			<%- if can? :manage, Campus -%>
+			<input type="checkbox" id="toggle_spearker-exists" <%= 'checked="checked"' if @event.speaker_name.blank? %> />
+			<%= form.collection_select :speaker_id, User.intervenants, :id, :login, {:include_blank => true}, :class => 'spearker-exists' %>
+			<%- end -%>
+			<%= form.text_field :speaker_name, :class => 'not_spearker-exists' %>
+		</div>
+
+		<div class="portlet-field">
+			<%= form.label :room %>
+			<%- if can? :manage, Campus -%>
+			<input type="checkbox" id="toggle_room-exists" <%= 'checked="checked"' if @event.room_name.blank? %> />
+			<%= form.collection_select :room_id, Room.all, :id, :name, {:include_blank => true}, :class => 'room-exists', :style => 'width:50%' %>
+			<%- end -%>
+			<%= form.text_field :room_name, :class => 'not_room-exists' %>
+		</div>
 		<%- end -%>
-		<%= form.text_field :room_name, :class => 'not_room-exists' %>
-	</p>
+	</div>
 </div>
-<p>
-	<%= form.text_field :start_day, :class => 'date_picker' %>
-	<%= form.select :start_time, time_options, :class => 'time_picker' %>
-	<%= t('general.to') %>
-	<%= form.select :end_time, time_options, :class => 'time_picker' %>
-	<%= form.text_field :end_day, :class => 'date_picker' %>
-</p>
+

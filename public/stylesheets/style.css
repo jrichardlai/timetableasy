@@ -620,24 +620,37 @@ form .portlet-header h4 {
 form .portlet-content { padding: 15px; position: relative; }
 form .portlet-field { margin-bottom: 1.5em; }
 form .portlet-field a { text-decoration:none; }
-form .portlet-field label, form .portlet-field span.label { margin-right: 10px; padding-right: 10px; width: 125px; display: block; float: left;  font-weight: bold; text-align: right; position: relative; }
+form .portlet-field label, form .portlet-field span.label { margin-right: 10px; padding-right: 10px; width: 90px; display: block; float: left;  font-weight: bold; text-align: right; position: relative; }
 form .portlet-field input {
 	padding: 4px;
 	border: 1px solid #999;
 	-moz-border-radius: 3px;
 	-webkit-border-radius: 3px;
 }
-form .portlet-field span.infos {
-	padding: 4px;
-}
-
-form .controlset div label {font-size: 11px; font-weight: normal !important; }
-form .field input {
+form .portlet-field textarea {
 	padding: 4px;
 	border: 1px solid #999;
 	-moz-border-radius: 3px;
 	-webkit-border-radius: 3px;
 }
+
+form .portlet-field select {
+	padding: 4px;
+	border: 1px solid #999;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+}
+form .portlet-field  {
+	padding: 4px;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+}
+
+form .portlet-field span.infos {
+	padding: 4px;
+}
+
+form .controlset div label {font-size: 11px; font-weight: normal !important; }
 
 form .medium {
 	width: 200px;
@@ -897,6 +910,15 @@ form.dialog-form {
 	color: #c32727;
 	border-color: #e18484;
 }
+
+.message-success 
+{
+	background-color: #e5f993;
+	color: #000000;
+	border-color: #9bac55;
+}
+
+
 /* Event show */
 
 .label-show {
@@ -905,3 +927,9 @@ form.dialog-form {
 	font-weight: bold;
 	}
 	
+#desc_dialog form .portlet-field {
+	margin:0px;
+	margin-top:5px;
+	padding:0px;
+	border:none;
+}

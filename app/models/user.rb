@@ -75,6 +75,11 @@ class User < ActiveRecord::Base
     @ability ||= Ability.new(self)
   end
 
+  def name
+    return "#{firstname} #{lastname}" if firstname or lastname
+    login
+  end
+
   def admin?
     has_role?('admin')
   end
@@ -115,12 +120,16 @@ class User < ActiveRecord::Base
     return options
   end
 
-  def busy_at?(date)
-    not Event.whos_speaker(self).all(:conditions => ["? > begin_at and ? < end_at ", date, date]).empty?
+  def busy_at?(date, except_event_id = nil)
+    if except_event_id
+      not Event.whos_speaker(self).all(:conditions => ["? > begin_at and ? < end_at and events.id != ?", date, date, except_event_id]).empty?
+    else
+      not Event.whos_speaker(self).all(:conditions => ["? > begin_at and ? < end_at ", date, date]).empty?
+    end
   end
 
-  def busy_between?(start_date, end_date)
-    busy_at?(start_date) | busy_at?(end_date)
+  def busy_between?(start_date, end_date, except_event_id = nil)
+    busy_at?(start_date, except_event_id) | busy_at?(end_date, except_event_id)
   end
 
   protected

@@ -1,3 +1,6 @@
-<tr>
-	<td><%= link_to user.login, edit_user_path(user) %></td>
+<tr class="<%= cycle("", "odd") -%>">
+  <td class="tablenamefield"><%= link_to user.login, edit_user_path(user) %></td>
+  <td class="tableiconfield"><%= link_to image_tag('editer_little.png', :class => "veralign edit"), edit_user_path(user) %>
+&nbsp;
+  <%= link_to image_tag('delete_little.png', :class => "veralign edit"), users_path(user), :confirm => 'Are you sure?', :method => :delete %></td>
 </tr>

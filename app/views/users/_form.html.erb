@@ -48,12 +48,17 @@
 		</div>
 		<%= hidden_field_tag "user[role_type_ids][]", "" %>
 	</div>
-	<div id="is_manager" style="display:none">
-		Campus managed:
-		<% Campus.all.each do |campus| %>
-			<%= check_box_tag "user[managed_campus_ids][]", campus.id, @user.managed_campuses.include?(campus), :id => "campus_#{campus.id}" %>
-			<%= campus.name %>
-		<% end %>
+	<div id="is_manager" class="controlset portlet-field" style="display:none">
+		<%= form.label :campus_managed %>
+		<div>
+			<% Campus.all.each_slice(3).each do |campuses| %>
+				<% campuses.each do |campus| %>
+					<%= check_box_tag "user[managed_campus_ids][]", campus.id, @user.managed_campuses.include?(campus), :id => "campus_#{campus.id}" %>
+					<%= campus.name %>
+				<% end %>
+				<br/>
+			<% end %>
+		</div>
 	</div>
 
 	<div id="is_student" style="display:none">
