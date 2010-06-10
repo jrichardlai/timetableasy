@@ -38,6 +38,8 @@ fr:
     protected_page: "Cette page est protégée, veuillez vous connecter"
     get_ical: "Obtenir le version iCal de ce calendrier"
     home: "Accueil"
+    duration: Durée
+    managers: Managers
     application_name: "TimeTablEasy"
     application_caption: "Le Calendrier Ultra Léger."
     visualisation: "Visualisation du"
@@ -77,6 +79,8 @@ fr:
     save: "Sauvegarder"
     school_subjects: "Matières"
     userlist: "Liste des utilisateurs"
+  events:
+    create_event: "Créer un événement"
   cursus:
     header: "Cursus"
     new_cursus: "Nouveau cursus"
@@ -141,6 +145,10 @@ fr:
     create_room: "Créer la salle"
     update_room: "Mettre à jour la salle"
   menu:
+    campus:
+      campus: "Campus"
+    cursus:
+      cursus: "Cursus"
     events:
       title: "Evenements"
       create_event: "Créer un Evenement"
