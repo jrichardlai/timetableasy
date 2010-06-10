@@ -81,6 +81,8 @@ fr:
     userlist: "Liste des utilisateurs"
   events:
     create_event: "Créer un événement"
+    options: "Options de L'Évenement"
+    general_informations: "Informations Générales"
   cursus:
     header: "Cursus"
     new_cursus: "Nouveau cursus"

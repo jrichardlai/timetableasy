@@ -67,6 +67,8 @@ en:
     logged_out: "You have been succefully logged out"
   events:
     create_event: "Create a new Event"
+    options: "Event options"
+    general_informations: "General informations"
   periods:
     splitting: "Split cursus into periods"
     new_period: "Create a new Period"

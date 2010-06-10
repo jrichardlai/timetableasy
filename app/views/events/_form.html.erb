@@ -1,4 +1,4 @@
-<h4>Informations Générales</h4>
+<h4><%= t('events.general_informations') %></h4>
 <div class="message message-success message-closable">
 	<div class="portlet-field">
 		<%= form.label :name %>
@@ -20,7 +20,7 @@
 	</div>
 </div>
 
-<h4>Options de L'Évenement</h4>
+<h4><%= t('events.options') %></h4>
 <div class="message message-success message-closable">
 	<%- if can? :manage, Classroom -%>
 	<div class="portlet-field">
