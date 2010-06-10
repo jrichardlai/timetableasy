@@ -53,4 +53,14 @@ class JavascriptsController < ApplicationController
     end
   end
 
+  def cursuses
+    @cursuses = Campus.find(params[:id]).cursuses
+    render :update do |page|
+      js_selector = @cursuses.collect {|cursus| "[value!=#{cursus.id}]"}.join('')
+      # [value!=1][value!=2]
+      page << "$('#classroom_cursus_id option').show();"
+      page << "$('#classroom_cursus_id option#{js_selector}').hide()"
+    end
+  end
+
 end

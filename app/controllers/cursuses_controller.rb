@@ -22,6 +22,13 @@ class CursusesController < ApplicationController
       format.xml  { render :xml => @cursus }
     end
   end
+  
+  def quick_look
+     respond_to do |format|
+       format.html { render :layout => false }
+       format.xml
+     end
+   end
 
   # GET /cursuses/new
   # GET /cursuses/new.xml
@@ -30,7 +37,7 @@ class CursusesController < ApplicationController
       format.html # new.html.erb
       format.xml  { render :xml => @cursus }
     end
-  end
+  end  
 
   # GET /cursuses/1/edit
   def edit

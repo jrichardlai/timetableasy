@@ -1,3 +1,13 @@
+<<<<<<< HEAD
+<div id="container" style="width:100%">
+	<div style="float:left; width: 48%">
+		<div class="listing-box2">
+			<div class="listing-header">
+				<h4><%= t 'cursus.header' %></h4>
+
+			</div>
+			<!-- #icon :information, "Information icon"-->
+=======
 <div class="listing-box">
 <div class="listing-header">
 	<h4><%= t 'menu.gestion.cursus.title' %></h4>
@@ -6,17 +16,58 @@
 <table class="listing-table">
   <tr>
   </tr>
+>>>>>>> fbe95202d5f317734cdc327e8f60022852dcad09
 
+			<div class="listing-content" style="width:100%; margin-left:0">
+	<table class="listing-table" style="width:90%; margin:auto;">
+ 	<thead>
+		<tr>
+			<th><%= t "cursus.name" %></th>
+			<th style="text-align:center;"><%= t "campus.action" %></th>
+		</tr>
+	</thead>
+		<tbody>
+			<tr>
+			</tr>
 <% @cursuses.each do |cursus| %>
   <tr class="<%= cycle("", "odd") -%>">
-    <td class="tablenamefield"><%= link_to cursus.name, cursus_path(cursus) %></td>
-    <td class="tableiconfield"><%= link_to image_tag('editer_little.png', :class => "veralign edit"), edit_cursus_path(cursus) %>
+    <td class="listing-table-name"><%= link_to cursus.name, cursus_path(cursus) %></td>
+    <td style="text-align:center;">
+<%= link_to_remote image_tag('bouton_show.png', :class => "veralign"), :url => quick_look_cursus_path(cursus), :method => "get", :update => { :success => "quick_look_result", :failure => "errors_ss" } %> 
+&nbsp;
+	<%= link_to image_tag('editer_little.png', :class => "veralign edit"), edit_cursus_path(cursus) %>
 	&nbsp;
     <%= link_to image_tag('delete_little.png', :class => "veralign edit"), cursus_path(cursus), :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
-<% end %>
+<% end %>	<tr><td></td><td><br/></td></tr>
+</tbody>
 </table>
-
-<br />
+	</div>
 </div>
+<div class="abutton bouton-box"> 
+	<%= link_to image_tag('styles/add_periods.png', :class => "veralign") + " " + t('cursus.new_cursus'), new_cursus_path, :class => "button" %>
+</div>
+</div>
+</div>
+<div style="float:right; width: 48%">
+<div class="listing-box2">
+	<div class="listing-header">
+		<h4><%= t 'cursus.quick_look' %></h4>
+
+	</div>
+	<!-- #icon :information, "Information icon"-->
+
+	<div class="listing-content" style="width:100%; margin-left:0">
+		<div id="quick_look_result">
+			<p style="font-weight:bold; text-align:center;"><%= t "cursus.quick_look_desc" %></p>
+		</div>
+	</div>
+</div>
+</div>
+<div style:"clear:both;">
+</div>
+<<<<<<< HEAD
+</div>
+=======
 <%= link_to 'Nouveau cursus', new_cursus_path %>
+>>>>>>> fbe95202d5f317734cdc327e8f60022852dcad09

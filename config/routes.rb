@@ -7,7 +7,7 @@ ActionController::Routing::Routes.draw do |map|
 
   map.resources :classrooms
 
-  map.resources :cursuses do |cursus|
+  map.resources :cursuses, :member => [:quick_look] do |cursus|
     cursus.resources :periods
     cursus.resources :school_subjects
   end

@@ -1,0 +1,29 @@
+<div style="margin:3%;">
+	<h3><%= @cursus.name %></h3>
+	<table style="margin:auto; width:75%">
+		<thead>
+
+		</thead>
+		<tbody>
+			<tr>
+				<th style="text-align:left;"><%= t "general.name" %></th>
+				<td><%= @cursus.name %></td>
+			</tr>
+			<tr>
+				<th style="text-align:left;"><%= t "general.address" %></th>
+				<td><%= @cursus.description %></td>
+			</tr>
+
+					<% if @cursus.campuses.count > 0 %>
+					<tr>
+						<th style="text-align:left;"><strong><%= t "general.campuses" %></strong></th>
+						<td>
+							<% @cursus.campuses.each do |campus| %>
+							<%= campus.name %><br />
+							<% end %>
+						</td>
+					</tr>
+					<% end %>
+		</tbody>
+	</table>
+</div>

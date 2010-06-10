@@ -76,7 +76,16 @@ fr:
     cursuses: "Cursus Présenté :"
     save: "Sauvegarder"
     school_subjects: "Matières"
+<<<<<<< HEAD
+    userlist: "Liste des utilisateurs"
+  cursus:
+    header: "Cursus"
+    new_cursus: "Nouveau cursus"
+    quick_look: "Aperçu rapide d'un cursus"
+    quick_look_desc: "Pour avoir un aperçu rapide, cliquez sur la loupe d'un cursus"
+=======
     duration: "Durée"
+>>>>>>> f022869ecf8bfd0eb4cf6370a0b1cdbb156f5d0d
   campus:
     header: "Campus"
     new_campus: "Créer un nouveau Campus"
