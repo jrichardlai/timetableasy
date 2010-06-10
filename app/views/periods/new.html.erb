@@ -13,14 +13,13 @@
 		<%= f.text_field :end_at, :class => "date_picker" %>
 	</div>
 	<div class="portlet-field">
-		<%= f.label :period_type, t('periods.period_type') %>
+		<%= f.label :period_type_id, t('periods.period_type') %>
 		<%= f.collection_select :period_type_id, PeriodType.all, :id, :name, {:include_blank => false} %>
 	</div>
 </div>
-<div class="buttonrow" style="text-align:center;">
+<div class="bouton-box2" style="text-align:center;">
 	<%= f.submit t('periods.create'), :class => "submit", :id => "new_period_creation" %>
 	<%= f.submit t('periods.cancel'), options = {:name => "period[Cancel]", :class => "submit", :id => "cancel_period_creation"} %>
 </div>
-<br />
 <% end %>
 

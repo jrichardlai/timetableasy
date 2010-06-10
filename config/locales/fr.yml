@@ -5,8 +5,8 @@ fr:
   activerecord:
     errors:
       template:
-        header: "une ou plusieurs Erreurs ont été détecté"
-        body: "Des Erreurs ont été detecté, empechant la sauvegarde de l'élément."
+        header: "Une ou plusieurs erreurs ont été détectées."
+        body: "Des erreurs ont été detectés, empêchant la sauvegarde de l'élément."
       models:
         period:
           attributes:
@@ -21,16 +21,16 @@ fr:
             description:
               blank: "- La description ne peut être vide."
   errors:
-    error_header: "Des Erreurs ont été apperçue"
-    overlapping_date: "Les Dates Entrées s'entrecroisent avec une Période."
-    anterior_dates: "Les Dates ne sont pas valides."
+    error_header: "Des erreurs ont été apperçues"
+    overlapping_date: "Les dates entrées s'entrecroisent avec une des périodes."
+    anterior_dates: "Les dates ne sont pas valides."
     speaker_busy: "L'intervenant est occupé au moment demandé."
     room_used: "La pièce est déjà utilisée à ce moment."
-    should_have_id: "Merci de selectionner une valeur pour le scope."
+    should_have_id: "Merci de sélectionner une valeur pour le scope."
     event:
-      cannot_edit: "Vous n'avez pas la possibilité d'editer cet évenement."
+      cannot_edit: "Vous n'avez pas la possibilité d'éditer cet évenement."
     user:
-      should_have_class: "Un Etudiant doit appartenir à une classe."
+      should_have_class: "Un étudiant doit appartenir à une classe."
   copyright:
     company: "Copyright © FBJ.RC Development. - 2010 - Tous droits réservés"
   general:
@@ -38,19 +38,19 @@ fr:
     protected_page: "Cette page est protégée, veuillez vous connecter"
     get_ical: "Obtenir le version iCal de ce calendrier"
     home: "Accueil"
-    application_name: "TimeTableAsy"
+    application_name: "TimeTablEasy"
     application_caption: "Le Calendrier Ultra Léger."
     visualisation: "Visualisation du"
     lastname: "Nom"
     month: "Mois"
     week: "Semaine"
     day: "Jour"
-    firstname: "Prenom"
+    firstname: "Prénom"
     mail: "E-mail"
     mail_confirm: "Verif. Email"
     password: "Mot de passe"
     password_confirm: "Verif. Pass"
-    periods: "Periodes"
+    periods: "Périodes"
     from: "Du"
     number: "N°"
     actions: "Actions"
@@ -68,20 +68,24 @@ fr:
     mandatory_events: "Événements obligatoires"
     all_events: "Tous les événements"
     type: "Type"
-    event_for_academical: "Evenement pour une matiere"
+    event_for_academical: "Événement pour une matière"
     campuses: "Campus"
-    edit: "Editer"
+    edit: "éditer"
     delete: "Supprimer"
     campus: "campus"
-    cursuses: "Cursus Présentés:"
+    cursuses: "Cursus Présenté :"
     save: "Sauvegarder"
     school_subjects: "Matières"
+<<<<<<< HEAD
     userlist: "Liste des utilisateurs"
   cursus:
     header: "Cursus"
     new_cursus: "Nouveau cursus"
     quick_look: "Aperçu rapide d'un cursus"
     quick_look_desc: "Pour avoir un aperçu rapide, cliquez sur la loupe d'un cursus"
+=======
+    duration: "Durée"
+>>>>>>> f022869ecf8bfd0eb4cf6370a0b1cdbb156f5d0d
   campus:
     header: "Campus"
     new_campus: "Créer un nouveau Campus"
@@ -94,16 +98,16 @@ fr:
     new_period: "Ajouter une Période"
     cursuses: "Cursus"
     campuses: "Campus"
-    no_periods_available: "Il n'y a pas de periodes pour ce Cursus"
+    no_periods_available: "Il n'y a pas de périodes pour ce Cursus"
     begin_at: "Commence le"
     end_at: "Termine le"
     create: "Créer la Période"
-    period_type: "Type de Periode"
-    update: "Mettre à jours la periode"
+    period_type: "Type de Période"
+    update: "Mettre à jour la période"
     cancel: "Annuler"
   login:
     login: "Se Connecter"
-    logout: "Se Deconnecter"
+    logout: "Se Déconnecter"
     signup: "S'inscrire"
     authenticate_yourself: "Se Connecter"
     create_account: "Créer mon compte"
@@ -114,23 +118,31 @@ fr:
     name: "Nom"
     description: "Description"
     create: "Créer la nouvelle Matière"
-    update: "Mettre à Jours la Matière"
+    update: "Mettre à jour la Matière"
     cancel: "Annuler"
   teaching_methods:
-    title: "Méthode d'Enseignement"
+    title: "Méthode d'enseignement"
+    new: "Créer une nouvelle méthode d'enseignement"
+    update: "Mettre à jour la méthode d'enseignement"
+    cancel: "Annuler"
     no_teaching_methods_available: "Il n'y a pas de méthode d'enseignement pour cette Matière"
-    types:
-      elearning: E-Learning
+    teaching_type:
+      magistral: "Cours magistral"
+      elearning: "E-Learning"
+      written_exam: "Examen écrit"
+      foundation: Foundation
+      graded_exercise: Exercice noté
+      interview: Soutenance
   user:
     create: "Créer l'utilisateur"
-    roles: "Selectionez les droits de l'utilisateur."
+    roles: "Sélectionez les droits de l'utilisateur."
     infos: "Informations sur l'utilisateur."
   rooms:
     no_rooms_available: "Il n'y a aucune salle de classe"
     new_room: "Créer une salle de classe"
     rooms_title: "Salles du campus"
     create_room: "Créer la salle"
-    update_room: "Mettre à Jours la salle"
+    update_room: "Mettre à jour la salle"
   menu:
     events:
       title: "Evenements"
@@ -146,7 +158,7 @@ fr:
       cursus:
         title: "Cursus"
       periods:
-        title: "Periodes"
+        title: "Périodes"
     users:
       title: "Utilisateurs"
       manage_users: "Gestion des comptes"

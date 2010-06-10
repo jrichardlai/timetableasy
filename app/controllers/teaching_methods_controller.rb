@@ -68,7 +68,6 @@ class TeachingMethodsController < ApplicationController
 
     respond_to do |format|
       if @teaching_method.update_attributes(params[:teaching_method])
-        flash[:notice] = 'TeachingMethod was successfully updated.'
         format.html { redirect_to( school_subject_teaching_methods_path(@school_subject) ) }
         format.xml  { head :ok }
       else

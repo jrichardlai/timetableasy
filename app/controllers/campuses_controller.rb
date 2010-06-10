@@ -4,8 +4,12 @@ class CampusesController < ApplicationController
   # GET /campuses
   # GET /campuses.xml
   def index
-    @campuses = Campus.all
-
+    if current_user.manager?
+      @campuses = current_user.campuses
+    else
+      @campuses = Campus.all
+    end
+    
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @campuses }

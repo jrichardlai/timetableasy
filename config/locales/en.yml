@@ -41,6 +41,7 @@ en:
     description: "Description"
     address: "Addresse"
     zip: "Postal Code"
+    managers: "Managers"
     city: "City"
     country: "Country"
     timezone: "Time Zone"
@@ -89,8 +90,14 @@ en:
     cancel: "Cancel"
   teaching_methods:
     title: "Teaching Methods"
+    new: Add a teaching method
     no_teaching_methods_available: There is no available teaching methods for that school subject
-    types:
+    teaching_type:
+      foundation: Foundation
+      graded_exercise: Graded Exercise
+      magistral: Magistral
+      written_exam: Written exam
+      interview: Interview
       elearning: E-Learning
   user:
     create: "Create User"

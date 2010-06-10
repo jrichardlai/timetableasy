@@ -1,0 +1,26 @@
+<script type="text/javascript" charset="utf-8">
+	$('.date_picker').datepicker({dateFormat:'dd-mm-yy'});
+
+	$("#new_teaching_method_creation").click( function() {
+	 	$('#form_add_teaching_methods').empty();
+		$('#create_teaching_method_div').css('display', 'block');
+		$("#errors_ss").fadeOut("slow");
+	});
+
+	$("#errors_ss").click(function() {
+		$(this).fadeOut("slow");
+	});
+
+	$("#edit_teaching_method_update").click( function() {
+	 	$('#form_add_teaching_methods').empty();
+		$('#create_teaching_method_div').css('display', 'block');
+		$("#errors_ss").fadeOut("slow");
+	});
+
+	$("#cancel_teaching_method_creation").click(function() {
+		$('#form_add_teaching_methods').empty();
+		$('#create_teaching_method_div').css('display', 'block');
+		$("#errors_ss").fadeOut("slow");
+		return false;
+	});
+</script>

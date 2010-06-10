@@ -1,24 +1,20 @@
-<h1>Editing teaching_method</h1>
+<%= render :partial => 'javascripts' %>
 
-<% form_for(@teaching_method) do |f| %>
-  <%= f.error_messages %>
+<% remote_form_for [@school_subject, @teaching_method], :update => {:success => "form_view_teaching_methods", :failure => "errors"} do |f| %>
+<%= f.error_messages %>
+<div class="portlet-content">
 
-  <p>
-    <%= f.label :teaching_type %><br />
-    <%= f.text_field :teaching_type %>
-  </p>
-  <p>
-    <%= f.label :duration %><br />
-    <%= f.text_field :duration %>
-  </p>
-  <p>
-    <%= f.label :school_subject_id %><br />
-    <%= f.text_field :school_subject_id %>
-  </p>
-  <p>
-    <%= f.submit 'Update' %>
-  </p>
+	<div class="portlet-field">
+		<%= f.label :teaching_type, t('general.type') %>
+		<%= f.select :teaching_type, TeachingMethod::TYPES.collect{|type|[t("teaching_methods.teaching_type.#{type}"), type]} %>
+	</div>
+	<div class="portlet-field">
+		<%= f.label :duration, t('general.duration') %>
+		<%= f.text_field :duration %>
+	</div>
+</div>
+<div class="bouton-box2" style="text-align:center;">
+	<%= f.submit t('teaching_methods.update'), :class => "submit", :id => "edit_teaching_method_update" %>
+	<%= f.submit t('teaching_methods.cancel'), options = {:name => "teaching_method[Cancel]", :class => "submit", :id => "cancel_teaching_method_creation"} %>
+</div>
 <% end %>
-
-<%= link_to 'Show', @teaching_method %> |
-<%= link_to 'Back', teaching_methods_path %>

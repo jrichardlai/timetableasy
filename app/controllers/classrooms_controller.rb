@@ -5,7 +5,12 @@ class ClassroomsController < ApplicationController
   # GET /classrooms
   # GET /classrooms.xml
   def index
-    @classrooms = Classroom.all
+
+    if current_user.manager?
+      @classrooms = current_user.classrooms
+    else
+      @classrooms = Classroom.all
+    end
 
     respond_to do |format|
       format.html # index.html.erb

@@ -35,9 +35,11 @@
 
 				</div>
 			</div>
+			<% if can? :create, Campus %>
 			<div class="abutton bouton-box"> 
 				<%= link_to image_tag('styles/add_periods.png', :class => "veralign") + " " + t('campus.new_campus'), new_campus_path, :class => "button" %>
 			</div>
+			<% end %>
 		</div>
 	</div>
 	<div style="float:right; width: 48%">

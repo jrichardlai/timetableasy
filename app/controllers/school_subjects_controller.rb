@@ -70,7 +70,6 @@ class SchoolSubjectsController < ApplicationController
 
     respond_to do |format|
       if @school_subject.update_attributes(params[:school_subject])
-        flash[:notice] = 'SchoolSubject was successfully updated.'
         format.html { redirect_to( cursus_school_subjects_path(@cursus) ) }
         format.xml  { head :ok }
       else

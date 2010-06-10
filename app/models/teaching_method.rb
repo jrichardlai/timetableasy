@@ -7,12 +7,12 @@ class TeachingMethod < ActiveRecord::Base
   cattr_accessor :referal_classroom
 
   def type_with_allowed_time(classroom = nil, except_event_id = nil)
-    "#{teaching_type} (#{left_time(classroom, except_event_id)})"
+    "#{I18n.t("teaching_methods.teaching_type.#{teaching_type}")} (#{left_time(classroom, except_event_id)}/#{duration})"
   end
 
   def left_time(classroom = nil, except_event_id = nil)
     classroom ||= TeachingMethod.referal_classroom
-    @left_time ||= duration - (events.find(:all, 
+    @left_time ||= (events.find(:all, 
                                           :conditions => ['events.event_scope_id = ? and event_scope_type = ? and events.id != ?', 
                                           classroom.id,
                                           'Classroom',

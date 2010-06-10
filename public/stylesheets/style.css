@@ -483,12 +483,22 @@ form {
 
 /* Boxes */
 
-.box
-{
+.box {
 	background: #FFF;
 	width: 100%;	
 	border: 1px solid #CCC;
 	margin-bottom: 1.5em;
+	position: relative;
+	-moz-border-radius: 6px;
+	-webkit-border-radius: 6px;
+}
+
+.box2 {
+	background: #FFF;
+	width: 100%;	
+	border: 1px solid #CCC;
+	margin-bottom: 0.2em;
+	margin-top: 10px;
 	position: relative;
 	-moz-border-radius: 6px;
 	-webkit-border-radius: 6px;
@@ -526,6 +536,8 @@ form {
 .box-content { 	padding: 5px; position: relative; }
 
 .bouton-box { margin: 15px 0 5px; }
+
+.bouton-box2 { margin: 5px 0 15px; }
 
 	/* LISTING */
 	
@@ -617,10 +629,12 @@ form .portlet-header h4 {
 	margin-bottom: 1.25em;
 }
 
-form .portlet-content { padding: 15px; position: relative; }
-form .portlet-field { margin-bottom: 1.5em; }
+div .portlet-form { margin: 10px 0 0; }
+div .portlet-form2 { margin: 0; }
+form .portlet-content { padding: 15px 10px 5px; position: relative; }
+form .portlet-field { margin-bottom: 8px; }
 form .portlet-field a { text-decoration:none; }
-form .portlet-field label, form .portlet-field span.label { margin-right: 10px; padding-right: 10px; width: 90px; display: block; float: left;  font-weight: bold; text-align: right; position: relative; }
+form .portlet-field label, form .portlet-field span.label { margin-right: 10px; padding-right: 10px; width: 107px; display: block; float: left;  font-weight: bold; text-align: right; position: relative; }
 form .portlet-field input {
 	padding: 4px;
 	border: 1px solid #999;
@@ -768,14 +782,14 @@ form input.submit:hover 		{ text-decoration: underline; background-color: #33333
 #footer{
 	font-size: 11px;
 	padding: 10px 20px;
-	width: 860px;
+	width: 100%;
 }
 
 #copyright{		float: left	}
 	
 #footer .nav{
 		float: right;
-		margin: 0;
+		margin-right: 40%;
 	}
 
 #footer .nav li{

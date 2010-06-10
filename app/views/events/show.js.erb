@@ -1,4 +1,4 @@
-<%- if @event.event_type_name -%>
+<%- if @event.event_type_name and !@event.school_subject -%>
 	<span class="label-show">Event Type: </span>
 	<%= @event.event_type_name %>
 	<br />
@@ -13,14 +13,10 @@
 	<%= @event.organizer %>
 	<br />
 <%- end -%>
-<%- if @event.event_scope_type -%>
+
+<%- if @event.event_scope_type and @event.event_scope_type != 'User' -%>
 	<span class="label-show">Event for: </span>
-<%= @event.event_scope_type %>
-<br />
-<%- end -%>
-<%- if @event.event_scope -%>
-	<span class="label-show">Campus: </span>
-	<%= @event.event_scope.name %>
+	<span class="label-show"><%= @event.event_scope_type %> <%= @event.event_scope.name %></span>
 	<br />
 <%- end -%>
 

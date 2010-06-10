@@ -3,7 +3,6 @@
 </div>
 
 <div class="portlet-content">
-	
 	<div class="portlet-field">
   		<%= form.label :name %>
   		<%= form.text_field :name %>
@@ -11,6 +10,7 @@
 	
 	<div class="controlset portlet-field">
 		<span class="label"><%= form.label :campus %></span>
+<<<<<<< HEAD
 		<%= form.collection_select :campus_id, Campus.all, :id, :name, :include_blank => :true %>
 	</div>
 	
@@ -22,8 +22,17 @@
 	
 
 
+=======
+		<%= form.collection_select :campus_id, (current_user.manager? ? current_user.campuses : Campus.all), :id, :name %>
+	</div>
+>>>>>>> f022869ecf8bfd0eb4cf6370a0b1cdbb156f5d0d
 
-<div class="buttonrow">
-    <%= form.submit t('general.save'), :class => "submit"%>
-</div>
+	<div class="controlset portlet-field" id="classroom_cursus">
+		<span class="label"><%= form.label :cursus %></span>
+		<%= form.collection_select :cursus_id, Cursus.all, :id, :name %>
+	</div>
+
+	<div class="bouton-box">
+    	<%= form.submit t('general.save'), :class => "submit"%>
+	</div>
 </div>
