@@ -16,9 +16,7 @@ end
 [
   ['timeadmin', 'admin@timetableasy.com', ['admin']],
   ['manager', 'manager@timetableasy.com', ['campus manager']],
-  ['manager_solo', 'manager_solo@timetableasy.com', ['campus manager']],
-  ['student', 'student@timetableasy.com', ['student']],
-  ['intervenant', 'intervenant@timetableasy.com', ['intervenant', 'student']],  
+  ['manager_solo', 'manager_solo@timetableasy.com', ['campus manager']]
 ].each do |user|
   login, email, roles = user
   if User.find_by_login(login).nil?
@@ -360,7 +358,7 @@ end
 end
 
 #Add intervening rights to users
-['veritable', 'acalmie', 'rotogok', 'jonathan', 'andred', 'clement'].each do |login|
+['veritable', 'acalmie', 'rotogok', 'jonathan', 'andred', 'clement', 'manager'].each do |login|
   user = User.find_by_login(login)
   role = RoleType.find_by_name('intervenant')
   unless user.intervenant?
