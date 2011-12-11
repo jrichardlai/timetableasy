@@ -2,10 +2,10 @@ class Event < ActiveRecord::Base
 
   before_validation :set_time, :if => :time_to_parse?
 
-  named_scope :occurs_between,  lambda { |from, to| { :conditions => ["begin_at >= ? and end_at <= ?", Time.at(from.to_i), Time.at(to.to_i)] } if from and to }
-  named_scope :whos_speaker,    lambda {|speaker|   {:conditions => {:speaker_id => speaker.id}}}
-  named_scope :with_room,       lambda {|room|      {:conditions => {:room_id => room.id}}}
-  named_scope :mandatory,       :conditions => {:force_display => true}
+  scope :occurs_between,  lambda {|from, to| where(["begin_at >= ? and end_at <= ?", Time.at(from.to_i), Time.at(to.to_i)]) if from and to }
+  scope :whos_speaker,    lambda {|speaker|  where(:speaker_id => speaker.id)}
+  scope :with_room,       lambda {|room|     where(:room_id => room.id)}
+  scope :mandatory,       where(:force_display => true)
   belongs_to  :event_type
   belongs_to  :room
   belongs_to  :speaker, :class_name => 'User'
@@ -14,11 +14,11 @@ class Event < ActiveRecord::Base
 
   # Define named scopes for event scopes
   EVENT_SCOPES.each do |scope|
-    named_scope "for_#{scope}".to_sym, lambda {|r| {:conditions => {:event_scope_type => scope.camelize.to_s, :event_scope_id => (r.is_a?(Array) ? r.collect(&:id) : r.id)} }}
+    scope "for_#{scope}".to_sym, lambda {|r| where(:event_scope_type => scope.camelize.to_s, :event_scope_id => (r.is_a?(Array) ? r.collect(&:id) : r.id)) }
   end
 
-  named_scope :whos_speaker, lambda {|user| {:conditions => {:speaker_id => user.id}}}
-  named_scope :global_event, :conditions => {:global_event => true}
+  scope :whos_speaker, lambda {|user| where(:speaker_id => user.id)}
+  scope :global_event, where(:global_event => true)
   attr_accessor :start_day, :end_day, :start_time, :end_time
   
   validates_presence_of :begin_at
