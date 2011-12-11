@@ -1,88 +1,14 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-  <head>
-    <title><%= yield :head_title %></title>
-		<%= render :partial => 'shared/head' %>
-		<%= yield :head_end %>
-  </head>
-  <body>
-	<div id="wrap">
-		<div id="header">
-			<div id="logo">
-				<h1><%= link_to(t('general.application_name'), root_path) %></h1>
-				<p class="description"><%= t 'general.application_caption' %></p>
-			</div>
-			<ul class="sf-js-enabled sf-shadow" id="nav">
-				<li class="">
-					<%= link_to t('menu.events.title'), events_path %>
-				</li>
-				<li class="">
-					<%- if can? :manage, User -%>
-					<a class="sf-with-ul" href="#"><%= t 'menu.users.title' %><span class="sf-sub-indicator"> </span></a>
-					<ul style="display: none; visibility: hidden; ">
-						<li class="submenu"><%= link_to t('menu.users.manage_users'), users_path %></li>
-						<li class="submenu"><%= link_to t('menu.users.create_user'), new_user_path %></li>
-					</ul>
-					<%- end -%>
-				</li>
-				<li class="">
-					<%- if can? :manage_campus, current_user -%>
-					<a class="sf-with-ul" href="#"><%= t 'menu.gestion.title' %><span class="sf-sub-indicator"> </span></a>
-					<ul style="display: none; visibility: hidden; ">
-						<li class="submenu"><%= link_to t('menu.gestion.campus.title'), campuses_path %></li>
-						<li class="submenu"><%= link_to t('menu.gestion.classroom.title'), classrooms_path %></li>
-						<%- if can? :manage, Cursus -%>
-							<li class="submenu"><%= link_to t('menu.gestion.cursus.title'), cursuses_path %></li>
-						<% end %>
-					</ul>
-					<%- end -%>
-				</li>
-				<%= yield :menu %>
-				<li><%= link_to t('login.logout'), logout_path %></li>
-			</ul>
-		</div> <!--#header-->
-		
-		<div id="inner-wrap" class="clearfix">
-			<div id="content" class="clearfix">
-					<div class="subPageContent">
-						<% if flash[:notice] -%>
-						<div id = 'flash_notice'>
-					 		<%= flash[:notice] %>
-				        </div>
-				        <% end -%>
-				        <% if flash[:error] -%>
-				        	<div id = 'flash_error'>
-					         	<%= flash[:error] %>
-						    </div>
-						<%end -%>
-						<div id = 'loading'>
-							
-						</div>
-						<div class="aplicationContent">
-							<div class="appRightContent">
-							   <%= yield %>
-							</div>
-						</div>
-				</div>  <!--#content-->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Timetableasy</title>
+  <%= stylesheet_link_tag    "application" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
 
-		</div> <!--#inner-wrap-->
+<%= yield %>
 
-				<div id="footer" class="clearfix">
-					<span id="copyright"><%= t 'copyright.company' %></span>
-					<ul class="nav">
-						<li>
-							<%= image_tag('user_suit.png') %> <%= t 'general.authentified_user' %> : <%= current_user.login %></li>
-						<li>|</li>
-						<li>
-							<%= link_to image_tag('flags/fr.png'), :locale => :fr %>
-						</li>
-						<li>
-							<%= link_to image_tag('flags/gb.png'), :locale => :en %>
-						</li>
-						<li>|</li>
-						<li><%= link_to t('login.logout'), logout_path %></li>			
-					</ul>
-				</div>
-			</div> <!--#wrap-->
-  </body>
+</body>
 </html>

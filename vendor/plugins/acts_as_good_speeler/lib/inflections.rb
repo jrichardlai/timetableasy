@@ -57,5 +57,5 @@ ActiveSupport::Inflector.inflections do |inflect|
   inflect.irregular('talisman', 'talismans')
   inflect.irregular('penis', 'penises')
   
-  inflect.uncountable(%w(pokemon pokémon equipment information rice money species series fish sheep deer offspring))
+  inflect.uncountable(%w(pokemon equipment information rice money species series fish sheep deer offspring))
 end
