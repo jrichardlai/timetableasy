@@ -3,11 +3,10 @@
 <%- end -%>
 
 <%- content_for :head_end do -%>
-<%= ajaxlibs_include :jqueryui %>
-<%= javascript_include_tag 'application' %>
-<%= stylesheet_link_tag 'jquery-ui', 'dialog', 'timePicker' %>
-<%= stylesheet_link_tag 'style', 'typography', 'orange' %>
-<%= stylesheet_link_tag 'minimal', "show" unless current_page?(events_path) or current_page?(root_path)  %>
+  <%= javascript_include_tag 'application' %>
+  <%= stylesheet_link_tag 'jquery-ui', 'dialog', 'timePicker' %>
+  <%= stylesheet_link_tag 'style', 'typography', 'orange' %>
+  <%= stylesheet_link_tag 'minimal', "show" unless current_page?(events_path) or current_page?(root_path)  %>
 <%- end -%>
 
 <div class="listing-box">
@@ -19,7 +18,7 @@
 	<div class="listing-content" style="width:100%; margin-left:5px;">
 		<h5><%= image_tag 'cadena.png', :class => "veralign" %> <%= t "general.protected_page" %></h5>
 		<p><%= t "general.how_to_connect" %></p>
-		<% form_tag session_path, :style => "width:75%; margin-top:2%; margin:auto; margin-bottom:3%;" do -%>
+		<%= form_tag session_path, :style => "width:75%; margin-top:2%; margin:auto; margin-bottom:3%;" do -%>
 		<!--[if !IE]>start row<![endif]-->
 		<div class="portlet-field" style="margin-top:3%">
 			<%= label_tag t('general.nickname') %>

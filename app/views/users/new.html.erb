@@ -6,6 +6,6 @@
 	<%= t 'general.welcome' %> <%= t 'general.application_name' %> - <%= t 'login.signup' %>
 <%- end -%>
 <%= error_messages_for :user %>
-<% form_for @user do |f| -%>
+<%= form_for @user do |f| -%>
 	<%= render :partial => f %>
 <% end %>
