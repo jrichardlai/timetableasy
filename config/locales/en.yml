@@ -1,5 +1,208 @@
-# Sample localization file for English. Add more files in this directory for other locales.
-# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
-
 en:
-  hello: "Hello world"
+  errors:
+    error_header: "Some Mistakes have Occured"
+    overlapping_date: "Dates are Overlapping an Other Period."
+    anterior_dates: "The dates are not valid."
+    speaker_busy: "The speaker is busy at this time."
+    room_used: "The room is used at this time."
+    should_have_id: "Please select a value for the scope of the event."
+    event:
+      cannot_edit: "You don't have the rights to edit this event."
+    user:
+      should_have_class: "A student should belongs to a class."
+  copyright:
+    company: "Copyright © FBJ.RC Development. - 2010 - All Rights Reserved"
+  general:
+    how_to_connect: "In order to login yourself, please use your credentials (Login/Password)"
+    protected_page: "This is a Protected Page, please Login."
+    get_ical: "Get the iCal Version of your Calendar"
+    home: "Home"
+    application_name: "TimeTableAsy"
+    application_caption: "The Easy LightWeight Calendar."
+    visualisation: "Look of"
+    lastname: "Last Name"
+    firstname: "First Name"
+    periods: "Periods"
+    from: "From"
+    number: "N°"
+    actions: "Actions"
+    to: 'To'
+    month: "Month"
+    week: "Week"
+    day: "Day"
+    mail: "Mail"
+    mail_confirm: "Verif. Mail"
+    password: "Password"
+    password_confirm: "Verif. Pass"
+    nickname: "Login"
+    welcome: "Welcome on"
+    authentified_user: "Connected as"
+    name: "Name"
+    description: "Description"
+    address: "Addresse"
+    zip: "Postal Code"
+    managers: "Managers"
+    city: "City"
+    country: "Country"
+    timezone: "Time Zone"
+    type: "Type"
+    mandatory_events: "Mandatory events"
+    all_events: "All events"
+    event_for_academical: "Event for courses"
+    campuses: "Campus"
+    cursuses: "Cursus"
+    edit: "Edit"
+    delete: "Delete"
+    campus: "campus"
+    save: "Save"
+    school_subjects: "School Subjects"
+    duration: "Duration"
+    userlist: "Users List"
+  login:
+    login: "Login"
+    logout: "Logout"
+    signup: "Sign up"
+    authenticate_yourself: "Login"
+    create_account: "Create my account"
+    logged_out: "You have been succefully logged out"
+  events:
+    create_event: "Create a new Event"
+    options: "Event options"
+    general_informations: "General informations"
+  periods:
+    splitting: "Split cursus into periods"
+    new_period: "Create a new Period"
+    cursuses: "Cursus"
+    campuses: "Campus"
+    no_periods_available: "There is no available periods for that cursus"
+    begin_at: "Begin At"
+    end_at: "End At"
+    create: "Create the new Period"
+    period_type: "Period Type"
+    update: "Update the period"
+    cancel: "Cancel"
+    cursuses: "Campus' Cursuses:"
+  school_subjects:
+    no_school_subjects_available: "There is no available school subjects for that cursus"
+    new: "Create a new School Subject"
+    name: "Name"
+    description: "Description"
+    create: "Create the new School Subject"
+    update: "Update the School Subject"
+    cancel: "Cancel"
+  teaching_methods:
+    title: "Teaching Methods"
+    new: Add a teaching method
+    update: Edit a teaching method
+    cancel: "Cancel"
+    no_teaching_methods_available: There is no available teaching methods for that school subject
+    teaching_type:
+      foundation: Foundation
+      graded_exercise: Graded Exercise
+      magistral: Magistral
+      written_exam: Written exam
+      interview: Interview
+      elearning: E-Learning
+  user:
+    create: "Create User"
+    roles: "Choose this user's roles"
+    infos: "New user's informations"
+  campus:
+    header: "Campuses"
+    new_campus: "Create a new Campus"
+    action: "Quick Look/Edit/Delete"
+    name: "Campus' Name"
+    quick_look: "Campus' Quick Look"
+    quick_look_desc: "To Have a Quick Look of a campus, click on the magnify of the choosen campus"
+  rooms:
+    no_rooms_available: "There is no room for that campus"
+    new_room: "Create a new Room"
+    create_room: "Create Room"
+    rooms_title: "Campus' Rooms"
+    update_room: "Update That Room"
+  menu:
+    events:
+      title: "Events"
+      create_event: "Create an event"
+    gestion:
+      title: "Management"
+      user:
+        title: "Users"
+      classroom:
+        title: "Classroom"
+      campus:
+        title: "Campuses"
+      cursus:
+        title: "Cursuses"
+      periods:
+        title: "Periods"
+    users:
+      title: "Users"
+      manage_users: "Manage Users"
+      create_user: "Create a User"
+      user: "User"
+      campus:
+        campus: "Campus"
+      cursus:
+        cursus: "Cursus"
+    campus:
+      campus: "Campus"
+    cursus:
+      cursus: "Cursus"
+  cursus:
+    header: "Cursus"
+    new_cursus: "New cursus"
+    quick_look: "Quick zoom to cursus"
+    quick_look_desc: "Click on the magnifying glass to have a quick description of the cursus"
+    duration: "Duration"
+  date:
+    formats:
+      default: "%a, %e %B %Y"
+      long_ordinal: "%e %B %Y"
+      only_day: "%e"
+      short: "%e %b"
+      long: "%e %B %Y"
+      db: "%Y-%m-%d"
+  time:
+    formats:
+      default: "%a, %e %B %Y"
+      time: "%H:%M"
+      short: "%d %b %H:%M"
+      long: "%A %d %B %Y %H:%M:%S %Z"
+      long_ordinal: "%A %d %B %Y %H:%M:%S %Z"
+      only_second: "%S"
+    am: 'am'
+    pm: 'pm'
+  activerecord:
+    errors:
+      template:
+        header:
+          one: "Unable to save {{model}}: 1 error."
+          other: "Unable to save {{model}}: {{count}} errors."
+        body: "Please check the following fields:"
+      models:
+        user:
+          attributes:
+            email:
+              allready_used: "that you entered already exists in our database: you are already registere! If you have forgotten your password, we can mail it to you by following this <a href='/password_resets/new'>link</a>"
+      messages:
+        inclusion: "inclusion"
+        exclusion: "exclusion"
+        invalid: "invalid"
+        confirmation: "does not match the confirmation"
+        accepted: "must be accepted"
+        empty: "is empty"
+        blank: "must be filled"
+        too_long: "is too long ({{count}} max)"
+        too_short: "is too shot ({{count}} min)"
+        wrong_length: "wrong length"
+        taken: "is already taken"
+        not_a_number: "not a number"
+        greater_than: "must be greater than {{count}}"
+        greater_than_or_equal_to: "must be greater or equal to {{count}}"
+        equal_to: "must be equal to {{count}}"
+        less_than: "must be lower than {{count}}"
+        less_than_or_equal_to: "must be lower or equal to {{count}}"
+        odd: "must be odd"
+        even: "must be even"
+        record_invalid: "Validation failed: {{errors}}"
