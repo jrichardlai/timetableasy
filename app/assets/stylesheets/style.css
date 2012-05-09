@@ -506,7 +506,7 @@ form {
 
 .box-header
 	{
-		background: url(../images/styles/portlet-header-orange.png) repeat-x top center;
+		background: url(../assets/styles/portlet-header-orange.png) repeat-x top center;
 		color: #FFF;
 		padding-bottom:0px;
 		padding-left:10px;
@@ -543,7 +543,7 @@ form {
 	
 
 .listing-header {
-		background: url(../images/styles/portlet-header-orange.png) repeat-x top center;
+		background: url(../assets/styles/portlet-header-orange.png) repeat-x top center;
 		color: #FFF;
 		padding: 10px 15px;
 		cursor: pointer;		
@@ -606,7 +606,7 @@ form {
 	/* PORTLET */
 
 form .portlet-header {
-	background: url(../images/styles/portlet-header-orange.png) repeat-x top center;
+	background: url(../assets/styles/portlet-header-orange.png) repeat-x top center;
 	color: #FFF;
 	padding: 10px 15px;
 	cursor: pointer;		
@@ -707,7 +707,7 @@ form input.submit {
 		height: 25px;
 		margin: 0px 7px 0px 0px;
 		padding: 5px 8px 5px 8px;
-		background-image: url(../images/styles/button_highlighter.png);
+		background-image: url(../assets/styles/button_highlighter.png);
 		background-repeat: repeat-x;
 		}
 form input.submit:hover 		{ text-decoration: underline; background-color: #333333;}
@@ -809,7 +809,7 @@ img .veralign {
 	-moz-background-origin:padding;
 	background-attachment:scroll;
 	background-color:transparent;
-	background-image:url(../images/styles/button_light.png);
+	background-image:url(../assets/styles/button_light.png);
 	background-position:0 0;
 	background-repeat:repeat-x;
 	border-bottom-color:#CCCCCC;
@@ -830,7 +830,7 @@ img .veralign {
 -moz-background-origin:padding;
 background-attachment:scroll;
 background-color:transparent;
-background-image:url(../images/styles/button_dark.png);
+background-image:url(../assets/styles/button_dark.png);
 background-position:0 0;
 background-repeat:repeat-x;
 border-bottom-color:#181818;
@@ -888,10 +888,10 @@ div.right {
 	width:49%;
 }
 
-.button {border: 1px solid orange; -moz-border-radius: 5px; -webkit-border-radius: 5px; border-radius: 5px; background: #0567ad url("../images/styles/button.gif") repeat-x; padding: 5px 9px 5px; color: #fff; cursor: pointer;}
+.button {border: 1px solid orange; -moz-border-radius: 5px; -webkit-border-radius: 5px; border-radius: 5px; background: #0567ad url("../assets/styles/button.gif") repeat-x; padding: 5px 9px 5px; color: #fff; cursor: pointer;}
 .button:hover,
 .button:focus,
-.button:active {border-color: #272727; background: #2a2a2a url("../images/styles/altbutton.gif") repeat-x; color: #fff;}
+.button:active {border-color: #272727; background: #2a2a2a url("../assets/styles/altbutton.gif") repeat-x; color: #fff;}
 
 .abutton {
 	text-align:center;
