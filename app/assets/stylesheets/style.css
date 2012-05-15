@@ -905,7 +905,7 @@ form.dialog-form {
 
 .message
 {
-	background: #CCC url(../images/style/icon_notice.gif) no-repeat 10px 11px;
+	background: #CCC url(../assets/style/icon_notice.gif) no-repeat 10px 11px;
 	font-size: 13px;
 	color: #74655f;
 	display:block;	
@@ -920,7 +920,7 @@ form.dialog-form {
 .message-error 
 {
 	background-color: #f6b9b9;
-	background-image: url(../images/style/exclamation.png);
+	background-image: url(../assets/style/exclamation.png);
 	color: #c32727;
 	border-color: #e18484;
 }
