@@ -1,2 +1,2 @@
-page.replace_html 'event_desc', :partial => 'remote_form'
+page << "$('#event_desc').html('#{escape_javascript(render(:partial => 'remote_form'))}');"
 page << render(:partial => 'javascripts')
