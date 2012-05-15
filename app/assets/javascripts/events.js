@@ -1,18 +1,18 @@
 function moveEvent(event, dayDelta, minuteDelta, allDay){
     jQuery.ajax({
-        data: 'id=' + event.id + '&day_delta=' + dayDelta + '&minute_delta=' + minuteDelta + '&all_day=' + allDay,
+        data: 'day_delta=' + dayDelta + '&minute_delta=' + minuteDelta + '&all_day=' + allDay,
         dataType: 'script',
         type: 'post',
-        url: "/events/move"
+        url: "/events/" + event.id + "/move"
     });
 }
 
 function resizeEvent(event, dayDelta, minuteDelta){
     jQuery.ajax({
-        data: 'id=' + event.id + '&day_delta=' + dayDelta + '&minute_delta=' + minuteDelta,
+        data: 'day_delta=' + dayDelta + '&minute_delta=' + minuteDelta,
         dataType: 'script',
         type: 'post',
-        url: "/events/resize"
+        url: "/events/" + event.id + "/resize"
     });
 }
 
