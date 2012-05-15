@@ -1,6 +1,6 @@
 <%= render :partial => 'javascripts' %>
 
-<% remote_form_for [@cursus, @school_subject], :update => {:success => "school_subjects_list", :failure => "errors_ss"} do |f| %>
+<%= form_for [@cursus, @school_subject], :remote => true, :update => {:success => "school_subjects_list", :failure => "errors_ss"} do |f| %>
 <%= f.error_messages %>
 <div class="portlet-content">
 
