@@ -1,3 +1,10 @@
+GIT
+  remote: git://github.com/rails/prototype-rails.git
+  revision: 967bc9b5cafe5a1e92d646b7d7b2d900a596147b
+  specs:
+    prototype-rails (3.2.1)
+      rails (~> 3.2)
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -138,6 +145,7 @@ DEPENDENCIES
   jquery-rails
   pg
   prawn
+  prototype-rails!
   rails (= 3.2.3)
   restful-authentication (~> 1.2.1)
   sass-rails (~> 3.2.5)

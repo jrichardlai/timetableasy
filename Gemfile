@@ -16,6 +16,9 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
+# Put back rjs
+gem 'prototype-rails', :git => 'git://github.com/rails/prototype-rails.git'
+
 gem "restful-authentication", "~> 1.2.1"
 gem 'jquery-rails'
 gem 'pg'
