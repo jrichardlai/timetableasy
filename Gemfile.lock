@@ -1,6 +1,7 @@
 GEM
   remote: http://rubygems.org/
   specs:
+    Ascii85 (1.0.1)
     actionmailer (3.2.3)
       actionpack (= 3.2.3)
       mail (~> 2.4.4)
@@ -28,9 +29,11 @@ GEM
     activesupport (3.2.3)
       i18n (~> 0.6)
       multi_json (~> 1.0)
+    ajaxlibs (0.1.12)
     ansi (1.4.2)
     arel (3.0.2)
     builder (3.0.0)
+    cancan (1.6.7)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
       railties (~> 3.2.0)
@@ -43,6 +46,8 @@ GEM
     eventmachine (0.12.10)
     execjs (1.3.2)
       multi_json (~> 1.0)
+    factory_girl (3.2.0)
+      activesupport (>= 3.0.0)
     hike (1.2.1)
     hoe (3.0.5)
       rake (~> 0.8)
@@ -58,8 +63,14 @@ GEM
       treetop (~> 1.4.8)
     mime-types (1.18)
     multi_json (1.3.4)
+    pdf-reader (1.1.1)
+      Ascii85 (~> 1.0.0)
+      ruby-rc4
     pg (0.13.2)
     polyglot (0.3.3)
+    prawn (0.12.0)
+      pdf-reader (>= 0.9.0)
+      ttfunk (~> 1.0.2)
     rack (1.4.1)
     rack-cache (1.2)
       rack (>= 0.4)
@@ -86,6 +97,7 @@ GEM
     rdoc (3.12)
       json (~> 1.4)
     restful-authentication (1.2.1)
+    ruby-rc4 (0.1.5)
     sass (3.1.17)
     sass-rails (3.2.5)
       railties (~> 3.2.0)
@@ -107,6 +119,7 @@ GEM
     treetop (1.4.10)
       polyglot
       polyglot (>= 0.3.1)
+    ttfunk (1.0.3)
     turn (0.8.2)
       ansi (>= 1.2.2)
     tzinfo (0.3.33)
@@ -118,9 +131,13 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  ajaxlibs
+  cancan
   coffee-rails (~> 3.2.1)
+  factory_girl
   jquery-rails
   pg
+  prawn
   rails (= 3.2.3)
   restful-authentication (~> 1.2.1)
   sass-rails (~> 3.2.5)

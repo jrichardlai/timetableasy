@@ -17,7 +17,6 @@ class Event < ActiveRecord::Base
     scope "for_#{scope}".to_sym, lambda {|r| where(:event_scope_type => scope.camelize.to_s, :event_scope_id => (r.is_a?(Array) ? r.collect(&:id) : r.id)) }
   end
 
-  scope :whos_speaker, lambda {|user| where(:speaker_id => user.id)}
   scope :global_event, where(:global_event => true)
   attr_accessor :start_day, :end_day, :start_time, :end_time
   
@@ -107,7 +106,9 @@ class Event < ActiveRecord::Base
     if record
       class_name = record.class.to_s.downcase 
       if class_name == 'user'
-        search.or_scopes record.cumulated_options
+        # commented out was needed to get other events
+        # search.or_scopes record.cumulated_options
+        search
       else
         #search hierarchycal events
         EVENT_SCOPES[0, EVENT_SCOPES.index(class_name)].inject([:global_event]){|array, scope| array + ["for_#{scope}".to_sym, record.send(scope).id]}

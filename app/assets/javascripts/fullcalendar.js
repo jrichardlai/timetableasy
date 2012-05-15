@@ -3292,6 +3292,4 @@ function smartProperty(obj, name) { // get a camel-cased/namespaced property
 	return obj[''];
 }
 
-
-
 })(jQuery);

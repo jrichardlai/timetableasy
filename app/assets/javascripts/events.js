@@ -31,15 +31,15 @@ function showEventDetails(event){
 function editEvent(event_id){
     jQuery.ajax({
         dataType: 'script',
-        type: 'get',
-        url: "/events/edit/" + event_id
+        type: 'GET',
+        url: "/events/" + event_id + "/edit"
     });  
 }
 
 function deleteEvent(event_id){
     jQuery.ajax({
         dataType: 'script',
-        type: 'post',
-        url: "/events/destroy/" + event_id
+        type: 'DELETE',
+        url: "/events/" + event_id
     });  
 }

@@ -19,6 +19,9 @@ end
 gem "restful-authentication", "~> 1.2.1"
 gem 'jquery-rails'
 gem 'pg'
+gem 'cancan'
+gem 'ajaxlibs'
+gem 'prawn'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
@@ -40,4 +43,5 @@ group :test do
   # Pretty printed test output
   gem 'turn', '0.8.2', :require => false
   gem 'test-unit', '1.2.3'
+  gem "factory_girl"
 end
